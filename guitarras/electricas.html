@@ -280,17 +280,20 @@
             color: #495057;
         }
 
-        .availability {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            background: #d4edda;
-            color: #155724;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: bold;
-        }
+                .availability {
+                    display: inline-block;
+                    padding: 0.5rem 1rem;
+                    background: #d4edda;
+                    color: #155724;
+                    border-radius: 20px;
+                    font-size: 0.9rem;
+                    font-weight: bold;
+                }
 
-        @keyframes fadeIn {
+                .out-of-stock {
+                    background: #f8d7da;
+                    color: #721c24;
+                }        @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
@@ -363,8 +366,8 @@
         
         .btn-contact {
             display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
+            color: rgb(27, 105, 161);
             padding: 0.8rem 1.5rem;
             text-decoration: none;
             border-radius: 25px;
@@ -376,7 +379,7 @@
         .btn-contact:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            color: white;
+            color: rgb(0, 0, 0);
         }
         
         @media (max-width: 768px) {
@@ -416,7 +419,7 @@
                     Guitarras de inspiración vintage con construcción moderna. D'Angelico combina la tradición 
                     artesanal de Nueva York con innovaciones contemporáneas para crear instrumentos excepcionales.
                 </p>
-                
+   <!-- Sección D'Angelico premier ss  -->
                 <div class="guitars-grid">
                     <div class="guitar-card" 
                          data-name="D'Angelico Deluxe SS" 
@@ -424,6 +427,7 @@
                          data-price="Q18,800"
                          data-image="Guitarras/Dangelico/DA1.png"
                          data-video="https://www.youtube.com/watch?v=vnSoK0CLpVo  https://youtu.be/vnSoK0CLpVo?si=yMXi88w4778ekMYx"
+                        
                          data-specs="Guitarra semi hollow de cuerpo delgado|Cuerpo: Laminado|Color: Satin Honey|Mástil: Mástil de arce|Diapasón: Palisandro|Pastillas: Seymour Duncan Seth Lover Aged Humbuckers"
                          data-description="Guitarra semi hollow de cuerpo delgado con construcción premium. Incluye estuche duro. Envío gratis a toda Guatemala, disponible en Visacuotas.">
                         <img src="Guitarras/Dangelico/DA1.png" alt="D'Angelico Electric Guitar" class="guitar-image">
@@ -435,33 +439,36 @@
                                 • Color: Satin Honey.<br>
                                 • Mástil: Mástil de arce.<br>
                                 • Diapason: Palisandro.<br>
-                                • Pastillas: Seymour Duncan Seth Lover Aged Humbuckers.<br>
+                                • Pastillas: Seymour Duncan Aged Humbuckers.<br>
                                
                                 Incluye estuche duro. <br>
-                                Envío gratis a toda Guatemala, disponible en Visacuotas.  
+                                Envío gratis a toda Guatemala, Disponible en Visacuotas.  
                             </p>
                             <p class="guitar-price">Precio: 18,800</p>
                             <a href="#" class="btn-contact">Agregar al carrito</a>
                         </div>
                     </div>
-                    
+                       <!-- Sección D'Angelico ss negro -->
                     <div class="guitar-card"
-                         data-name="D'Angelico Premier Bedford" 
+                         data-name="D'Angelico Premier SS" 
                          data-brand="D'Angelico"
                          data-price="Consultar Precio"
                          data-image="Guitarras/Dangelico/DA2.png"
                          data-video="https://www.youtube.com/watch?v=vnSoK0CLpVo"
                          data-specs="Cuerpo: Caoba con tapa de arce flameado|Mástil: Caoba set-neck|Pastillas: Seymour Duncan 59 & Custom|Puente: Tune-o-matic con cordal"
-                         data-description="Guitarra eléctrica premium con construcción set-neck y acabado flameado excepcional. Perfecta para estilos jazz, blues y rock.">
+                         data-description="Guitarra eléctrica con cuerpo semi hollow y single cutaway, no solo es una hermosa guitarra, tiene un sonido muy versátil y mucho sustain.">
                         <img src="Guitarras/Dangelico/DA2.png" alt="D'Angelico Electric Guitar" class="guitar-image">
                         <div class="guitar-info">
-                            <h3 class="guitar-name">D'Angelico Premier Bedford</h3>
+                            <h3 class="guitar-name">D'Angelico Premier SS</h3>
                             <p class="guitar-specs">
-                                • Cuerpo: Caoba con tapa de arce flameado<br>
-                                • Mástil: Caoba set-neck<br>
+                                • Cuerpo: Semi hollow y single cutaway<br>
                                 • Pastillas: Seymour Duncan 59 & Custom<br>
-                                • Puente: Tune-o-matic con cordal
+                            
+
+                                Incluye softcase. <br>
+                                Envío gratis a toda Guatemala, Disponible en Visacuotas.  
                             </p>
+                            <p class="guitar-price">Precio: Q7,560</p>
                             <a href="#" class="btn-contact">Consultar Precio</a>
                         </div>
                     </div>
@@ -647,7 +654,7 @@
                 </div>
             </section>
 
-            <!-- Sección Rivolta -->
+            <!-- ///////////////////Sección Rivolta//////////////////////////// -->
             <section class="guitar-section">
                 <h2 class="brand-title">Rivolta</h2>
                 <p class="brand-description">
@@ -729,88 +736,92 @@
                     en construcción, tonos y jugabilidad, utilizadas por los guitarristas más exigentes del mundo.
                 </p>
                 
-                <div class="guitars-grid">
+                <div class="guitars-grid" class ="Mateus Asato Classic T"> 
                     <div class="guitar-card"
-                         data-name="Suhr Modern T" 
+                         data-name="Mateus Asato Classic T" 
                          data-brand="Suhr"
-                         data-price="Consultar Precio"
+                         data-price="  Q35,090."
                          data-image="Guitarras/suhr/SRMT1.png"
-                         data-video="https://www.youtube.com/embed/vnSoK0CLpVo"
-                         data-specs="Cuerpo: Fresno de pantano premium|Mástil: Arce flameado con diapasón de ébano|Pastillas: Suhr SSV + V60LP|Hardware: Gotoh 510 tremolo"
+                         data-specs="Mateus Asato. Equipada con Lollar Pickups, ofrece un rango tonal cálido, dinámico y lleno de carácter, ideal para desde los matices más sutiles hasta la fuerza de un solo súper lead."
                          data-description="Guitarra de lujo fabricada a mano con maderas premium seleccionadas. Combina pastillas humbucker y single coil para máxima versatilidad tonal.">
                         <img src="Guitarras/suhr/SRMT1.png" alt="Suhr Electric Guitar" class="guitar-image">
                         <div class="guitar-info">
-                            <h3 class="guitar-name">Suhr Modern T</h3>
+                            <h3 class="guitar-name">Mateus Asato Classic T</h3>
                             <p class="guitar-specs">
-                                • Cuerpo: Fresno de pantano premium<br>
-                                • Mástil: Arce flameado con diapasón de ébano<br>
-                                • Pastillas: Suhr SSV + V60LP<br>
-                                • Hardware: Gotoh 510 tremolo
+                                • Mateus Asato. Equipada con Lollar Pickups, ofrece un rango tonal cálido, dinámico y lleno de carácter, ideal para desde los matices más sutiles hasta la fuerza de un solo súper lead.<br>
+                                  <p>
+                                Envío gratis a toda Guatemala, Visacuotas.  
+                            Q35,090.</p>
                             </p>
-                            <a href="#" class="btn-contact">Consultar Precio</a>
+                            <span style="background: #dc3545; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-weight: bold; display: inline-block; margin-bottom: 1rem;">AGOTADO</span><br>
+                            <a href="#" class="btn-contact" style="background: #6c757d; cursor: not-allowed;" disabled>Agotado</a>
                         </div>
                     </div>
                     
-                    <div class="guitar-card"
-                         data-name="Suhr Classic S" 
+                    <div class="guitar-card" class ="Suhr Classic S Maple"
+                         data-name="Suhr Classic S Maple" 
                          data-brand="Suhr"
-                         data-price="Consultar Precio"
+                         data-price="Q29,300"
                          data-image="Guitarras/suhr/SRST1.png"
-                         data-video="https://www.youtube.com/embed/vnSoK0CLpVo"
-                         data-specs="Cuerpo: Aliso selectograde A|Mástil: Arce cuartersawn|Pastillas: 3x Suhr V60LP single coils|Acabado: Olympic White aged"
-                         data-description="La interpretación Suhr del clásico diseño Stratocaster. Maderas seleccionadas y pastillas V60LP que capturan perfectamente el sonido vintage de los años 60.">
+                         data-specs="Cuenta con el sistema SSCII que la hace súper silenciosa, también incluye estuche."
+                         data-description="Cuerpo de Alder, brazo de maple y pickups V60LP, ofrece tonos vintage con claridad y versatilidad única.">
                         <img src="Guitarras/suhr/SRST1.png" alt="Suhr Electric Guitar" class="guitar-image">
                         <div class="guitar-info">
-                            <h3 class="guitar-name">Suhr Classic S</h3>
+                            <h3 class="guitar-name">Suhr Classic S Maple</h3>
                             <p class="guitar-specs">
-                                • Cuerpo: Aliso selectograde A<br>
-                                • Mástil: Arce cuartersawn<br>
-                                • Pastillas: 3x Suhr V60LP single coils<br>
-                                • Acabado: Olympic White aged
-                            </p>
-                            <a href="#" class="btn-contact">Consultar Precio</a>
+                                • Cuerpo de Alder, brazo de maple y pickups V60LP, ofrece tonos vintage con claridad y versatilidad única.
+Cuenta con el sistema SSCII que la hace súper silenciosa<br>
+                                • Incluye estuche.
+                            <p>
+                                Envío gratis a toda Guatemala, Visacuotas.  
+                            Q29,300.</p>
+                            <span style="background: #dc3545; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-weight: bold; display: inline-block; margin-bottom: 1rem;">AGOTADO</span><br>
+                            <a href="#" class="btn-contact" style="background: #6c757d; cursor: not-allowed;" disabled>Agotado</a>
                         </div>
                     </div>
-                    
-                    <div class="guitar-card"
-                         data-name="Suhr Classic S HSS" 
+
+                    <div class="guitar-card" class ="Suhr Pete Thorne Custom HS"
+                         data-name="Suhr Pete Thorne Custom HS" 
                          data-brand="Suhr"
-                         data-price="Consultar Precio"
+                         data-price="Q35,090."
                          data-image="Guitarras/suhr/srst2.png"
-                         data-video="https://www.youtube.com/embed/vnSoK0CLpVo"
-                         data-specs="Cuerpo: Fresno de pantano AAAAA|Mástil: Arce bird's eye|Pastillas: 2x V60LP + SSV humbucker|Electrónica: Sistema HSS con coil tap"
-                         data-description="Configuración HSS perfecta con maderas de la más alta calidad. El humbucker SSV con coil tap ofrece versatilidad extrema desde tonos single coil hasta rock de alta ganancia.">
+                         data-specs= " Esta guitarra ofrece Versatilidad total con su configuración HSS, Sustain y afinación impecable con FU-Tone Floyd y Cambio a Drop D en segundos con D-Tuna"
+                         data-description="Configuración HSS perfecta con maderas de la más alta calidad, con FU-Tone Floyd Rose y EVH D-Tuna.">
                         <img src="Guitarras/suhr/srst2.png" alt="Suhr Electric Guitar" class="guitar-image">
                         <div class="guitar-info">
-                            <h3 class="guitar-name">Suhr Classic S HSS</h3>
+                            <h3 class="guitar-name">Suhr Pete Thorne Custom HS</h3>
                             <p class="guitar-specs">
-                                • Cuerpo: Fresno de pantano AAAAA<br>
-                                • Mástil: Arce bird's eye<br>
-                                • Pastillas: 2x V60LP + SSV humbucker<br>
-                                • Electrónica: Sistema HSS con coil tap
+                                • Guitarra eléctrica soñada con FU-Tone Floyd Rose y EVH D-Tuna.<br>
+                                • Esta guitarra ofrece Versatilidad total con su configuración HSS, Sustain y afinación impecable con FU-Tone Floyd y Cambio a Drop D en segundos con D-Tuna.<br>
                             </p>
-                            <a href="#" class="btn-contact">Consultar Precio</a>
+                            <p>
+                                Envío gratis a toda Guatemala, Visacuotas.  
+                            Q35,090.</p>
+                            </p>
+                            <a href="#" class="btn-contact">Comprar Ahora</a>
                         </div>
                     </div>
                     
-                    <div class="guitar-card"
+                    <div class="guitar-card" class ="Suhr Classic T"
                          data-name="Suhr Classic T" 
                          data-brand="Suhr"
-                         data-price="Consultar Precio"
+                         data-price="Q31,300"
                          data-image="Guitarras/suhr/SRT1.png"
-                         data-video="https://www.youtube.com/embed/vnSoK0CLpVo"
-                         data-specs="Cuerpo: Fresno de pantano vintage|Mástil: Arce con diapasón de arce|Pastillas: Suhr Thornbucker + Vintage T|Puente: Gotoh vintage style bridge"
-                         data-description="La interpretación definitiva del diseño Telecaster por Suhr. Combina un humbucker Thornbucker en el mástil con una pastilla single coil Vintage T para máxima versatilidad.">
+                         data-specs="Equipada con maderas de alta calidad, un mástil de perfil cómodo y pastillas diseñadas para ofrecer desde twang clásico hasta tonos más modernos y definidos, además de eso es una guitarra muy versátil."
+                         data-description="Una guitarra diseñada para inspirar a los que buscan lo clásico elevado a otro nivel.">
                         <img src="Guitarras/suhr/SRT1.png" alt="Suhr Electric Guitar" class="guitar-image">
                         <div class="guitar-info">
                             <h3 class="guitar-name">Suhr Classic T</h3>
                             <p class="guitar-specs">
-                                • Cuerpo: Fresno de pantano vintage<br>
-                                • Mástil: Arce con diapasón de arce<br>
-                                • Pastillas: Suhr Thornbucker + Vintage T<br>
-                                • Puente: Gotoh vintage style bridge
+
+                                <p class="guitar-specs">
+                                • La Classic T Aged de Suhr combina la vibra vintage de una Telecaster tradicional con la perfección moderna en construcción, comodidad y sonido. Con su acabado envejecido a mano, cada detalle transmite el carácter y el feel de un instrumento que está fuera de serie.
+                                    Incluye softcase. <br>  <p>
+                                Envío gratis a toda Guatemala, Visacuotas.  </p>
                             </p>
-                            <a href="#" class="btn-contact">Consultar Precio</a>
+                             <p class="guitar-price">Precio: Q31,300</p>
+                            <span style="background: #dc3545; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-weight: bold; display: inline-block; margin-bottom: 1rem;">AGOTADO</span><br>
+                            <a href="#" class="btn-contact" style="background: #6c757d; cursor: not-allowed;" disabled>Agotado</a>
                         </div>
                     </div>
                 </div>
@@ -848,7 +859,7 @@
                     <p class="modal-description" id="modalDescription"></p>
                     
                     <div class="modal-actions">
-                        <button class="btn-add-cart">Añadir a la cesta</button>
+                        <button class="btn-add-cart">Añadir a la Carrito</button>
                         <button class="btn-favorite">♡</button>
                     </div>
                 </div>
@@ -891,6 +902,30 @@
                 document.getElementById('modalImage').src = guitarData.image;
                 document.getElementById('modalVideo').src = convertToEmbedUrl(guitarData.video);
                 document.getElementById('modalDescription').textContent = guitarData.description;
+                
+                // Verificar si está agotado basándose en el nombre
+                const availability = document.querySelector('.modal-body .availability');
+                const addCartBtn = document.querySelector('.btn-add-cart');
+                
+                const isOutOfStock = guitarData.name === 'Mateus Asato Classic T' || 
+                                   guitarData.name === 'Suhr Classic S Maple' || 
+                                   guitarData.name === 'Suhr Classic T';
+                
+                if (isOutOfStock) {
+                    availability.textContent = '✗ AGOTADO';
+                    availability.className = 'availability out-of-stock';
+                    addCartBtn.textContent = 'Agotado';
+                    addCartBtn.style.background = '#6c757d';
+                    addCartBtn.style.cursor = 'not-allowed';
+                    addCartBtn.disabled = true;
+                } else {
+                    availability.textContent = '✓ DISPONIBLE';
+                    availability.className = 'availability';
+                    addCartBtn.textContent = 'Añadir a la Carrito';
+                    addCartBtn.style.background = 'linear-gradient(135deg, #28a745 0%, #20c997 100%)';
+                    addCartBtn.style.cursor = 'pointer';
+                    addCartBtn.disabled = false;
+                }
                 
                 // Limpiar y agregar especificaciones
                 const specsList = document.getElementById('modalSpecs');
