@@ -396,6 +396,265 @@
                 font-size: 2rem;
             }
         }
+
+        /* Cart Styles */
+        .cart-icon {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+        }
+
+        .cart-icon:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #ff4757;
+            color: white;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .cart-modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .cart-content {
+            position: relative;
+            background-color: white;
+            margin: 2% auto;
+            padding: 0;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: slideIn 0.3s ease;
+        }
+
+        .cart-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem 2rem;
+            border-radius: 15px 15px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-body {
+            padding: 2rem;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+            transition: background 0.3s ease;
+        }
+
+        .cart-item:hover {
+            background: #f8f9fa;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .cart-item-image {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin-right: 1rem;
+        }
+
+        .cart-item-info {
+            flex: 1;
+        }
+
+        .cart-item-name {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .cart-item-brand {
+            color: #667eea;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .cart-item-price {
+            color: #28a745;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .cart-item-remove {
+            background: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cart-item-remove:hover {
+            background: #c82333;
+        }
+
+        .cart-empty {
+            text-align: center;
+            padding: 3rem;
+            color: #666;
+        }
+
+        .cart-empty-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        .cart-footer {
+            background: #f8f9fa;
+            padding: 1.5rem 2rem;
+            border-radius: 0 0 15px 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .cart-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn-clear-cart {
+            flex: 1;
+            background: #6c757d;
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .btn-clear-cart:hover {
+            background: #545b62;
+        }
+
+        .btn-checkout {
+            flex: 2;
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-checkout:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(40, 167, 69, 0.3);
+        }
+
+        .btn-checkout:disabled {
+            background: #6c757d;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .cart-notification {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+            z-index: 3000;
+            transform: translateX(400px);
+            transition: transform 0.3s ease;
+        }
+
+        .cart-notification.show {
+            transform: translateX(0);
+        }
+
+        @media (max-width: 768px) {
+            .cart-content {
+                width: 95%;
+                margin: 5% auto;
+            }
+
+            .cart-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .cart-item-image {
+                margin-right: 0;
+            }
+
+            .cart-actions {
+                flex-direction: column;
+            }
+        }
     </style>
 </head>
 <body>
@@ -427,7 +686,6 @@
                          data-price="Q18,800"
                          data-image="Guitarras/Dangelico/DA1.png"
                          data-video="https://www.youtube.com/watch?v=vnSoK0CLpVo  https://youtu.be/vnSoK0CLpVo?si=yMXi88w4778ekMYx"
-                        
                          data-specs="Guitarra semi hollow de cuerpo delgado|Cuerpo: Laminado|Color: Satin Honey|Mástil: Mástil de arce|Diapasón: Palisandro|Pastillas: Seymour Duncan Seth Lover Aged Humbuckers"
                          data-description="Guitarra semi hollow de cuerpo delgado con construcción premium. Incluye estuche duro. Envío gratis a toda Guatemala, disponible en Visacuotas.">
                         <img src="Guitarras/Dangelico/DA1.png" alt="D'Angelico Electric Guitar" class="guitar-image">
@@ -761,7 +1019,7 @@
                             <h3 class="guitar-name">Mateus Asato Classic T</h3>
                             <p class="guitar-specs">
                                 • Mateus Asato. Equipada con Lollar Pickups, ofrece un rango tonal cálido, dinámico y lleno de carácter, ideal para desde los matices más sutiles hasta la fuerza de un solo súper lead.<br>
-                                • Envío gratis a toda Guatemala, Visacuotas.
+                                • Envío gratis a toda Guatemala, Visacuotas.<br> 
                             </p>
                             <p class="guitar-price">Precio: Q35,090</p>
                             <a href="#" class="btn-contact">Comprar Ahora</a>
@@ -835,6 +1093,44 @@
             </section>
         </div>
     </main>
+
+    <!-- Icono del carrito -->
+    <div class="cart-icon" id="cartIcon">
+        🛒
+        <div class="cart-count" id="cartCount" style="display: none;">0</div>
+    </div>
+
+    <!-- Notificación del carrito -->
+    <div class="cart-notification" id="cartNotification">
+        ✓ Producto agregado al carrito
+    </div>
+
+    <!-- Modal del carrito -->
+    <div id="cartModal" class="cart-modal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h2>🛒 Carrito de Compras</h2>
+                <span class="close" id="closeCart">&times;</span>
+            </div>
+            <div class="cart-body" id="cartBody">
+                <div class="cart-empty" id="cartEmpty">
+                    <div class="cart-empty-icon">🛒</div>
+                    <h3>Tu carrito está vacío</h3>
+                    <p>¡Agrega algunas guitarras increíbles!</p>
+                </div>
+            </div>
+            <div class="cart-footer" id="cartFooter" style="display: none;">
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span id="cartTotal">Q0</span>
+                </div>
+                <div class="cart-actions">
+                    <button class="btn-clear-cart" id="clearCart">Vaciar Carrito</button>
+                    <button class="btn-checkout" id="checkoutBtn">Confirmar Compra</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Modal para detalles de guitarra -->
     <div id="guitarModal" class="modal">
@@ -1001,6 +1297,253 @@
 
             // Cerrar zoom al hacer click en cualquier parte del modal
             imageZoomModal.addEventListener('click', closeImageZoom);
+
+            // ===== CART FUNCTIONALITY =====
+            let cart = JSON.parse(localStorage.getItem('rpGuitarCart')) || [];
+
+            // Elementos del DOM del carrito
+            const cartIcon = document.getElementById('cartIcon');
+            const cartCount = document.getElementById('cartCount');
+            const cartModal = document.getElementById('cartModal');
+            const cartBody = document.getElementById('cartBody');
+            const cartEmpty = document.getElementById('cartEmpty');
+            const cartFooter = document.getElementById('cartFooter');
+            const cartTotal = document.getElementById('cartTotal');
+            const closeCart = document.getElementById('closeCart');
+            const clearCartBtn = document.getElementById('clearCart');
+            const checkoutBtn = document.getElementById('checkoutBtn');
+            const cartNotification = document.getElementById('cartNotification');
+
+            // Actualizar contador del carrito
+            function updateCartCount() {
+                const count = cart.length;
+                cartCount.textContent = count;
+                cartCount.style.display = count > 0 ? 'flex' : 'none';
+            }
+
+            // Mostrar notificación
+            function showNotification(message) {
+                cartNotification.textContent = message;
+                cartNotification.classList.add('show');
+                setTimeout(() => {
+                    cartNotification.classList.remove('show');
+                }, 3000);
+            }
+
+            // Agregar producto al carrito
+            function addToCart(guitarData) {
+                // Verificar si el producto ya está en el carrito
+                const existingItem = cart.find(item => item.name === guitarData.name);
+                
+                if (existingItem) {
+                    showNotification('⚠️ Este producto ya está en tu carrito');
+                    return;
+                }
+
+                // Agregar nuevo producto
+                cart.push({
+                    id: Date.now(), // ID único
+                    name: guitarData.name,
+                    brand: guitarData.brand,
+                    price: guitarData.price,
+                    image: guitarData.image,
+                    specs: guitarData.specs.join(' | ')
+                });
+
+                // Guardar en localStorage
+                localStorage.setItem('rpGuitarCart', JSON.stringify(cart));
+                
+                // Actualizar UI
+                updateCartCount();
+                showNotification('✓ Producto agregado al carrito');
+            }
+
+            // Remover producto del carrito
+            function removeFromCart(productId) {
+                cart = cart.filter(item => item.id !== productId);
+                localStorage.setItem('rpGuitarCart', JSON.stringify(cart));
+                updateCartCount();
+                renderCartItems();
+                showNotification('🗑️ Producto eliminado del carrito');
+            }
+
+            // Vaciar carrito
+            function clearCart() {
+                cart = [];
+                localStorage.setItem('rpGuitarCart', JSON.stringify(cart));
+                updateCartCount();
+                renderCartItems();
+                showNotification('🗑️ Carrito vaciado');
+            }
+
+            // Renderizar items del carrito
+            function renderCartItems() {
+                if (cart.length === 0) {
+                    cartEmpty.style.display = 'block';
+                    cartFooter.style.display = 'none';
+                    return;
+                }
+
+                cartEmpty.style.display = 'none';
+                cartFooter.style.display = 'block';
+
+                // Calcular total (solo productos con precio numérico)
+                let total = 0;
+                let totalText = 'Consultar precios';
+                let hasNumericPrices = false;
+
+                const cartItemsHTML = cart.map(item => {
+                    // Extraer precio numérico si existe
+                    const priceMatch = item.price.match(/Q([\d,]+)/);
+                    if (priceMatch) {
+                        const numericPrice = parseInt(priceMatch[1].replace(',', ''));
+                        total += numericPrice;
+                        hasNumericPrices = true;
+                    }
+
+                    return `
+                        <div class="cart-item">
+                            <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+                            <div class="cart-item-info">
+                                <div class="cart-item-name">${item.name}</div>
+                                <div class="cart-item-brand">${item.brand}</div>
+                                <div class="cart-item-price">${item.price}</div>
+                            </div>
+                            <button class="cart-item-remove" onclick="removeFromCart(${item.id})" title="Eliminar">
+                                ×
+                            </button>
+                        </div>
+                    `;
+                }).join('');
+
+                cartBody.innerHTML = cartItemsHTML;
+
+                // Mostrar total
+                if (hasNumericPrices) {
+                    totalText = `Q${total.toLocaleString()}`;
+                }
+                cartTotal.textContent = totalText;
+            }
+
+            // Función para procesar compra (WhatsApp)
+            function processCheckout() {
+                if (cart.length === 0) return;
+
+                // Crear mensaje para WhatsApp
+                let message = `*🎸 PEDIDO RP GUITAR*\n\n`;
+                message += `📅 Fecha: ${new Date().toLocaleDateString()}\n`;
+                message += `⏰ Hora: ${new Date().toLocaleTimeString()}\n\n`;
+                message += `*PRODUCTOS:*\n`;
+
+                cart.forEach((item, index) => {
+                    message += `\n${index + 1}. *${item.name}*\n`;
+                    message += `   🏷️ Marca: ${item.brand}\n`;
+                    message += `   💰 Precio: ${item.price}\n`;
+                    message += `   📋 Specs: ${item.specs}\n`;
+                });
+
+                // Calcular total si hay precios numéricos
+                let total = 0;
+                let hasNumericPrices = false;
+                cart.forEach(item => {
+                    const priceMatch = item.price.match(/Q([\d,]+)/);
+                    if (priceMatch) {
+                        total += parseInt(priceMatch[1].replace(',', ''));
+                        hasNumericPrices = true;
+                    }
+                });
+
+                if (hasNumericPrices) {
+                    message += `\n💵 *TOTAL: Q${total.toLocaleString()}*\n`;
+                } else {
+                    message += `\n💵 *TOTAL: Consultar precios*\n`;
+                }
+
+                message += `\n¡Gracias por elegir RP GUITAR! 🎵`;
+
+                // Número de WhatsApp (reemplaza con el número real)
+                const phoneNumber = '50230851865'; // Formato: código país + número sin +
+                const encodedMessage = encodeURIComponent(message);
+                const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+                // Abrir WhatsApp
+                window.open(whatsappURL, '_blank');
+
+                // Limpiar carrito después del pedido
+                clearCart();
+                closeCartModal();
+                showNotification('📱 Pedido enviado por WhatsApp');
+            }
+
+            // Abrir modal del carrito
+            function openCartModal() {
+                renderCartItems();
+                cartModal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            }
+
+            // Cerrar modal del carrito
+            function closeCartModal() {
+                cartModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+
+            // Event listeners del carrito
+            cartIcon.addEventListener('click', openCartModal);
+            closeCart.addEventListener('click', closeCartModal);
+            clearCartBtn.addEventListener('click', clearCart);
+            checkoutBtn.addEventListener('click', processCheckout);
+
+            // Cerrar carrito al hacer click fuera
+            window.addEventListener('click', (event) => {
+                if (event.target === cartModal) {
+                    closeCartModal();
+                }
+            });
+
+            // Agregar funcionalidad a los botones "Comprar Ahora"
+            document.addEventListener('click', (event) => {
+                if (event.target.classList.contains('btn-contact')) {
+                    event.preventDefault();
+                    
+                    // Encontrar la tarjeta padre
+                    const guitarCard = event.target.closest('.guitar-card');
+                    if (guitarCard) {
+                        const guitarData = {
+                            name: guitarCard.dataset.name,
+                            brand: guitarCard.dataset.brand,
+                            price: guitarCard.dataset.price,
+                            image: guitarCard.dataset.image,
+                            specs: guitarCard.dataset.specs.split('|')
+                        };
+                        addToCart(guitarData);
+                    }
+                }
+
+                // También agregar desde el modal
+                if (event.target.classList.contains('btn-add-cart')) {
+                    const modalBrand = document.getElementById('modalBrand').textContent;
+                    const modalName = document.getElementById('modalGuitarName').textContent;
+                    const modalPrice = document.getElementById('modalPrice').textContent;
+                    const modalImage = document.getElementById('modalImage').src;
+                    const modalSpecs = Array.from(document.querySelectorAll('#modalSpecs li')).map(li => li.textContent);
+
+                    const guitarData = {
+                        name: modalName,
+                        brand: modalBrand,
+                        price: modalPrice,
+                        image: modalImage,
+                        specs: modalSpecs
+                    };
+                    addToCart(guitarData);
+                }
+            });
+
+            // Hacer removeFromCart global para que funcione desde el HTML
+            window.removeFromCart = removeFromCart;
+
+            // Inicializar carrito
+            updateCartCount();
         });
     </script>
 </body>
