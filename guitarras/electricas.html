@@ -1655,7 +1655,7 @@
                 document.getElementById('checkoutForm').reset();
             }
 
-            // Enviar pedido usando API de WhatsApp
+            // Enviar pedido usando WhatsApp Web directo
             async function sendOrderViaAPI() {
                 const name = document.getElementById('customerName').value.trim();
                 const phone = document.getElementById('customerPhone').value.trim();
@@ -1674,11 +1674,11 @@
                 
                 loadingSpinner.style.display = 'block';
                 confirmBtn.disabled = true;
-                confirmBtn.textContent = 'Enviando...';
+                confirmBtn.textContent = 'Preparando mensaje...';
 
                 // Crear mensaje detallado
                 let message = `🎸 *NUEVO PEDIDO RP GUITAR*\n\n`;
-                message += `👤 *CLIENTE:*\n`;
+                message += `👤 *DATOS DEL CLIENTE:*\n`;
                 message += `📝 Nombre: ${name}\n`;
                 message += `📞 Teléfono: ${phone}\n`;
                 if (email) message += `📧 Email: ${email}\n`;
@@ -1695,7 +1695,7 @@
                     message += `\n${index + 1}. *${item.name}*\n`;
                     message += `   🏷️ Marca: ${item.brand}\n`;
                     message += `   💰 Precio: ${item.price}\n`;
-                    message += `   📋 Specs: ${item.specs}\n`;
+                    message += `   📋 Especificaciones: ${item.specs}\n`;
                     
                     const priceMatch = item.price.match(/Q([\d,]+)/);
                     if (priceMatch) {
@@ -1715,64 +1715,43 @@
                 }
 
                 message += `\n✨ ¡Gracias por elegir RP GUITAR! 🎵`;
+                message += `\n\n_Mensaje enviado desde rpguitar.com_`;
 
                 try {
-                    // Intentar enviar usando CallMeBot API (gratis y sin autenticación)
-                    const phoneForAPI = '50251149061'; // Tu número de WhatsApp
-                    const apiKey = 'guitar_store_2024'; // Cualquier clave, CallMeBot es público
-                    
-                    // Método 1: CallMeBot API
-                    const callmebotURL = `https://api.callmebot.com/whatsapp.php?phone=${phoneForAPI}&text=${encodeURIComponent(message)}&apikey=${apiKey}`;
-                    
-                    // Intentar envío por API
-                    let success = false;
-                    
-                    try {
-                        const response = await fetch(callmebotURL, { 
-                            method: 'GET',
-                            mode: 'no-cors' // Para evitar problemas de CORS
-                        });
-                        success = true;
-                        showNotification('✅ Pedido enviado exitosamente');
-                    } catch (error) {
-                        console.log('API no disponible, usando WhatsApp Web...');
-                        // Fallback a WhatsApp Web
-                        const whatsappURL = `https://wa.me/50251149061?text=${encodeURIComponent(message)}`;
-                        window.open(whatsappURL, '_blank');
-                        success = true;
-                        showNotification('📱 Abriendo WhatsApp para enviar pedido');
-                    }
+                    // Usar WhatsApp Web directamente (más confiable)
+                    const phoneNumber = '50251149061'; // Tu número sin espacios ni guiones
+                    const encodedMessage = encodeURIComponent(message);
+                    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 
-                    if (success) {
-                        // Guardar pedido en localStorage para historial
-                        const orderHistory = JSON.parse(localStorage.getItem('rpGuitarOrders')) || [];
-                        orderHistory.push({
-                            id: Date.now(),
-                            date: new Date().toISOString(),
-                            customer: { name, phone, email, address },
-                            items: [...cart],
-                            total: hasNumericPrices ? total : 'Consultar',
-                            notes
-                        });
-                        localStorage.setItem('rpGuitarOrders', JSON.stringify(orderHistory));
+                    // Simular delay para mostrar loading
+                    await new Promise(resolve => setTimeout(resolve, 1500));
 
-                        // Limpiar carrito
-                        clearCart();
-                        closeCartModal();
-                        closeCheckoutModal();
-                    }
-
-                } catch (error) {
-                    console.error('Error enviando pedido:', error);
-                    
-                    // Fallback siempre a WhatsApp Web
-                    const whatsappURL = `https://wa.me/50251149061?text=${encodeURIComponent(message)}`;
+                    // Abrir WhatsApp
                     window.open(whatsappURL, '_blank');
-                    showNotification('📱 Abriendo WhatsApp para enviar pedido');
-                    
+
+                    // Guardar pedido en localStorage para historial
+                    const orderHistory = JSON.parse(localStorage.getItem('rpGuitarOrders')) || [];
+                    orderHistory.push({
+                        id: Date.now(),
+                        date: new Date().toISOString(),
+                        customer: { name, phone, email, address },
+                        items: [...cart],
+                        total: hasNumericPrices ? total : 'Consultar',
+                        notes,
+                        status: 'enviado'
+                    });
+                    localStorage.setItem('rpGuitarOrders', JSON.stringify(orderHistory));
+
+                    // Limpiar carrito y cerrar modales
                     clearCart();
                     closeCartModal();
                     closeCheckoutModal();
+                    
+                    showNotification('📱 Pedido enviado por WhatsApp exitosamente');
+
+                } catch (error) {
+                    console.error('Error enviando pedido:', error);
+                    showNotification('❌ Error al enviar. Intente nuevamente.');
                     
                 } finally {
                     // Restaurar botón
