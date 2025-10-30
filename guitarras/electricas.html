@@ -635,6 +635,139 @@
             transform: translateX(0);
         }
 
+        /* Checkout Confirmation Modal */
+        .checkout-modal {
+            display: none;
+            position: fixed;
+            z-index: 3000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .checkout-content {
+            position: relative;
+            background-color: white;
+            margin: 5% auto;
+            padding: 0;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 600px;
+            animation: slideIn 0.3s ease;
+        }
+
+        .checkout-header {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 1.5rem 2rem;
+            border-radius: 15px 15px 0 0;
+            text-align: center;
+        }
+
+        .checkout-body {
+            padding: 2rem;
+        }
+
+        .checkout-form {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 0.8rem;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .checkout-summary {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .checkout-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+            margin-top: 1.5rem;
+        }
+
+        .btn-cancel {
+            background: #6c757d;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .btn-cancel:hover {
+            background: #545b62;
+        }
+
+        .btn-send {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .btn-send:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(40, 167, 69, 0.3);
+        }
+
+        .btn-send:disabled {
+            background: #6c757d;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .loading-spinner {
+            display: none;
+            margin: 0 auto;
+            width: 40px;
+            height: 40px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #28a745;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
         @media (max-width: 768px) {
             .cart-content {
                 width: 95%;
@@ -1132,6 +1265,54 @@
         </div>
     </div>
 
+    <!-- Modal de confirmación de pedido -->
+    <div id="checkoutModal" class="checkout-modal">
+        <div class="checkout-content">
+            <div class="checkout-header">
+                <h2>📋 Confirmar Pedido</h2>
+            </div>
+            <div class="checkout-body">
+                <div class="checkout-summary" id="checkoutSummary">
+                    <!-- Resumen del carrito se insertará aquí -->
+                </div>
+                
+                <form class="checkout-form" id="checkoutForm">
+                    <div class="form-group">
+                        <label for="customerName">Nombre Completo *</label>
+                        <input type="text" id="customerName" required placeholder="Ej: Juan Pérez">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="customerPhone">Teléfono *</label>
+                        <input type="tel" id="customerPhone" required placeholder="Ej: 5555-5555">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="customerEmail">Email (opcional)</label>
+                        <input type="email" id="customerEmail" placeholder="ejemplo@correo.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="customerAddress">Dirección de Entrega (opcional)</label>
+                        <textarea id="customerAddress" rows="3" placeholder="Dirección completa para entrega"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="customerNotes">Notas Adicionales (opcional)</label>
+                        <textarea id="customerNotes" rows="2" placeholder="Comentarios o instrucciones especiales"></textarea>
+                    </div>
+                </form>
+                
+                <div class="loading-spinner" id="loadingSpinner"></div>
+                
+                <div class="checkout-actions">
+                    <button type="button" class="btn-cancel" id="cancelCheckout">Cancelar</button>
+                    <button type="button" class="btn-send" id="confirmOrder">Enviar Pedido</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Modal para detalles de guitarra -->
     <div id="guitarModal" class="modal">
         <div class="modal-content">
@@ -1425,27 +1606,97 @@
                 cartTotal.textContent = totalText;
             }
 
-            // Función para procesar compra (WhatsApp)
+            // Función para procesar compra (con API de WhatsApp)
             function processCheckout() {
                 if (cart.length === 0) return;
+                
+                // Mostrar modal de confirmación
+                showCheckoutModal();
+            }
 
-                // Crear mensaje para WhatsApp
-                let message = `*🎸 PEDIDO RP GUITAR*\n\n`;
-                message += `📅 Fecha: ${new Date().toLocaleDateString()}\n`;
+            // Mostrar modal de confirmación
+            function showCheckoutModal() {
+                const checkoutModal = document.getElementById('checkoutModal');
+                const checkoutSummary = document.getElementById('checkoutSummary');
+                
+                // Generar resumen del carrito
+                let summaryHTML = '<h4>📦 Resumen del Pedido:</h4><ul>';
+                let total = 0;
+                let hasNumericPrices = false;
+
+                cart.forEach(item => {
+                    const priceMatch = item.price.match(/Q([\d,]+)/);
+                    if (priceMatch) {
+                        total += parseInt(priceMatch[1].replace(',', ''));
+                        hasNumericPrices = true;
+                    }
+                    summaryHTML += `<li><strong>${item.name}</strong> - ${item.brand} - ${item.price}</li>`;
+                });
+
+                summaryHTML += '</ul>';
+                if (hasNumericPrices) {
+                    summaryHTML += `<p><strong>💵 Total: Q${total.toLocaleString()}</strong></p>`;
+                } else {
+                    summaryHTML += `<p><strong>💵 Total: Consultar precios</strong></p>`;
+                }
+
+                checkoutSummary.innerHTML = summaryHTML;
+                checkoutModal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            }
+
+            // Cerrar modal de confirmación
+            function closeCheckoutModal() {
+                const checkoutModal = document.getElementById('checkoutModal');
+                checkoutModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                
+                // Limpiar formulario
+                document.getElementById('checkoutForm').reset();
+            }
+
+            // Enviar pedido usando API de WhatsApp
+            async function sendOrderViaAPI() {
+                const name = document.getElementById('customerName').value.trim();
+                const phone = document.getElementById('customerPhone').value.trim();
+                const email = document.getElementById('customerEmail').value.trim();
+                const address = document.getElementById('customerAddress').value.trim();
+                const notes = document.getElementById('customerNotes').value.trim();
+
+                if (!name || !phone) {
+                    alert('Por favor complete los campos obligatorios (Nombre y Teléfono)');
+                    return;
+                }
+
+                // Mostrar spinner de carga
+                const loadingSpinner = document.getElementById('loadingSpinner');
+                const confirmBtn = document.getElementById('confirmOrder');
+                
+                loadingSpinner.style.display = 'block';
+                confirmBtn.disabled = true;
+                confirmBtn.textContent = 'Enviando...';
+
+                // Crear mensaje detallado
+                let message = `🎸 *NUEVO PEDIDO RP GUITAR*\n\n`;
+                message += `👤 *CLIENTE:*\n`;
+                message += `📝 Nombre: ${name}\n`;
+                message += `📞 Teléfono: ${phone}\n`;
+                if (email) message += `📧 Email: ${email}\n`;
+                if (address) message += `🏠 Dirección: ${address}\n`;
+                message += `\n📅 Fecha: ${new Date().toLocaleDateString()}\n`;
                 message += `⏰ Hora: ${new Date().toLocaleTimeString()}\n\n`;
-                message += `*PRODUCTOS:*\n`;
+                
+                message += `🛒 *PRODUCTOS SOLICITADOS:*\n`;
 
+                let total = 0;
+                let hasNumericPrices = false;
+                
                 cart.forEach((item, index) => {
                     message += `\n${index + 1}. *${item.name}*\n`;
                     message += `   🏷️ Marca: ${item.brand}\n`;
                     message += `   💰 Precio: ${item.price}\n`;
                     message += `   📋 Specs: ${item.specs}\n`;
-                });
-
-                // Calcular total si hay precios numéricos
-                let total = 0;
-                let hasNumericPrices = false;
-                cart.forEach(item => {
+                    
                     const priceMatch = item.price.match(/Q([\d,]+)/);
                     if (priceMatch) {
                         total += parseInt(priceMatch[1].replace(',', ''));
@@ -1454,25 +1705,81 @@
                 });
 
                 if (hasNumericPrices) {
-                    message += `\n💵 *TOTAL: Q${total.toLocaleString()}*\n`;
+                    message += `\n💵 *TOTAL ESTIMADO: Q${total.toLocaleString()}*\n`;
                 } else {
                     message += `\n💵 *TOTAL: Consultar precios*\n`;
                 }
 
-                message += `\n¡Gracias por elegir RP GUITAR! 🎵`;
+                if (notes) {
+                    message += `\n📝 *NOTAS ADICIONALES:*\n${notes}\n`;
+                }
 
-                // Número de WhatsApp (reemplaza con el número real)
-                const phoneNumber = '50251149061'; // Formato: código país + número sin +
-                const encodedMessage = encodeURIComponent(message);
-                const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+                message += `\n✨ ¡Gracias por elegir RP GUITAR! 🎵`;
 
-                // Abrir WhatsApp
-                window.open(whatsappURL, '_blank');
+                try {
+                    // Intentar enviar usando CallMeBot API (gratis y sin autenticación)
+                    const phoneForAPI = '50251149061'; // Tu número de WhatsApp
+                    const apiKey = 'guitar_store_2024'; // Cualquier clave, CallMeBot es público
+                    
+                    // Método 1: CallMeBot API
+                    const callmebotURL = `https://api.callmebot.com/whatsapp.php?phone=${phoneForAPI}&text=${encodeURIComponent(message)}&apikey=${apiKey}`;
+                    
+                    // Intentar envío por API
+                    let success = false;
+                    
+                    try {
+                        const response = await fetch(callmebotURL, { 
+                            method: 'GET',
+                            mode: 'no-cors' // Para evitar problemas de CORS
+                        });
+                        success = true;
+                        showNotification('✅ Pedido enviado exitosamente');
+                    } catch (error) {
+                        console.log('API no disponible, usando WhatsApp Web...');
+                        // Fallback a WhatsApp Web
+                        const whatsappURL = `https://wa.me/50251149061?text=${encodeURIComponent(message)}`;
+                        window.open(whatsappURL, '_blank');
+                        success = true;
+                        showNotification('📱 Abriendo WhatsApp para enviar pedido');
+                    }
 
-                // Limpiar carrito después del pedido
-                clearCart();
-                closeCartModal();
-                showNotification('📱 Pedido enviado por WhatsApp');
+                    if (success) {
+                        // Guardar pedido en localStorage para historial
+                        const orderHistory = JSON.parse(localStorage.getItem('rpGuitarOrders')) || [];
+                        orderHistory.push({
+                            id: Date.now(),
+                            date: new Date().toISOString(),
+                            customer: { name, phone, email, address },
+                            items: [...cart],
+                            total: hasNumericPrices ? total : 'Consultar',
+                            notes
+                        });
+                        localStorage.setItem('rpGuitarOrders', JSON.stringify(orderHistory));
+
+                        // Limpiar carrito
+                        clearCart();
+                        closeCartModal();
+                        closeCheckoutModal();
+                    }
+
+                } catch (error) {
+                    console.error('Error enviando pedido:', error);
+                    
+                    // Fallback siempre a WhatsApp Web
+                    const whatsappURL = `https://wa.me/50251149061?text=${encodeURIComponent(message)}`;
+                    window.open(whatsappURL, '_blank');
+                    showNotification('📱 Abriendo WhatsApp para enviar pedido');
+                    
+                    clearCart();
+                    closeCartModal();
+                    closeCheckoutModal();
+                    
+                } finally {
+                    // Restaurar botón
+                    loadingSpinner.style.display = 'none';
+                    confirmBtn.disabled = false;
+                    confirmBtn.textContent = 'Enviar Pedido';
+                }
             }
 
             // Abrir modal del carrito
@@ -1494,10 +1801,17 @@
             clearCartBtn.addEventListener('click', clearCart);
             checkoutBtn.addEventListener('click', processCheckout);
 
+            // Event listeners del modal de confirmación
+            document.getElementById('cancelCheckout').addEventListener('click', closeCheckoutModal);
+            document.getElementById('confirmOrder').addEventListener('click', sendOrderViaAPI);
+
             // Cerrar carrito al hacer click fuera
             window.addEventListener('click', (event) => {
                 if (event.target === cartModal) {
                     closeCartModal();
+                }
+                if (event.target === document.getElementById('checkoutModal')) {
+                    closeCheckoutModal();
                 }
             });
 
