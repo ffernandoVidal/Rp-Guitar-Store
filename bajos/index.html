@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bajos - RP GUITAR</title>
+    <link rel="stylesheet" href="../nav.css">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <!-- Contenedor del menú -->
+    <div id="nav-container"></div>
+
+    <!-- Contenido principal -->
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Bajos Eléctricos</h1>
+                <p>La base rítmica de tu música con nuestros bajos de calidad</p>
+            </div>
+        </section>
+
+        <section class="products-section">
+            <div class="container">
+                <h2>Tipos de Bajos</h2>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <h3>Bajos de 4 Cuerdas</h3>
+                        <p>El bajo tradicional, perfecto para comenzar y profesionales</p>
+                        <a href="#" class="btn-product">Ver Bajos 4 Cuerdas</a>
+                    </div>
+                    <div class="product-card">
+                        <h3>Bajos de 5 Cuerdas</h3>
+                        <p>Rango extendido con cuerda grave adicional</p>
+                        <a href="#" class="btn-product">Ver Bajos 5 Cuerdas</a>
+                    </div>
+                    <div class="product-card">
+                        <h3>Bajos de 6 Cuerdas</h3>
+                        <p>Máxima versatilidad para estilos complejos</p>
+                        <a href="#" class="btn-product">Ver Bajos 6 Cuerdas</a>
+                    </div>
+                    <div class="product-card">
+                        <h3>Bajos Fretless</h3>
+                        <p>Sonido suave y expresivo sin trastes</p>
+                        <a href="#" class="btn-product">Ver Bajos Fretless</a>
+                    </div>
+                    <div class="product-card">
+                        <h3>Bajos Acústicos</h3>
+                        <p>Sonido natural sin amplificación</p>
+                        <a href="#" class="btn-product">Ver Bajos Acústicos</a>
+                    </div>
+                    <div class="product-card">
+                        <h3>Amplificadores para Bajo</h3>
+                        <p>Potencia y claridad para tu bajo eléctrico</p>
+                        <a href="#" class="btn-product">Ver Amplificadores</a>
+                    </div>
+                    <div class="product-card">
+                        <h3>Cuerdas para Bajo</h3>
+                        <p>Cuerdas de diferentes calibres y materiales</p>
+                        <a href="#" class="btn-product">Ver Cuerdas</a>
+                    </div>
+                    <div class="product-card">
+                        <h3>Accesorios para Bajo</h3>
+                        <p>Correas, púas, soportes y más</p>
+                        <a href="#" class="btn-product">Ver Accesorios</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- JavaScript para el menú -->
+    <script src="../menu.js"></script>
+    <script>
+        // Inicializar el menú para páginas internas
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeMenu(false); // false indica que es una página interna
+        });
+    </script>
+</body>
+</html>

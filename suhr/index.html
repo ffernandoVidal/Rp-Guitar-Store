@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suhr - RP GUITAR</title>
+    <link rel="stylesheet" href="../nav.css">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <!-- Contenedor del menú -->
+    <div id="nav-container"></div>
+
+    <!-- Contenido principal -->
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Suhr Guitars</h1>
+                <p>Instrumentos boutique de calidad excepcional</p>
+            </div>
+        </section>
+
+        <section class="products-section">
+            <div class="container">
+                <h2>Productos Suhr</h2>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <h3>Guitarras Suhr</h3>
+                        <p>Guitarras eléctricas de alta gama hechas a mano</p>
+                        <a href="#" class="btn-product">Ver Guitarras</a>
+                    </div>
+                    <div class="product-card">
+                        <h3>Pedales Suhr</h3>
+                        <p>Efectos boutique con sonido profesional</p>
+                        <a href="#" class="btn-product">Ver Pedales</a>
+                    </div>
+                    <div class="product-card">
+                        <h3>Amplificadores Suhr</h3>
+                        <p>Amplificadores de tubo con sonido vintage</p>
+                        <a href="#" class="btn-product">Ver Amplificadores</a>
+                    </div>
+                    <div class="product-card">
+                        <h3>Pastillas Suhr</h3>
+                        <p>Pickups de alta calidad para mejorar tu sonido</p>
+                        <a href="#" class="btn-product">Ver Pastillas</a>
+                    </div>
+                    <div class="product-card">
+                        <h3>Accesorios Suhr</h3>
+                        <p>Complementos y piezas de repuesto originales</p>
+                        <a href="#" class="btn-product">Ver Accesorios</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- JavaScript para el menú -->
+    <script src="../menu.js"></script>
+    <script>
+        // Inicializar el menú para páginas internas
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeMenu(false); // false indica que es una página interna
+        });
+    </script>
+</body>
+</html>

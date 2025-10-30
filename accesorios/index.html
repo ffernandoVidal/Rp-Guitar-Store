@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accesorios - RP GUITAR</title>
+    <link rel="stylesheet" href="../nav.css">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <!-- Contenedor del menú -->
+    <div id="nav-container"></div>
+    <!-- Contenido principal -->
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Accesorios para Guitarra</h1>
+                <p>Todo lo que necesitas para complementar tu instrumento</p>
+            </div>
+        </section>
+
+        <section class="products-section">
+            <div class="container">
+                <h2>Categorías de Accesorios</h2>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <h3>Capos</h3>
+                        <p>Capos de alta calidad para cambiar la tonalidad de tu guitarra</p>
+                        <a href="capos.html" class="btn-product">Ver Capos</a>
+                    </div>
+                    <div class="product-card">
+                        <h3>Straps</h3>
+                        <p>Correas cómodas y resistentes para tocar de pie</p>
+                        <a href="straps.html" class="btn-product">Ver Straps</a>
+                    </div>
+                    <div class="product-card">
+                        <h3>Cuerdas</h3>
+                        <p>Cuerdas de diferentes calibres y materiales</p>
+                        <a href="cuerdas.html" class="btn-product">Ver Cuerdas</a>
+                    </div>
+                    <div class="product-card">
+                        <h3>Vega Trem</h3>
+                        <p>Sistemas de trémolo de alta calidad</p>
+                        <a href="vega-trem.html" class="btn-product">Ver Vega Trem</a>
+                    </div>
+                    <div class="product-card">
+                        <h3>Pedestales</h3>
+                        <p>Soportes para guitarra seguros y estables</p>
+                        <a href="pedestales.html" class="btn-product">Ver Pedestales</a>
+                    </div>
+                    <div class="product-card">
+                        <h3>Fuentes de Poder</h3>
+                        <p>Alimentación confiable para tus pedales</p>
+                        <a href="fuentes-poder.html" class="btn-product">Ver Fuentes</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- JavaScript para el menú -->
+    <script src="../menu.js"></script>
+    <script>
+        // Inicializar el menú para páginas internas
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeMenu(false); // false indica que es una página interna
+        });
+    </script>
+</body>
+</html>

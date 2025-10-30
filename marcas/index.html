@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marcas - RP GUITAR</title>
+    <link rel="stylesheet" href="../nav.css">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <!-- Contenedor del menú -->
+    <div id="nav-container"></div>
+
+    <!-- Contenido principal -->
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Nuestras Marcas</h1>
+                <p>Las mejores marcas del mercado musical</p>
+            </div>
+        </section>
+
+        <section class="products-section">
+            <div class="container">
+                <h2>Marcas Destacadas</h2>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <h3>Music Nomad</h3>
+                        <p>Productos de cuidado y mantenimiento para instrumentos</p>
+                        <a href="music-nomad.html" class="btn-product">Ver Productos</a>
+                    </div>
+                    <div class="product-card">
+                        <h3>Lollar Pickups</h3>
+                        <p>Pastillas boutique de alta calidad</p>
+                        <a href="lollar-pickups.html" class="btn-product">Ver Productos</a>
+                    </div>
+                    <div class="product-card">
+                        <h3>Gruvegear</h3>
+                        <p>Accesorios innovadores para músicos</p>
+                        <a href="gruvegear.html" class="btn-product">Ver Productos</a>
+                    </div>
+                    <div class="product-card">
+                        <h3>Pig Hog</h3>
+                        <p>Cables de alta calidad y resistencia</p>
+                        <a href="pig-hog.html" class="btn-product">Ver Productos</a>
+                    </div>
+                    <div class="product-card">
+                        <h3>MGC</h3>
+                        <p>Marca mexicana de pedales y accesorios</p>
+                        <a href="mgc.html" class="btn-product">Ver Productos</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- JavaScript para el menú -->
+    <script src="../menu.js"></script>
+    <script>
+        // Inicializar el menú para páginas internas
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeMenu(false); // false indica que es una página interna
+        });
+    </script>
+</body>
+</html>

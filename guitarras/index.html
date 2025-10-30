@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guitarras - RP GUITAR</title>
+    <link rel="stylesheet" href="../nav.css">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <!-- Contenedor del menú -->
+    <div id="nav-container"></div>
+
+    <!-- Contenido principal -->
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Guitarras</h1>
+                <p>Encuentra la guitarra perfecta para tu estilo musical</p>
+            </div>
+        </section>
+
+        <section class="products-section">
+            <div class="container">
+                <h2>Tipos de Guitarras</h2>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <h3>Guitarras Eléctricas</h3>
+                        <p>Para rock, blues, jazz y todos los géneros amplificados</p>
+                        <a href="electricas.html" class="btn-product">Ver Eléctricas</a>
+                    </div>
+                    <div class="product-card">
+                        <h3>Guitarras Electroacústicas</h3>
+                        <p>Versatilidad acústica con amplificación incorporada</p>
+                        <a href="electroacusticas.html" class="btn-product">Ver Electroacústicas</a>
+                    </div>
+                   
+                    <div class="product-card">
+                        <h3>Guitarras Acústicas</h3>
+                        <p>Sonido natural y cálido para cualquier ocasión</p>
+                        <a href="#" class="btn-product">Ver Acústicas</a>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- JavaScript para el menú -->
+    <script src="../menu.js"></script>
+    <script>
+        // Inicializar el menú para páginas internas
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeMenu(false); // false indica que es una página interna
+        });
+    </script>
+</body>
+</html>

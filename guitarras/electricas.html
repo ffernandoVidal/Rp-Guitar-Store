@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guitarras Eléctricas - RP GUITAR</title>
+    <link rel="stylesheet" href="../nav.css">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .guitar-section {
+            margin: 2rem 0;
+            padding: 2rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .guitar-section:last-child {
+            border-bottom: none;
+        }
+        
+        .brand-title {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .brand-description {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .guitars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .guitar-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .guitar-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            position: relative;
+            background-color: white;
+            margin: 2% auto;
+            padding: 0;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 1200px;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: slideIn 0.3s ease;
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem 2rem;
+            border-radius: 15px 15px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-title {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .close {
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            line-height: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        .close:hover {
+            opacity: 0.7;
+        }
+
+        .modal-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .modal-image-section {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .modal-image {
+            width: 100%;
+            height: 400px;
+            object-fit: contain;
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 1rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .modal-image:hover {
+            transform: scale(1.02);
+        }
+
+        /* Modal de imagen ampliada */
+        .image-zoom-modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            animation: fadeIn 0.3s ease;
+            cursor: pointer;
+        }
+
+        .image-zoom-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .zoomed-image {
+            max-width: 95%;
+            max-height: 95%;
+            object-fit: contain;
+        }
+
+        .modal-video {
+            width: 100%;
+            height: 300px;
+            border-radius: 10px;
+            border: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-wrapper {
+            position: relative;
+            background: #000;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .modal-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .modal-guitar-name {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #333;
+            margin: 0;
+        }
+
+        .modal-brand {
+            color: #667eea;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .modal-price {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #28a745;
+            margin: 0;
+        }
+
+        .modal-specs {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .modal-specs h4 {
+            margin: 0 0 1rem 0;
+            color: #333;
+            font-size: 1.2rem;
+        }
+
+        .modal-specs ul {
+            margin: 0;
+            padding-left: 1.2rem;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        .modal-description {
+            color: #666;
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: auto;
+        }
+
+        .btn-add-cart {
+            flex: 2;
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-add-cart:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(40, 167, 69, 0.3);
+        }
+
+        .btn-favorite {
+            background: #f8f9fa;
+            border: 2px solid #dee2e6;
+            color: #6c757d;
+            padding: 1rem;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-favorite:hover {
+            background: #e9ecef;
+            color: #495057;
+        }
+
+        .availability {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: #d4edda;
+            color: #155724;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { 
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .modal-content {
+                width: 95%;
+                margin: 5% auto;
+            }
+
+            .modal-body {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            .modal-image {
+                height: 250px;
+            }
+
+            .modal-video {
+                height: 200px;
+            }
+
+            .modal-guitar-name {
+                font-size: 1.5rem;
+            }
+
+            .modal-price {
+                font-size: 1.5rem;
+            }
+        }
+        
+        .guitar-image {
+            width: 100%;
+            height: 400px;
+            object-fit: contain;
+            background: #f8f9fa;
+            padding: 1rem;
+        }
+        
+        .guitar-info {
+            padding: 1.5rem;
+        }
+        
+        .guitar-name {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+        
+        .guitar-specs {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+        
+        .btn-contact {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .btn-contact:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .guitars-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .guitar-image {
+                height: 300px;
+            }
+            
+            .brand-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Contenedor del menú -->
+    <div id="nav-container"></div>
+
+    <!-- Contenido principal -->
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Guitarras Eléctricas</h1>
+                <p>Descubre nuestra selección premium de guitarras eléctricas de las mejores marcas</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- Sección D'Angelico -->
+            <section class="guitar-section">
+                <h2 class="brand-title">D'Angelico</h2>
+                <p class="brand-description">
+                    Guitarras de inspiración vintage con construcción moderna. D'Angelico combina la tradición 
+                    artesanal de Nueva York con innovaciones contemporáneas para crear instrumentos excepcionales.
+                </p>
+                
+                <div class="guitars-grid">
+                    <div class="guitar-card" 
+                         data-name="D'Angelico Deluxe SS" 
+                         data-brand="D'Angelico"
+                         data-price="Q18,800"
+                         data-image="Guitarras/Dangelico/DA1.png"
+                         data-video="https://www.youtube.com/watch?v=vnSoK0CLpVo  https://youtu.be/vnSoK0CLpVo?si=yMXi88w4778ekMYx"
+                         data-specs="Guitarra semi hollow de cuerpo delgado|Cuerpo: Laminado|Color: Satin Honey|Mástil: Mástil de arce|Diapasón: Palisandro|Pastillas: Seymour Duncan Seth Lover Aged Humbuckers"
+                         data-description="Guitarra semi hollow de cuerpo delgado con construcción premium. Incluye estuche duro. Envío gratis a toda Guatemala, disponible en Visacuotas.">
+                        <img src="Guitarras/Dangelico/DA1.png" alt="D'Angelico Electric Guitar" class="guitar-image">
+                        <div class="guitar-info">
+                            <h3 class="guitar-name">D'Angelico Deluxe SS</h3>
+                            <p class="guitar-specs">
+                             Guitarra semi hollow de cuerpo delgado<br>
+                                • Cuerpo: Laminado.<br>
+                                • Color: Satin Honey.<br>
+                                • Mástil: Mástil de arce.<br>
+                                • Diapason: Palisandro.<br>
+                                • Pastillas: Seymour Duncan Seth Lover Aged Humbuckers.<br>
+                               
+                                Incluye estuche duro. <br>
+                                Envío gratis a toda Guatemala, disponible en Visacuotas.  
+                            </p>
+                            <p class="guitar-price">Precio: 18,800</p>
+                            <a href="#" class="btn-contact">Agregar al carrito</a>
+                        </div>
+                    </div>
+                    
+                    <div class="guitar-card"
+                         data-name="D'Angelico Premier Bedford" 
+                         data-brand="D'Angelico"
+                         data-price="Consultar Precio"
+                         data-image="Guitarras/Dangelico/DA2.png"
+                         data-video="https://www.youtube.com/watch?v=vnSoK0CLpVo"
+                         data-specs="Cuerpo: Caoba con tapa de arce flameado|Mástil: Caoba set-neck|Pastillas: Seymour Duncan 59 & Custom|Puente: Tune-o-matic con cordal"
+                         data-description="Guitarra eléctrica premium con construcción set-neck y acabado flameado excepcional. Perfecta para estilos jazz, blues y rock.">
+                        <img src="Guitarras/Dangelico/DA2.png" alt="D'Angelico Electric Guitar" class="guitar-image">
+                        <div class="guitar-info">
+                            <h3 class="guitar-name">D'Angelico Premier Bedford</h3>
+                            <p class="guitar-specs">
+                                • Cuerpo: Caoba con tapa de arce flameado<br>
+                                • Mástil: Caoba set-neck<br>
+                                • Pastillas: Seymour Duncan 59 & Custom<br>
+                                • Puente: Tune-o-matic con cordal
+                            </p>
+                            <a href="#" class="btn-contact">Consultar Precio</a>
+                        </div>
+                    </div>
+                    
+                    <div class="guitar-card"
+                         data-name="D'Angelico Premier Gramercy" 
+                         data-brand="D'Angelico"
+                         data-price="Consultar Precio"
+                         data-image="Guitarras/Dangelico/DA3.png"
+                         data-video="https://www.youtube.com/watch?v=vnSoK0CLpVo"
+                         data-specs="Cuerpo: Caoba con binding|Mástil: Caoba con diapasón de ébano|Pastillas: Seymour Duncan P90|Acabado: Vintage Sunburst"
+                         data-description="Guitarra eléctrica con pastillas P90 que ofrece un sonido vintage distintivo. Perfecta para blues, rock clásico y jazz.">
+                        <img src="Guitarras/Dangelico/DA3.png" alt="D'Angelico Electric Guitar" class="guitar-image">
+                        <div class="guitar-info">
+                            <h3 class="guitar-name">D'Angelico Premier Gramercy</h3>
+                            <p class="guitar-specs">
+                                • Cuerpo: Caoba con binding<br>
+                                • Mástil: Caoba con diapasón de ébano<br>
+                                • Pastillas: Seymour Duncan P90<br>
+                                • Acabado: Vintage Sunburst
+                            </p>
+                            <a href="#" class="btn-contact">Consultar Precio</a>
+                        </div>
+                    </div>
+                    
+                    <div class="guitar-card"
+                         data-name="D'Angelico Premier SS" 
+                         data-brand="D'Angelico"
+                         data-price="Consultar Precio"
+                         data-image="Guitarras/Dangelico/DA4.png"
+                         data-video="https://www.youtube.com/watch?v=vnSoK0CLpVo"
+                         data-specs="Cuerpo: Aliso con tapa de arce|Mástil: Arce con diapasón de palisandro|Pastillas: Seymour Duncan SSL-1|Trémolo: Vintage style synchronized"
+                         data-description="Guitarra eléctrica estilo Stratocaster con construcción premium y hardware vintage. Ideal para una amplia variedad de estilos musicales.">
+                        <img src="Guitarras/Dangelico/DA4.png" alt="D'Angelico Electric Guitar" class="guitar-image">
+                        <div class="guitar-info">
+                            <h3 class="guitar-name">D'Angelico Premier SS</h3>
+                            <p class="guitar-specs">
+                                • Cuerpo: Aliso con tapa de arce<br>
+                                • Mástil: Arce con diapasón de palisandro<br>
+                                • Pastillas: Seymour Duncan SSL-1<br>
+                                • Trémolo: Vintage style synchronized
+                            </p>
+                            <a href="#" class="btn-contact">Consultar Precio</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección G&L -->
+            <section class="guitar-section">
+                <h2 class="brand-title">G&L</h2>
+                <p class="brand-description">
+                    Fundada por Leo Fender, G&L representa la evolución final de sus diseños icónicos. 
+                    Instrumentos que combinan la tradición Fender con innovaciones modernas únicas.
+                </p>
+                
+                <div class="guitars-grid">
+                    <div class="guitar-card"
+                         data-name="G&L Legacy" 
+                         data-brand="G&L"
+                         data-price="Consultar Precio"
+                         data-image="Guitarras/G&L/GL1.png"
+                         data-video="https://www.youtube.com/watch?v=vnSoK0CLpVo"
+                         data-specs="Cuerpo: Aliso americano|Mástil: Arce duro con diapasón de arce|Pastillas: G&L MFD single coils|Puente: G&L Dual-Fulcrum vibrato"
+                         data-description="La evolución final del diseño Stratocaster por Leo Fender. Incorpora las innovaciones MFD y el sistema PTB para un control tonal superior.">
+                        <img src="Guitarras/G&L/GL1.png" alt="G&L Electric Guitar" class="guitar-image">
+                        <div class="guitar-info">
+                            <h3 class="guitar-name">G&L Legacy</h3>
+                            <p class="guitar-specs">
+                                • Cuerpo: Aliso americano<br>
+                                • Mástil: Arce duro con diapasón de arce<br>
+                                • Pastillas: G&L MFD single coils<br>
+                                • Puente: G&L Dual-Fulcrum vibrato
+                            </p>
+                            <a href="#" class="btn-contact">Consultar Precio</a>
+                        </div>
+                    </div>
+                    
+                    <div class="guitar-card"
+                         data-name="G&L ASAT Classic" 
+                         data-brand="G&L"
+                         data-price="Consultar Precio"
+                         data-image="Guitarras/G&L/GL2.png"
+                         data-video="https://www.youtube.com/watch?v=vnSoK0CLpVo"
+                         data-specs="Cuerpo: Fresno de pantano|Mástil: Arce duro bolt-on|Pastillas: G&L MFD humbuckers|Puente: G&L Saddle-Lock bridge"
+                         data-description="La evolución del diseño Telecaster con pastillas MFD que ofrecen mayor output y claridad. El puente Saddle-Lock proporciona mejor sustain y entonación.">
+                        <img src="Guitarras/G&L/GL2.png" alt="G&L Electric Guitar" class="guitar-image">
+                        <div class="guitar-info">
+                            <h3 class="guitar-name">G&L ASAT Classic</h3>
+                            <p class="guitar-specs">
+                                • Cuerpo: Fresno de pantano<br>
+                                • Mástil: Arce duro bolt-on<br>
+                                • Pastillas: G&L MFD humbuckers<br>
+                                • Puente: G&L Saddle-Lock bridge
+                            </p>
+                            <a href="#" class="btn-contact">Consultar Precio</a>
+                        </div>
+                    </div>
+                    
+                    <div class="guitar-card"
+                         data-name="G&L Doheny" 
+                         data-brand="G&L"
+                         data-price="Consultar Precio"
+                         data-image="Guitarras/G&L/GL3.png"
+                         data-video="https://www.youtube.com/embed/vnSoK0CLpVo"
+                         data-specs="Cuerpo: Caoba con tapa de arce|Mástil: Caoba set-neck|Pastillas: G&L MFD humbuckers|Acabado: Vintage Cherry Burst"
+                         data-description="Guitarra eléctrica semi-hollow con construcción set-neck y pastillas MFD. Combina la tradición del diseño clásico con la innovación de Leo Fender.">
+                        <img src="Guitarras/G&L/GL3.png" alt="G&L Electric Guitar" class="guitar-image">
+                        <div class="guitar-info">
+                            <h3 class="guitar-name">G&L Doheny</h3>
+                            <p class="guitar-specs">
+                                • Cuerpo: Caoba con tapa de arce<br>
+                                • Mástil: Caoba set-neck<br>
+                                • Pastillas: G&L MFD humbuckers<br>
+                                • Acabado: Vintage Cherry Burst
+                            </p>
+                            <a href="#" class="btn-contact">Consultar Precio</a>
+                        </div>
+                    </div>
+                    
+                    <div class="guitar-card"
+                         data-name="G&L Fallout" 
+                         data-brand="G&L"
+                         data-price="Consultar Precio"
+                         data-image="Guitarras/G&L/GL4.png"
+                         data-video="https://www.youtube.com/embed/vnSoK0CLpVo"
+                         data-specs="Cuerpo: Aliso con diseño offset|Mástil: Arce con diapasón de palisandro|Pastillas: G&L P90 + Humbucker|Controles: Volume, Tone, 3-way switch"
+                         data-description="Guitarra con diseño offset moderno que combina una pastilla P90 vintage con un humbucker moderno. Perfecta para estilos alternativos y rock contemporáneo.">
+                        <img src="Guitarras/G&L/GL4.png" alt="G&L Electric Guitar" class="guitar-image">
+                        <div class="guitar-info">
+                            <h3 class="guitar-name">G&L Fallout</h3>
+                            <p class="guitar-specs">
+                                • Cuerpo: Aliso con diseño offset<br>
+                                • Mástil: Arce con diapasón de palisandro<br>
+                                • Pastillas: G&L P90 + Humbucker<br>
+                                • Controles: Volume, Tone, 3-way switch
+                            </p>
+                            <a href="#" class="btn-contact">Consultar Precio</a>
+                        </div>
+                    </div>
+                    
+                    <div class="guitar-card"
+                         data-name="G&L Comanche" 
+                         data-brand="G&L"
+                         data-price="Consultar Precio"
+                         data-image="Guitarras/G&L/GL5.png"
+                         data-video="https://www.youtube.com/embed/vnSoK0CLpVo"
+                         data-specs="Cuerpo: Aliso premium|Mástil: Arce con diapasón de ébano|Pastillas: 3x G&L Z-Coil pickups|Electrónica: Expander switching"
+                         data-description="Guitarra con pastillas Z-Coil únicas que eliminan el ruido sin sacrificar el tono. El sistema Expander switching ofrece opciones tonales expandidas.">
+                        <img src="Guitarras/G&L/GL5.png" alt="G&L Electric Guitar" class="guitar-image">
+                        <div class="guitar-info">
+                            <h3 class="guitar-name">G&L Comanche</h3>
+                            <p class="guitar-specs">
+                                • Cuerpo: Aliso premium<br>
+                                • Mástil: Arce con diapasón de ébano<br>
+                                • Pastillas: 3x G&L Z-Coil pickups<br>
+                                • Electrónica: Expander switching
+                            </p>
+                            <a href="#" class="btn-contact">Consultar Precio</a>
+                        </div>
+                    </div>
+                    
+                    <div class="guitar-card"
+                         data-name="G&L S-500" 
+                         data-brand="G&L"
+                         data-price="Consultar Precio"
+                         data-image="Guitarras/G&L/GL6.png"
+                         data-video="https://www.youtube.com/embed/vnSoK0CLpVo"
+                         data-specs="Cuerpo: Aliso con contornos ergonómicos|Mástil: Arce con diapasón de palisandro|Pastillas: 3x G&L MFD single coils|Sistema: PTB (Passive Treble/Bass)"
+                         data-description="La evolución definitiva del diseño Stratocaster. Las pastillas MFD y el sistema PTB ofrecen un rango tonal imposible de conseguir con pastillas convencionales.">
+                        <img src="Guitarras/G&L/GL6.png" alt="G&L Electric Guitar" class="guitar-image">
+                        <div class="guitar-info">
+                            <h3 class="guitar-name">G&L S-500</h3>
+                            <p class="guitar-specs">
+                                • Cuerpo: Aliso con contornos ergonómicos<br>
+                                • Mástil: Arce con diapasón de palisandro<br>
+                                • Pastillas: 3x G&L MFD single coils<br>
+                                • Sistema: PTB (Passive Treble/Bass)
+                            </p>
+                            <a href="#" class="btn-contact">Consultar Precio</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección Rivolta -->
+            <section class="guitar-section">
+                <h2 class="brand-title">Rivolta</h2>
+                <p class="brand-description">
+                    Guitarras italianas que combinan diseño vintage con construcción moderna. 
+                    Rivolta ofrece instrumentos únicos con personalidad distintiva y sonido excepcional.
+                </p>
+                
+                <div class="guitars-grid">
+                    <div class="guitar-card"
+                         data-name="Rivolta Combinata Standard" 
+                         data-brand="Rivolta"
+                         data-price="Consultar Precio"
+                         data-image="Guitarras/Rivolta/RV1.png"
+                         data-video="https://www.youtube.com/embed/vnSoK0CLpVo"
+                         data-specs="Cuerpo: Caoba con tapa de arce|Mástil: Caoba con diapasón de palisandro|Pastillas: Rivolta P90 + Humbucker|Hardware: Vintage style nickel"
+                         data-description="Guitarra italiana que combina lo mejor de dos mundos: pastilla P90 vintage para tonos cálidos y humbucker moderno para potencia. Construcción artesanal excepcional.">
+                        <img src="Guitarras/Rivolta/RV1.png" alt="Rivolta Electric Guitar" class="guitar-image">
+                        <div class="guitar-info">
+                            <h3 class="guitar-name">Rivolta Combinata Standard</h3>
+                            <p class="guitar-specs">
+                                • Cuerpo: Caoba con tapa de arce<br>
+                                • Mástil: Caoba con diapasón de palisandro<br>
+                                • Pastillas: Rivolta P90 + Humbucker<br>
+                                • Hardware: Vintage style nickel
+                            </p>
+                            <a href="#" class="btn-contact">Consultar Precio</a>
+                        </div>
+                    </div>
+                    
+                    <div class="guitar-card"
+                         data-name="Rivolta Mondata Standard" 
+                         data-brand="Rivolta"
+                         data-price="Consultar Precio"
+                         data-image="Guitarras/Rivolta/RV2.png"
+                         data-video="https://www.youtube.com/embed/vnSoK0CLpVo"
+                         data-specs="Cuerpo: Fresno de pantano|Mástil: Arce con diapasón de arce|Pastillas: 3x Rivolta single coils|Puente: Vintage synchronized tremolo"
+                         data-description="Interpretación italiana del clásico diseño Stratocaster. Fresno de pantano premium y pastillas single coil de fabricación propia para un sonido distintivo.">
+                        <img src="Guitarras/Rivolta/RV2.png" alt="Rivolta Electric Guitar" class="guitar-image">
+                        <div class="guitar-info">
+                            <h3 class="guitar-name">Rivolta Mondata Standard</h3>
+                            <p class="guitar-specs">
+                                • Cuerpo: Fresno de pantano<br>
+                                • Mástil: Arce con diapasón de arce<br>
+                                • Pastillas: 3x Rivolta single coils<br>
+                                • Puente: Vintage synchronized tremolo
+                            </p>
+                            <a href="#" class="btn-contact">Consultar Precio</a>
+                        </div>
+                    </div>
+                    
+                    <div class="guitar-card"
+                         data-name="Rivolta Regata Standard" 
+                         data-brand="Rivolta"
+                         data-price="Consultar Precio"
+                         data-image="Guitarras/Rivolta/RV3.png"
+                         data-video="https://www.youtube.com/embed/vnSoK0CLpVo"
+                         data-specs="Cuerpo: Caoba con binding vintage|Mástil: Caoba set-neck|Pastillas: 2x Rivolta humbuckers|Acabado: Aged Cherry Burst"
+                         data-description="Guitarra de estilo clásico con construcción set-neck y acabado envejecido. Los humbuckers Rivolta proporcionan un sonido cálido perfecto para jazz, blues y rock.">
+                        <img src="Guitarras/Rivolta/RV3.png" alt="Rivolta Electric Guitar" class="guitar-image">
+                        <div class="guitar-info">
+                            <h3 class="guitar-name">Rivolta Regata Standard</h3>
+                            <p class="guitar-specs">
+                                • Cuerpo: Caoba con binding vintage<br>
+                                • Mástil: Caoba set-neck<br>
+                                • Pastillas: 2x Rivolta humbuckers<br>
+                                • Acabado: Aged Cherry Burst
+                            </p>
+                            <a href="#" class="btn-contact">Consultar Precio</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección Suhr -->
+            <section class="guitar-section">
+                <h2 class="brand-title">Suhr</h2>
+                <p class="brand-description">
+                    Guitarras de lujo fabricadas a mano en California. Suhr representa la excelencia absoluta 
+                    en construcción, tonos y jugabilidad, utilizadas por los guitarristas más exigentes del mundo.
+                </p>
+                
+                <div class="guitars-grid">
+                    <div class="guitar-card"
+                         data-name="Suhr Modern T" 
+                         data-brand="Suhr"
+                         data-price="Consultar Precio"
+                         data-image="Guitarras/suhr/SRMT1.png"
+                         data-video="https://www.youtube.com/embed/vnSoK0CLpVo"
+                         data-specs="Cuerpo: Fresno de pantano premium|Mástil: Arce flameado con diapasón de ébano|Pastillas: Suhr SSV + V60LP|Hardware: Gotoh 510 tremolo"
+                         data-description="Guitarra de lujo fabricada a mano con maderas premium seleccionadas. Combina pastillas humbucker y single coil para máxima versatilidad tonal.">
+                        <img src="Guitarras/suhr/SRMT1.png" alt="Suhr Electric Guitar" class="guitar-image">
+                        <div class="guitar-info">
+                            <h3 class="guitar-name">Suhr Modern T</h3>
+                            <p class="guitar-specs">
+                                • Cuerpo: Fresno de pantano premium<br>
+                                • Mástil: Arce flameado con diapasón de ébano<br>
+                                • Pastillas: Suhr SSV + V60LP<br>
+                                • Hardware: Gotoh 510 tremolo
+                            </p>
+                            <a href="#" class="btn-contact">Consultar Precio</a>
+                        </div>
+                    </div>
+                    
+                    <div class="guitar-card"
+                         data-name="Suhr Classic S" 
+                         data-brand="Suhr"
+                         data-price="Consultar Precio"
+                         data-image="Guitarras/suhr/SRST1.png"
+                         data-video="https://www.youtube.com/embed/vnSoK0CLpVo"
+                         data-specs="Cuerpo: Aliso selectograde A|Mástil: Arce cuartersawn|Pastillas: 3x Suhr V60LP single coils|Acabado: Olympic White aged"
+                         data-description="La interpretación Suhr del clásico diseño Stratocaster. Maderas seleccionadas y pastillas V60LP que capturan perfectamente el sonido vintage de los años 60.">
+                        <img src="Guitarras/suhr/SRST1.png" alt="Suhr Electric Guitar" class="guitar-image">
+                        <div class="guitar-info">
+                            <h3 class="guitar-name">Suhr Classic S</h3>
+                            <p class="guitar-specs">
+                                • Cuerpo: Aliso selectograde A<br>
+                                • Mástil: Arce cuartersawn<br>
+                                • Pastillas: 3x Suhr V60LP single coils<br>
+                                • Acabado: Olympic White aged
+                            </p>
+                            <a href="#" class="btn-contact">Consultar Precio</a>
+                        </div>
+                    </div>
+                    
+                    <div class="guitar-card"
+                         data-name="Suhr Classic S HSS" 
+                         data-brand="Suhr"
+                         data-price="Consultar Precio"
+                         data-image="Guitarras/suhr/srst2.png"
+                         data-video="https://www.youtube.com/embed/vnSoK0CLpVo"
+                         data-specs="Cuerpo: Fresno de pantano AAAAA|Mástil: Arce bird's eye|Pastillas: 2x V60LP + SSV humbucker|Electrónica: Sistema HSS con coil tap"
+                         data-description="Configuración HSS perfecta con maderas de la más alta calidad. El humbucker SSV con coil tap ofrece versatilidad extrema desde tonos single coil hasta rock de alta ganancia.">
+                        <img src="Guitarras/suhr/srst2.png" alt="Suhr Electric Guitar" class="guitar-image">
+                        <div class="guitar-info">
+                            <h3 class="guitar-name">Suhr Classic S HSS</h3>
+                            <p class="guitar-specs">
+                                • Cuerpo: Fresno de pantano AAAAA<br>
+                                • Mástil: Arce bird's eye<br>
+                                • Pastillas: 2x V60LP + SSV humbucker<br>
+                                • Electrónica: Sistema HSS con coil tap
+                            </p>
+                            <a href="#" class="btn-contact">Consultar Precio</a>
+                        </div>
+                    </div>
+                    
+                    <div class="guitar-card"
+                         data-name="Suhr Classic T" 
+                         data-brand="Suhr"
+                         data-price="Consultar Precio"
+                         data-image="Guitarras/suhr/SRT1.png"
+                         data-video="https://www.youtube.com/embed/vnSoK0CLpVo"
+                         data-specs="Cuerpo: Fresno de pantano vintage|Mástil: Arce con diapasón de arce|Pastillas: Suhr Thornbucker + Vintage T|Puente: Gotoh vintage style bridge"
+                         data-description="La interpretación definitiva del diseño Telecaster por Suhr. Combina un humbucker Thornbucker en el mástil con una pastilla single coil Vintage T para máxima versatilidad.">
+                        <img src="Guitarras/suhr/SRT1.png" alt="Suhr Electric Guitar" class="guitar-image">
+                        <div class="guitar-info">
+                            <h3 class="guitar-name">Suhr Classic T</h3>
+                            <p class="guitar-specs">
+                                • Cuerpo: Fresno de pantano vintage<br>
+                                • Mástil: Arce con diapasón de arce<br>
+                                • Pastillas: Suhr Thornbucker + Vintage T<br>
+                                • Puente: Gotoh vintage style bridge
+                            </p>
+                            <a href="#" class="btn-contact">Consultar Precio</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Modal para detalles de guitarra -->
+    <div id="guitarModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalTitle">Detalles de Guitarra</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image-section">
+                    <img id="modalImage" src="" alt="Guitar Image" class="modal-image">
+                    <div class="video-wrapper">
+                        <iframe id="modalVideo" class="modal-video" src="" frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="modal-info">
+                    <p class="modal-brand" id="modalBrand"></p>
+                    <h3 class="modal-guitar-name" id="modalGuitarName"></h3>
+                    <div class="availability">✓ DISPONIBLE</div>
+                    <p class="modal-price" id="modalPrice"></p>
+                    
+                    <div class="modal-specs">
+                        <h4>Especificaciones</h4>
+                        <ul id="modalSpecs"></ul>
+                    </div>
+                    
+                    <p class="modal-description" id="modalDescription"></p>
+                    
+                    <div class="modal-actions">
+                        <button class="btn-add-cart">Añadir a la cesta</button>
+                        <button class="btn-favorite">♡</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para imagen ampliada -->
+    <div id="imageZoomModal" class="image-zoom-modal">
+        <div class="image-zoom-content">
+            <img id="zoomedImage" src="" alt="Guitar Zoomed" class="zoomed-image">
+        </div>
+    </div>
+
+    <!-- JavaScript para el menú -->
+    <script src="../menu.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeMenu(false);
+
+            // Modal functionality
+            const modal = document.getElementById('guitarModal');
+            const guitarCards = document.querySelectorAll('.guitar-card');
+            const closeBtn = document.querySelector('.close');
+
+            // Función para convertir URL de YouTube a embed
+            function convertToEmbedUrl(url) {
+                if (url.includes('watch?v=')) {
+                    const videoId = url.split('watch?v=')[1].split('&')[0];
+                    return `https://www.youtube.com/embed/${videoId}`;
+                }
+                return url;
+            }
+
+            // Función para abrir modal
+            function openModal(guitarData) {
+                document.getElementById('modalBrand').textContent = guitarData.brand;
+                document.getElementById('modalGuitarName').textContent = guitarData.name;
+                document.getElementById('modalPrice').textContent = guitarData.price;
+                document.getElementById('modalImage').src = guitarData.image;
+                document.getElementById('modalVideo').src = convertToEmbedUrl(guitarData.video);
+                document.getElementById('modalDescription').textContent = guitarData.description;
+                
+                // Limpiar y agregar especificaciones
+                const specsList = document.getElementById('modalSpecs');
+                specsList.innerHTML = '';
+                guitarData.specs.forEach(spec => {
+                    const li = document.createElement('li');
+                    li.textContent = spec;
+                    specsList.appendChild(li);
+                });
+
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden'; // Prevenir scroll del body
+            }
+
+            // Función para cerrar modal
+            function closeModal() {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto'; // Restaurar scroll del body
+                // Pausar video
+                const iframe = document.getElementById('modalVideo');
+                iframe.src = iframe.src;
+            }
+
+            // Event listeners para abrir modal
+            guitarCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const guitarData = {
+                        name: card.dataset.name,
+                        brand: card.dataset.brand,
+                        price: card.dataset.price,
+                        image: card.dataset.image,
+                        video: card.dataset.video,
+                        description: card.dataset.description,
+                        specs: card.dataset.specs.split('|')
+                    };
+                    openModal(guitarData);
+                });
+            });
+
+            // Event listener para cerrar modal
+            closeBtn.addEventListener('click', closeModal);
+
+            // Cerrar modal al hacer click fuera de él
+            window.addEventListener('click', (event) => {
+                if (event.target === modal) {
+                    closeModal();
+                }
+            });
+
+            // Cerrar modal con tecla Escape
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape') {
+                    closeModal();
+                    closeImageZoom(); // También cerrar zoom si está abierto
+                }
+            });
+
+            // Funcionalidad de zoom de imagen simplificada
+            const imageZoomModal = document.getElementById('imageZoomModal');
+            const modalImage = document.getElementById('modalImage');
+            const zoomedImage = document.getElementById('zoomedImage');
+
+            // Función para abrir zoom de imagen
+            function openImageZoom() {
+                const currentImage = document.getElementById('modalImage');
+                zoomedImage.src = currentImage.src;
+                imageZoomModal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            }
+
+            // Función para cerrar zoom de imagen
+            function closeImageZoom() {
+                imageZoomModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+
+            // Click en la imagen para zoom
+            modalImage.addEventListener('click', openImageZoom);
+
+            // Cerrar zoom al hacer click en cualquier parte del modal
+            imageZoomModal.addEventListener('click', closeImageZoom);
+        });
+    </script>
+</body>
+</html>

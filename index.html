@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RP GUITAR - Tienda de Guitarras y Accesorios</title>
+    <link rel="stylesheet" href="nav.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Contenedor del menú -->
+    <div id="nav-container"></div>
+    <!-- Contenido principal -->
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Bienvenido a RP GUITAR</h1>
+                <p>Tu tienda especializada en guitarras, accesorios y equipos musicales</p>
+                <button class="cta-button">Explorar Productos</button>
+            </div>
+        </section>
+
+        <section class="featured-products">
+            <div class="container">
+                <h2>Productos Destacados</h2>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <h3>Guitarras Eléctricas</h3>
+                        <p>Descubre nuestra colección de guitarras eléctricas de alta calidad</p>
+                    </div>
+                    <div class="product-card">
+                        <h3>Amplificadores</h3>
+                        <p>Potencia tu sonido con nuestros amplificadores profesionales</p>
+                    </div>
+                    <div class="product-card">
+                        <h3>Pedales de Efectos</h3>
+                        <p>Explora los mejores pedales de marcas reconocidas</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- JavaScript para el menú -->
+    <script src="menu.js"></script>
+    <script>
+        // Inicializar el menú para la página principal
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeMenu(true); // true indica que es la página principal
+        });
+    </script>
+</body>
+</html>
