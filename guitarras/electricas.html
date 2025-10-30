@@ -753,8 +753,7 @@
                                 Envío gratis a toda Guatemala, Visacuotas.  
                             Q35,090.</p>
                             </p>
-                            <span style="background: #dc3545; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-weight: bold; display: inline-block; margin-bottom: 1rem;">AGOTADO</span><br>
-                            <a href="#" class="btn-contact" style="background: #6c757d; cursor: not-allowed;" disabled>Agotado</a>
+                            <a href="#" class="btn-contact">Comprar Ahora</a>
                         </div>
                     </div>
                     
@@ -775,8 +774,7 @@ Cuenta con el sistema SSCII que la hace súper silenciosa<br>
                             <p>
                                 Envío gratis a toda Guatemala, Visacuotas.  
                             Q29,300.</p>
-                            <span style="background: #dc3545; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-weight: bold; display: inline-block; margin-bottom: 1rem;">AGOTADO</span><br>
-                            <a href="#" class="btn-contact" style="background: #6c757d; cursor: not-allowed;" disabled>Agotado</a>
+                            <a href="#" class="btn-contact">Comprar Ahora</a>
                         </div>
                     </div>
 
@@ -820,8 +818,7 @@ Cuenta con el sistema SSCII que la hace súper silenciosa<br>
                                 Envío gratis a toda Guatemala, Visacuotas.  </p>
                             </p>
                              <p class="guitar-price">Precio: Q31,300</p>
-                            <span style="background: #dc3545; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-weight: bold; display: inline-block; margin-bottom: 1rem;">AGOTADO</span><br>
-                            <a href="#" class="btn-contact" style="background: #6c757d; cursor: not-allowed;" disabled>Agotado</a>
+                            <a href="#" class="btn-contact">Comprar Ahora</a>
                         </div>
                     </div>
                 </div>
@@ -903,29 +900,16 @@ Cuenta con el sistema SSCII que la hace súper silenciosa<br>
                 document.getElementById('modalVideo').src = convertToEmbedUrl(guitarData.video);
                 document.getElementById('modalDescription').textContent = guitarData.description;
                 
-                // Verificar si está agotado basándose en el nombre
+                // Todas las guitarras disponibles
                 const availability = document.querySelector('.availability');
                 const addCartBtn = document.querySelector('.btn-add-cart');
                 
-                const isOutOfStock = guitarData.name === 'Mateus Asato Classic T' || 
-                                   guitarData.name === 'Suhr Classic S Maple' || 
-                                   guitarData.name === 'Suhr Classic T';
-                
-                if (isOutOfStock) {
-                    availability.textContent = '✗ AGOTADO';
-                    availability.className = 'availability out-of-stock';
-                    addCartBtn.textContent = 'Agotado';
-                    addCartBtn.style.background = '#6c757d';
-                    addCartBtn.style.cursor = 'not-allowed';
-                    addCartBtn.disabled = true;
-                } else {
-                    availability.textContent = '✓ DISPONIBLE';
-                    availability.className = 'availability';
-                    addCartBtn.textContent = 'Añadir al Carrito';
-                    addCartBtn.style.background = 'linear-gradient(135deg, #28a745 0%, #20c997 100%)';
-                    addCartBtn.style.cursor = 'pointer';
-                    addCartBtn.disabled = false;
-                }
+                availability.textContent = '✓ DISPONIBLE';
+                availability.className = 'availability';
+                addCartBtn.textContent = 'Añadir al Carrito';
+                addCartBtn.style.background = 'linear-gradient(135deg, #28a745 0%, #20c997 100%)';
+                addCartBtn.style.cursor = 'pointer';
+                addCartBtn.disabled = false;
                 
                 // Limpiar y agregar especificaciones
                 const specsList = document.getElementById('modalSpecs');
