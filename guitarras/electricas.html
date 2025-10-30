@@ -366,8 +366,8 @@
         
         .btn-contact {
             display: inline-block;
-            background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
-            color: rgb(27, 105, 161);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
             padding: 0.8rem 1.5rem;
             text-decoration: none;
             border-radius: 25px;
@@ -378,8 +378,8 @@
         
         .btn-contact:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            color: rgb(0, 0, 0);
+            box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+            color: white;
         }
         
         @media (max-width: 768px) {
@@ -705,9 +705,9 @@
                         </div>
                     </div>
                     
-                    <div class="guitar-card"
-                         data-name="Rivolta Regata Standard" 
-                         data-brand="Rivolta"
+                    <div class="guitar-card" class ="Rivolta Combinata VII"
+                         data-name="Rivolta Combinata VII" 
+                         data-brand="Rivolta "
                          data-price="Consultar Precio"
                          data-image="Guitarras/Rivolta/RV3.png"
                          data-video="https://www.youtube.com/embed/vnSoK0CLpVo"
@@ -715,7 +715,7 @@
                          data-description="Guitarra de estilo clásico con construcción set-neck y acabado envejecido. Los humbuckers Rivolta proporcionan un sonido cálido perfecto para jazz, blues y rock.">
                         <img src="Guitarras/Rivolta/RV3.png" alt="Rivolta Electric Guitar" class="guitar-image">
                         <div class="guitar-info">
-                            <h3 class="guitar-name">Rivolta Regata Standard</h3>
+                            <h3 class="guitar-name">Rivolta Combinata VII</h3>
                             <p class="guitar-specs">
                                 • Cuerpo: Caoba con binding vintage<br>
                                 • Mástil: Caoba set-neck<br>
@@ -785,6 +785,7 @@ Cuenta con el sistema SSCII que la hace súper silenciosa<br>
                          data-brand="Suhr"
                          data-price="Q35,090."
                          data-image="Guitarras/suhr/srst2.png"
+                         data-video="https://www.youtube.com/watch?v=vnSoK0CLpVo"
                          data-specs= " Esta guitarra ofrece Versatilidad total con su configuración HSS, Sustain y afinación impecable con FU-Tone Floyd y Cambio a Drop D en segundos con D-Tuna"
                          data-description="Configuración HSS perfecta con maderas de la más alta calidad, con FU-Tone Floyd Rose y EVH D-Tuna.">
                         <img src="Guitarras/suhr/srst2.png" alt="Suhr Electric Guitar" class="guitar-image">
@@ -797,7 +798,6 @@ Cuenta con el sistema SSCII que la hace súper silenciosa<br>
                             <p>
                                 Envío gratis a toda Guatemala, Visacuotas.  
                             Q35,090.</p>
-                            </p>
                             <a href="#" class="btn-contact">Comprar Ahora</a>
                         </div>
                     </div>
@@ -904,7 +904,7 @@ Cuenta con el sistema SSCII que la hace súper silenciosa<br>
                 document.getElementById('modalDescription').textContent = guitarData.description;
                 
                 // Verificar si está agotado basándose en el nombre
-                const availability = document.querySelector('.modal-body .availability');
+                const availability = document.querySelector('.availability');
                 const addCartBtn = document.querySelector('.btn-add-cart');
                 
                 const isOutOfStock = guitarData.name === 'Mateus Asato Classic T' || 
@@ -921,7 +921,7 @@ Cuenta con el sistema SSCII que la hace súper silenciosa<br>
                 } else {
                     availability.textContent = '✓ DISPONIBLE';
                     availability.className = 'availability';
-                    addCartBtn.textContent = 'Añadir a la Carrito';
+                    addCartBtn.textContent = 'Añadir al Carrito';
                     addCartBtn.style.background = 'linear-gradient(135deg, #28a745 0%, #20c997 100%)';
                     addCartBtn.style.cursor = 'pointer';
                     addCartBtn.disabled = false;
