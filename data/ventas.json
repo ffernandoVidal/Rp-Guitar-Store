@@ -1,0 +1,149 @@
+{
+  "ventas": [
+    {
+      "producto": "D'Angelico Premier Atlantic",
+      "precio": "5000",
+      "metodoPago": "tarjeta",
+      "tipoEntrega": "compra",
+      "fecha": "2025-12-26",
+      "id": 1,
+      "fechaRegistro": "2025-12-26T21:31:12.584Z"
+    },
+    {
+      "producto": "Suhr Modern T",
+      "precio": "35000",
+      "metodoPago": "efectivo",
+      "tipoEntrega": "recogida",
+      "fecha": "2025-12-27",
+      "id": 2,
+      "fechaRegistro": "2025-12-26T21:32:11.545Z"
+    },
+    {
+      "producto": "D'Angelico Deluxe Bedford",
+      "precio": "500",
+      "metodoPago": "efectivo",
+      "tipoEntrega": "compra",
+      "fecha": "2025-12-27",
+      "id": 3,
+      "fechaRegistro": "2025-12-27T03:03:28.899Z"
+    },
+    {
+      "producto": "Suhr Classic S HSS",
+      "precio": "100",
+      "metodoPago": "efectivo",
+      "tipoEntrega": "compra",
+      "fecha": "2025-12-27",
+      "id": 4,
+      "fechaRegistro": "2025-12-27T03:03:50.031Z"
+    },
+    {
+      "producto": "Cort CM30R Dark Blue",
+      "precio": 2100,
+      "metodoPago": "efectivo",
+      "tipoEntrega": "compra",
+      "fecha": "2025-12-31",
+      "id": 5,
+      "fechaRegistro": "2025-12-31T04:15:44.171Z"
+    }
+  ],
+  "nextId": 6,
+  "cajas": [
+    {
+      "id": 1,
+      "dineroInicial": 0,
+      "fecha": "2025-12-26",
+      "fechaRegistro": "2025-12-26T21:37:48.971Z"
+    },
+    {
+      "id": 2,
+      "dineroInicial": 0,
+      "fecha": "2025-12-26",
+      "fechaRegistro": "2025-12-26T21:38:13.757Z"
+    },
+    {
+      "id": 3,
+      "dineroInicial": 0,
+      "fecha": "2025-12-26",
+      "fechaRegistro": "2025-12-26T22:17:11.650Z"
+    },
+    {
+      "id": 4,
+      "dineroInicial": 0,
+      "fecha": "2025-12-26",
+      "fechaRegistro": "2025-12-26T22:48:57.871Z"
+    },
+    {
+      "id": 5,
+      "dineroInicial": 0,
+      "fecha": "2025-12-26",
+      "fechaRegistro": "2025-12-26T23:37:39.971Z"
+    },
+    {
+      "id": 6,
+      "dineroInicial": 0,
+      "fecha": "2025-12-26",
+      "fechaRegistro": "2025-12-26T23:57:00.846Z"
+    },
+    {
+      "id": 7,
+      "dineroInicial": 0,
+      "fecha": "2025-12-27",
+      "fechaRegistro": "2025-12-27T00:03:25.750Z"
+    },
+    {
+      "id": 8,
+      "dineroInicial": 0,
+      "fecha": "2025-12-27",
+      "fechaRegistro": "2025-12-27T00:09:09.385Z"
+    },
+    {
+      "id": 9,
+      "dineroInicial": 0,
+      "fecha": "2025-12-27",
+      "fechaRegistro": "2025-12-27T02:33:46.434Z"
+    },
+    {
+      "id": 10,
+      "dineroInicial": 0,
+      "fecha": "2025-12-27",
+      "fechaRegistro": "2025-12-27T02:55:11.473Z"
+    },
+    {
+      "id": 11,
+      "dineroInicial": 0,
+      "fecha": "2025-12-27",
+      "fechaRegistro": "2025-12-27T03:00:54.194Z"
+    },
+    {
+      "id": 12,
+      "dineroInicial": 0,
+      "fecha": "2025-12-27",
+      "fechaRegistro": "2025-12-27T03:33:44.792Z"
+    },
+    {
+      "id": 13,
+      "dineroInicial": 0,
+      "fecha": "2025-12-27",
+      "fechaRegistro": "2025-12-27T04:57:48.171Z"
+    },
+    {
+      "id": 14,
+      "dineroInicial": 0,
+      "fecha": "2025-12-27",
+      "fechaRegistro": "2025-12-27T18:32:12.092Z"
+    },
+    {
+      "id": 15,
+      "dineroInicial": 0,
+      "fecha": "2025-12-27",
+      "fechaRegistro": "2025-12-27T22:16:15.967Z"
+    },
+    {
+      "id": 16,
+      "dineroInicial": 0,
+      "fecha": "2025-12-31",
+      "fechaRegistro": "2025-12-31T04:14:22.414Z"
+    }
+  ],
+  "nextCajaId": 17
+}

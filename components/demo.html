@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo - RP GUITAR Cart Component</title>
+    <link rel="stylesheet" href="cart.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .demo-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .demo-header {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .demo-header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .demo-header p {
+            margin: 10px 0 0 0;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .demo-content {
+            padding: 40px;
+        }
+
+        .demo-section {
+            margin-bottom: 50px;
+        }
+
+        .demo-section h2 {
+            color: #333;
+            border-bottom: 3px solid #ff6b35;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .demo-product {
+            border: 2px solid #eee;
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            background: #fafafa;
+        }
+
+        .demo-product:hover {
+            border-color: #ff6b35;
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, #ddd, #f0f0f0);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            margin-bottom: 15px;
+        }
+
+        .product-info h3 {
+            margin: 0 0 10px 0;
+            color: #333;
+            font-size: 1.3rem;
+        }
+
+        .product-brand {
+            color: #666;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            color: #ff6b35;
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .demo-btn {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .demo-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
+        }
+
+        .demo-btn:active {
+            transform: translateY(0);
+        }
+
+        .instructions {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+
+        .instructions h3 {
+            color: #495057;
+            margin-top: 0;
+        }
+
+        .instructions ol {
+            color: #6c757d;
+            line-height: 1.6;
+        }
+
+        .instructions ol li {
+            margin-bottom: 8px;
+        }
+
+        .code-example {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+
+        .highlight {
+            background: #ff6b35;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .demo-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 10px;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .demo-header {
+                padding: 20px;
+            }
+            
+            .demo-header h1 {
+                font-size: 2rem;
+            }
+            
+            .demo-content {
+                padding: 20px;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <div class="demo-header">
+            <h1>🛒 RP GUITAR Cart Component</h1>
+            <p>Demo interactivo del sistema de carrito de compras</p>
+        </div>
+
+        <div class="demo-content">
+            <div class="instructions">
+                <h3>🎯 Instrucciones para la Demo:</h3>
+                <ol>
+                    <li>Haz clic en <span class="highlight">"Comprar Ahora"</span> en cualquier producto</li>
+                    <li>Observa como aparece la notificación de confirmación</li>
+                    <li>Ve como se actualiza el contador del carrito (🛒)</li>
+                    <li>Haz clic en el icono del carrito para ver los productos agregados</li>
+                    <li>Prueba el proceso de checkout completo</li>
+                    <li>El mensaje se enviará por WhatsApp (se abrirá en nueva ventana)</li>
+                </ol>
+            </div>
+
+            <div class="demo-section">
+                <h2>🎸 Productos de Ejemplo</h2>
+                
+                <div class="products-grid">
+                    <!-- Guitarra Eléctrica -->
+                    <div class="demo-product" 
+                         data-name="Stratocaster American Professional II"
+                         data-brand="Fender"
+                         data-price="Q25,000"
+                         data-image="https://via.placeholder.com/300x200/ff6b35/white?text=Fender+Strat"
+                         data-specs="Cuerpo de Aliso | Mástil de Arce | 22 trastes | Pickup V-Mod II | Tremolo sincronizado">
+                        
+                        <div class="product-image">🎸</div>
+                        <div class="product-info">
+                            <h3>Stratocaster American Professional II</h3>
+                            <div class="product-brand">Fender</div>
+                            <div class="product-price">Q25,000</div>
+                            <button class="demo-btn btn-contact">Comprar Ahora</button>
+                        </div>
+                    </div>
+
+                    <!-- Pedal de Efectos -->
+                    <div class="demo-product"
+                         data-name="Tube Screamer TS9"
+                         data-brand="Ibanez"
+                         data-price="Q850"
+                         data-image="https://via.placeholder.com/300x200/4CAF50/white?text=Ibanez+TS9"
+                         data-specs="Overdrive clásico | True Bypass | Control de Drive, Tone y Level">
+                        
+                        <div class="product-image">🎛️</div>
+                        <div class="product-info">
+                            <h3>Tube Screamer TS9</h3>
+                            <div class="product-brand">Ibanez</div>
+                            <div class="product-price">Q850</div>
+                            <button class="demo-btn btn-contact">Comprar Ahora</button>
+                        </div>
+                    </div>
+
+                    <!-- Amplificador -->
+                    <div class="demo-product"
+                         data-name="Hot Rod Deluxe IV"
+                         data-brand="Fender"
+                         data-price="Q12,500"
+                         data-image="https://via.placeholder.com/300x200/2196F3/white?text=Fender+Amp"
+                         data-specs="40W de potencia | 1x12 Celestion | Canal limpio y distorsión | Reverb integrado">
+                        
+                        <div class="product-image">🔊</div>
+                        <div class="product-info">
+                            <h3>Hot Rod Deluxe IV</h3>
+                            <div class="product-brand">Fender</div>
+                            <div class="product-price">Q12,500</div>
+                            <button class="demo-btn btn-contact">Comprar Ahora</button>
+                        </div>
+                    </div>
+
+                    <!-- Bajo Eléctrico -->
+                    <div class="demo-product"
+                         data-name="Precision Bass American Standard"
+                         data-brand="Fender"
+                         data-price="Q18,000"
+                         data-image="https://via.placeholder.com/300x200/9C27B0/white?text=Fender+Bass"
+                         data-specs="Cuerpo de Aliso | Mástil de Arce | 20 trastes | Pickup Split-Coil | Puente Hi-Mass">
+                        
+                        <div class="product-image">🎸</div>
+                        <div class="product-info">
+                            <h3>Precision Bass American Standard</h3>
+                            <div class="product-brand">Fender</div>
+                            <div class="product-price">Q18,000</div>
+                            <button class="demo-btn btn-contact">Comprar Ahora</button>
+                        </div>
+                    </div>
+
+                    <!-- Producto con precio "Consultar" -->
+                    <div class="demo-product"
+                         data-name="Gibson Les Paul Standard 50s"
+                         data-brand="Gibson"
+                         data-price="Consultar precio"
+                         data-image="https://via.placeholder.com/300x200/FF5722/white?text=Gibson+LP"
+                         data-specs="Cuerpo de Caoba | Tapa de Arce | Mástil de Caoba | Humbucker BurstBucker">
+                        
+                        <div class="product-image">🎸</div>
+                        <div class="product-info">
+                            <h3>Gibson Les Paul Standard 50s</h3>
+                            <div class="product-brand">Gibson</div>
+                            <div class="product-price">Consultar precio</div>
+                            <button class="demo-btn btn-contact">Comprar Ahora</button>
+                        </div>
+                    </div>
+
+                    <!-- Accesorio -->
+                    <div class="demo-product"
+                         data-name="Cable Instrument Neutrik 6m"
+                         data-brand="Mogami"
+                         data-price="Q450"
+                         data-image="https://via.placeholder.com/300x200/607D8B/white?text=Cable"
+                         data-specs="Cable profesional | Conectores Neutrik | 6 metros | Baja capacitancia">
+                        
+                        <div class="product-image">🔌</div>
+                        <div class="product-info">
+                            <h3>Cable Instrument Neutrik 6m</h3>
+                            <div class="product-brand">Mogami</div>
+                            <div class="product-price">Q450</div>
+                            <button class="demo-btn btn-contact">Comprar Ahora</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="demo-section">
+                <h2>💻 Código de Integración</h2>
+                
+                <p>Para integrar el carrito en tu página, simplemente agrega:</p>
+                
+                <div class="code-example">
+&lt;!-- En el &lt;head&gt; --&gt;
+&lt;link rel="stylesheet" href="components/cart.css"&gt;
+
+&lt;!-- Antes del cierre del &lt;/body&gt; --&gt;
+&lt;script src="components/cart.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+    document.addEventListener('DOMContentLoaded', function() {
+        initRPGuitarCart({
+            whatsappNumber: '58468795',
+            storeName: 'RP GUITAR',
+            currency: 'Q'
+        });
+    });
+&lt;/script&gt;
+                </div>
+
+                <p>Y configura tus productos con data attributes:</p>
+
+                <div class="code-example">
+&lt;div class="product-card" 
+     data-name="Stratocaster American Professional II"
+     data-brand="Fender"
+     data-price="Q25,000"
+     data-image="img/strat.jpg"
+     data-specs="Especificaciones del producto"&gt;
+    
+    &lt;h3&gt;Stratocaster American Professional II&lt;/h3&gt;
+    &lt;p&gt;Fender&lt;/p&gt;
+    &lt;p&gt;Q25,000&lt;/p&gt;
+    &lt;button class="btn-contact"&gt;Comprar Ahora&lt;/button&gt;
+&lt;/div&gt;
+                </div>
+            </div>
+
+            <div class="demo-section">
+                <h2>📊 Estadísticas del Sistema</h2>
+                
+                <div class="demo-stats">
+                    <div class="stat-card">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Responsive</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">0</span>
+                        <span class="stat-label">Dependencias</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">3</span>
+                        <span class="stat-label">Archivos</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">∞</span>
+                        <span class="stat-label">Productos</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="cart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Inicializar el carrito para la demo
+            initRPGuitarCart({
+                whatsappNumber: '58468795',
+                storeName: 'RP GUITAR DEMO',
+                currency: 'Q'
+            });
+
+            // Agregar contador de clicks para las estadísticas
+            let clickCount = 0;
+            document.addEventListener('click', function(e) {
+                if (e.target.matches('.btn-contact, .demo-btn')) {
+                    clickCount++;
+                    // Actualizar estadística de interacciones (opcional)
+                }
+            });
+        });
+    </script>
+</body>
+</html>

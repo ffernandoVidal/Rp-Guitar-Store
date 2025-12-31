@@ -1,0 +1,122 @@
+/* ==========================================
+   COMPONENTE PRODUCTCARD - TARJETA UNIVERSAL
+   Estructura basada en Cort CM15R Dark Blue
+   ========================================== */
+
+/* Contenedor principal de la tarjeta */
+.card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Contenedor de imagen */
+.imageContainer {
+  width: 100%;
+  height: 350px;
+  background: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  padding: 20px;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: scale-down;
+  object-position: center;
+  transition: transform 0.3s ease;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.card:hover .image {
+  transform: scale(1.02);
+}
+
+/* Sección de información del producto */
+.info {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Nombre del producto */
+.productName {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1d1d1f;
+  margin: 0;
+  line-height: 1.3;
+  min-height: 2.6rem;
+}
+
+/* Marca y modelo */
+.brand {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Precio */
+.price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1d1d1f;
+  margin: 8px 0;
+}
+
+/* Badge de stock */
+.stock {
+  display: inline-block;
+  background: #d4edda;
+  color: #155724;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  width: fit-content;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .imageContainer {
+    height: 280px;
+    padding: 15px;
+  }
+  
+  .productName {
+    font-size: 1rem;
+  }
+  
+  .price {
+    font-size: 1.3rem;
+  }
+  
+  .info {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .imageContainer {
+    height: 240px;
+    padding: 10px;
+  }
+}

@@ -6,6 +6,39 @@
     <title>Pedales Suhr - RP GUITAR</title>
     <link rel="stylesheet" href="../nav.css">
     <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../components/cart.css">
+    <style>
+        .product-buttons {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .product-buttons .btn-details {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 0.6rem 1rem;
+            text-decoration: none;
+            border-radius: 20px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-align: center;
+            flex: 1;
+            font-size: 0.85rem;
+        }
+
+        .product-buttons .btn-details:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(40, 167, 69, 0.3);
+            color: white;
+        }
+
+        .product-buttons .btn-product {
+            flex: 1;
+            font-size: 0.85rem;
+            padding: 0.6rem 1rem;
+        }
+    </style>
 </head>
 <body>
     <!-- Contenedor del menú -->
@@ -24,35 +57,63 @@
             <div class="container">
                 <h2>Productos Suhr Disponibles</h2>
                 <div class="products-grid">
-                    <div class="product-card">
-                        <h3>Suhr Riot</h3>
-                        <p>Distorsión de alta ganancia con controles de voicing únicos</p>
-                        <a href="#" class="btn-product">Ver Detalles</a>
+                    <div class="product-card"
+                         data-name="Suhr Riot MINI - Distortion" 
+                         data-brand="Suhr"
+                         data-price="Q2,200"
+                         data-image="https://via.placeholder.com/300x250/4A148C/white?text=Suhr+Riot+MINI"
+                         data-specs="Pedal de distorsión mini | Circuitería premium | Control de tonalidad único | Formato compacto | Ideal para pedalboards espaciales"
+                         data-description="El clásico Riot en formato mini. Distorsión de alta calidad con la misma respuesta dinámica y claridad del modelo original.">
+                        <img src="https://via.placeholder.com/300x250/4A148C/white?text=Suhr+Riot+MINI" alt="Suhr Riot MINI" class="product-image">
+                        <h3>Suhr Riot MINI - Distortion</h3>
+                        <p>El clásico Riot en formato mini con toda la potencia de distorsión premium Suhr.</p>
+                        <p class="product-price">Precio: Q2,200</p>
+                        <div class="product-buttons">
+                            <a href="#" class="btn-details">Ver Detalles</a>
+                            <a href="#" class="btn-product">Comprar Ahora</a>
+                        </div>
                     </div>
-                    <div class="product-card">
-                        <h3>Suhr Shiba Drive</h3>
-                        <p>Overdrive inspirado en el mítico Boss SD-1 con mejoras modernas</p>
-                        <a href="#" class="btn-product">Ver Detalles</a>
+                    
+                    <div class="product-card"
+                         data-name="Suhr Koko MINI - Reamp Boost" 
+                         data-brand="Suhr"
+                         data-price="Q2,200"
+                         data-image="https://via.placeholder.com/300x250/4A148C/white?text=Suhr+Koko+MINI"
+                         data-specs="Pedal boost mini | Clean boost premium | Control de ganancia preciso | Respuesta transparente | Ideal para push de amplificador"
+                         data-description="El famoso Koko Boost en formato mini. Clean boost transparente que preserva el carácter de tu amplificador mientras añade ganancia adicional.">
+                        <img src="https://via.placeholder.com/300x250/4A148C/white?text=Suhr+Koko+MINI" alt="Suhr Koko MINI" class="product-image">
+                        <h3>Suhr Koko MINI - Reamp Boost</h3>
+                        <p>Clean boost premium en formato mini para push perfecto de tu amplificador.</p>
+                        <p class="product-price">Precio: Q2,200</p>
+                        <a href="#" class="btn-product">Comprar Ahora</a>
                     </div>
-                    <div class="product-card">
-                        <h3>Suhr Koko Boost</h3>
-                        <p>Clean boost con EQ de dos bandas y hasta +25dB</p>
-                        <a href="#" class="btn-product">Ver Detalles</a>
+
+                    <div class="product-card"
+                         data-name="Suhr Eclipse - Dual Channel Delay" 
+                         data-brand="Suhr"
+                         data-price="Q7,500"
+                         data-image="https://via.placeholder.com/300x250/4A148C/white?text=Suhr+Eclipse"
+                         data-specs="Delay de doble canal | Múltiples algoritmos | Control MIDI | Presets programables | Calidad de audio premium"
+                         data-description="Delay premium de doble canal con algoritmos vintage y modernos. Control MIDI completo y presets para versatilidad total en vivo y estudio.">
+                        <img src="https://via.placeholder.com/300x250/4A148C/white?text=Suhr+Eclipse" alt="Suhr Eclipse" class="product-image">
+                        <h3>Suhr Eclipse - Dual Channel Delay</h3>
+                        <p>Delay de doble canal con algoritmos vintage y modernos, control MIDI y presets.</p>
+                        <p class="product-price">Precio: Q7,500</p>
+                        <a href="#" class="btn-product">Comprar Ahora</a>
                     </div>
-                    <div class="product-card">
-                        <h3>Suhr Discovery</h3>
-                        <p>Delay analógico premium con modulación y filtering</p>
-                        <a href="#" class="btn-product">Ver Detalles</a>
-                    </div>
-                    <div class="product-card">
-                        <h3>Suhr Eclipse</h3>
-                        <p>Dual delay con algoritmos vintage y modernos</p>
-                        <a href="#" class="btn-product">Ver Detalles</a>
-                    </div>
-                    <div class="product-card">
-                        <h3>Suhr Galactic</h3>
-                        <p>Reverb modular con múltiples algoritmos y presets</p>
-                        <a href="#" class="btn-product">Ver Detalles</a>
+
+                    <div class="product-card"
+                         data-name="Suhr Woodshed - Comp Pedal" 
+                         data-brand="Suhr"
+                         data-price="Q5,500"
+                         data-image="https://via.placeholder.com/300x250/4A148C/white?text=Suhr+Woodshed"
+                         data-specs="Compresor premium | Circuitería analógica | Control de attack y release | Respuesta musical | Transparencia total"
+                         data-description="Compresor analógico premium con respuesta musical excepcional. Controles precisos de attack y release para compresión transparente o coloración vintage.">
+                        <img src="https://via.placeholder.com/300x250/4A148C/white?text=Suhr+Woodshed" alt="Suhr Woodshed" class="product-image">
+                        <h3>Suhr Woodshed - Comp Pedal</h3>
+                        <p>Compresor analógico premium con respuesta musical excepcional y transparencia total.</p>
+                        <p class="product-price">Precio: Q5,500</p>
+                        <a href="#" class="btn-product">Comprar Ahora</a>
                     </div>
                 </div>
             </div>
@@ -85,9 +146,12 @@
 
     <!-- JavaScript para el menú -->
     <script src="../menu.js"></script>
+    <script src="../components/cart.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             initializeMenu(false);
+            // Inicializar carrito
+            window.rpGuitarCart = new RPGuitarCart();
         });
     </script>
 </body>

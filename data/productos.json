@@ -1,0 +1,27 @@
+{
+  "productos": [
+    {
+      "id": "prod-1",
+      "nombre": "Buffer Shur",
+      "marca": "Suhr",
+      "categoria": "accesorios",
+      "stock": 1,
+      "precioVenta": 699.96,
+      "precioMayorista": 0,
+      "descripcion": "Buffer shur",
+      "descripcionDetallada": "Phser",
+      "especificaciones": {
+        "tipo": "",
+        "cuerpo": "",
+        "mastil": "",
+        "diapason": "",
+        "otros": ""
+      },
+      "imagenes": [
+        "/img/accesorios/447bed1c-785d-4426-bafa-255c0f589b85.png"
+      ],
+      "fechaCreacion": "2025-12-31T17:02:16.680Z"
+    }
+  ],
+  "nextId": 2
+}

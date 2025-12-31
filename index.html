@@ -3,22 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="RP GUITAR - Tu tienda de confianza en Guatemala para guitarras eléctricas, acústicas, bajos, pedales de efectos, amplificadores y accesorios musicales de las mejores marcas.">
+    <meta name="keywords" content="guitarras Guatemala, pedales efectos, amplificadores, bajos, accesorios guitarra, Suhr, G&L, Nux, AMT, tienda música Guatemala">
+    <meta name="author" content="RP GUITAR">
+    <meta property="og:title" content="RP GUITAR - Tienda de Guitarras y Accesorios">
+    <meta property="og:description" content="La mejor selección de guitarras, pedales, amplificadores y accesorios musicales en Guatemala.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rpguitar.com">
     <title>RP GUITAR - Tienda de Guitarras y Accesorios</title>
     <link rel="stylesheet" href="nav.css">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="components/cart.css">
 </head>
 <body>
     <!-- Contenedor del menú -->
     <div id="nav-container"></div>
+    
+    <!-- Carrusel de imágenes -->
+    <section class="carousel-section">
+        <div class="carousel-container">
+            <div class="carousel-track">
+                <div class="carousel-slide">
+                    <img src="img/IMG_5043.JPG" alt="RP Guitar Store 1">
+                </div>
+                <div class="carousel-slide">
+                    <img src="img/IMG_7092.JPG" alt="RP Guitar Store 2">
+                </div>
+                <div class="carousel-slide">
+                    <img src="img/WhatsApp Image 2023-07-07 at 10.08.18 (1).jpeg" alt="RP Guitar Store 3">
+                </div>
+                <div class="carousel-slide">
+                    <img src="img/WhatsApp Image 2023-07-07 at 10.08.18.jpeg" alt="RP Guitar Store 4">
+                </div>
+                <div class="carousel-slide">
+                    <img src="img/WhatsApp Image 2023-07-07 at 10.08.19.jpeg" alt="RP Guitar Store 5">
+                </div>
+                <div class="carousel-slide">
+                    <img src="img/WhatsApp Image 2023-07-07 at 10.08.20.jpeg" alt="RP Guitar Store 6">
+                </div>
+                <div class="carousel-slide">
+                    <img src="img/WhatsApp Image 2025-08-19 at 11.24.19 AM (1).jpeg" alt="RP Guitar Store 7">
+                </div>
+                <div class="carousel-slide">
+                    <img src="img/WhatsApp Image 2025-08-19 at 11.24.19 AM (2).jpeg" alt="RP Guitar Store 8">
+                </div>
+                <div class="carousel-slide">
+                    <img src="img/WhatsApp Image 2025-08-19 at 11.24.19 AM.jpeg" alt="RP Guitar Store 9">
+                </div>
+            </div>
+            <button class="carousel-btn prev" aria-label="Anterior">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </button>
+            <button class="carousel-btn next" aria-label="Siguiente">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </button>
+            <div class="carousel-dots"></div>
+        </div>
+    </section>
+    
     <!-- Contenido principal -->
     <main>
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Bienvenido a RP GUITAR</h1>
-                <p>Tu tienda especializada en guitarras, accesorios y equipos musicales</p>
-                <button class="cta-button">Explorar Productos</button>
-            </div>
-        </section>
 
         <section class="featured-products">
             <div class="container">
@@ -43,10 +91,106 @@
 
     <!-- JavaScript para el menú -->
     <script src="menu.js"></script>
+    <script src="footer.js"></script>
+    <script src="components/cart.js"></script>
     <script>
         // Inicializar el menú para la página principal
         document.addEventListener('DOMContentLoaded', () => {
             initializeMenu(true); // true indica que es la página principal
+            initRPGuitarCart();
+            initializeFooter();
+        });
+    </script>
+    
+    <!-- JavaScript para el carrusel -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const track = document.querySelector('.carousel-track');
+            const slides = Array.from(track.children);
+            const nextButton = document.querySelector('.carousel-btn.next');
+            const prevButton = document.querySelector('.carousel-btn.prev');
+            const dotsContainer = document.querySelector('.carousel-dots');
+            
+            let currentIndex = 0;
+            let autoplayInterval;
+            
+            // Crear dots
+            slides.forEach((_, index) => {
+                const dot = document.createElement('button');
+                dot.classList.add('carousel-dot');
+                if (index === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => goToSlide(index));
+                dotsContainer.appendChild(dot);
+            });
+            
+            const dots = Array.from(dotsContainer.children);
+            
+            function updateSlide() {
+                track.style.transform = `translateX(-${currentIndex * 100}%)`;
+                
+                dots.forEach(dot => dot.classList.remove('active'));
+                dots[currentIndex].classList.add('active');
+            }
+            
+            function goToSlide(index) {
+                currentIndex = index;
+                updateSlide();
+                resetAutoplay();
+            }
+            
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % slides.length;
+                updateSlide();
+            }
+            
+            function prevSlide() {
+                currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                updateSlide();
+            }
+            
+            function startAutoplay() {
+                autoplayInterval = setInterval(nextSlide, 5000);
+            }
+            
+            function resetAutoplay() {
+                clearInterval(autoplayInterval);
+                startAutoplay();
+            }
+            
+            nextButton.addEventListener('click', () => {
+                nextSlide();
+                resetAutoplay();
+            });
+            
+            prevButton.addEventListener('click', () => {
+                prevSlide();
+                resetAutoplay();
+            });
+            
+            // Touch/swipe support
+            let touchStartX = 0;
+            let touchEndX = 0;
+            
+            track.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+            
+            track.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            });
+            
+            function handleSwipe() {
+                if (touchStartX - touchEndX > 50) {
+                    nextSlide();
+                    resetAutoplay();
+                } else if (touchEndX - touchStartX > 50) {
+                    prevSlide();
+                    resetAutoplay();
+                }
+            }
+            
+            startAutoplay();
         });
     </script>
 </body>

@@ -5,7 +5,9 @@ function createNavigation() {
         <nav class="navbar">
             <div class="nav-container">
                 <div class="nav-logo">
-                    <a href="../index.html">RP GUITAR STORE</a>
+                    <a href="../index.html">
+                        <img src="../img/2 (1).png" alt="RP Guitar" class="logo-img">
+                    </a>
                 </div>
                 
                 <ul class="nav-menu">
@@ -100,7 +102,9 @@ function createHomeNavigation() {
         <nav class="navbar">
             <div class="nav-container">
                 <div class="nav-logo">
-                    <a href="index.html">RP GUITAR STORE</a>
+                    <a href="index.html">
+                        <img src="img/2 (1).png" alt="RP Guitar" class="logo-img">
+                    </a>
                 </div>
                 
                 <ul class="nav-menu">

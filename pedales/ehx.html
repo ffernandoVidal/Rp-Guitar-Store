@@ -6,6 +6,39 @@
     <title>Pedales Electro-Harmonix - RP GUITAR</title>
     <link rel="stylesheet" href="../nav.css">
     <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../components/cart.css">
+    <style>
+        .product-buttons {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .product-buttons .btn-details {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 0.6rem 1rem;
+            text-decoration: none;
+            border-radius: 20px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-align: center;
+            flex: 1;
+            font-size: 0.85rem;
+        }
+
+        .product-buttons .btn-details:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(40, 167, 69, 0.3);
+            color: white;
+        }
+
+        .product-buttons .btn-product {
+            flex: 1;
+            font-size: 0.85rem;
+            padding: 0.6rem 1rem;
+        }
+    </style>
 </head>
 <body>
     <!-- Contenedor del menú -->
@@ -24,35 +57,244 @@
             <div class="container">
                 <h2>Productos Electro-Harmonix Disponibles</h2>
                 <div class="products-grid">
-                    <div class="product-card">
+                    <div class="product-card"
+                         data-name="EHX 360 Nano Looper" 
+                         data-brand="Electro-Harmonix"
+                         data-price="Q2,400"
+                         data-image="General/EHX/360 Nano Looper.png"
+                         data-specs="Nano looper | 360 segundos | Unlimited overdubs | True bypass | Compact design"
+                         data-description="Looper compacto con 360 segundos de tiempo de grabación y overdubs ilimitados. Perfect para práctica y performance en vivo.">
+                        <img src="General/EHX/360 Nano Looper.png" alt="EHX 360 Nano Looper" class="product-image">
+                        <h3>EHX 360 Nano Looper</h3>
+                        <p>Looper compacto con 360 segundos y overdubs ilimitados.</p>
+                        <div class="product-status">
+                            <span class="status-badge available">✅ DISPONIBLE</span>
+                        </div>
+                        <p class="product-price">Q2,400</p>
+                        <div class="product-buttons">
+                            <a href="#" class="btn-details">Ver Detalles</a>
+                            <a href="#" class="btn-product">Comprar Ahora</a>
+                        </div>
+                    </div>
+
+                    <div class="product-card"
+                         data-name="EHX B9 Organ Machine" 
+                         data-brand="Electro-Harmonix"
+                         data-price="Q3,800"
+                         data-image="General/EHX/B9.png"
+                         data-specs="Organ machine | 9 organ presets | Dry/Effect blend | Expression pedal control | Polyphonic"
+                         data-description="Transforma tu guitarra en un órgano vintage con 9 presets auténticos. Sonidos de Hammond, Vox Continental y más.">
+                        <img src="General/EHX/B9.png" alt="EHX B9 Organ Machine" class="product-image">
+                        <h3>EHX B9 Organ Machine</h3>
+                        <p>Transforma tu guitarra en órgano vintage con 9 presets auténticos.</p>
+                        <div class="product-status">
+                            <span class="status-badge available">✅ DISPONIBLE</span>
+                        </div>
+                        <p class="product-price">Q3,800</p>
+                        <div class="product-buttons">
+                            <a href="#" class="btn-details">Ver Detalles</a>
+                            <a href="#" class="btn-product">Comprar Ahora</a>
+                        </div>
+                    </div>
+
+                    <div class="product-card"
+                         data-name="EHX Bass Micro Synth" 
+                         data-brand="Electro-Harmonix"
+                         data-price="Q4,200"
+                         data-image="General/EHX/Bass Micro Synth.png"
+                         data-specs="Bass synthesizer | Multiple waveforms | Filter controls | Attack delay | Trigger control"
+                         data-description="Sintetizador para bajo con múltiples formas de onda y controles de filtro. Desde sonidos funk hasta texturas electrónicas.">
+                        <img src="General/EHX/Bass Micro Synth.png" alt="EHX Bass Micro Synth" class="product-image">
+                        <h3>EHX Bass Micro Synth</h3>
+                        <p>Sintetizador para bajo con múltiples formas de onda y filtros.</p>
+                        <div class="product-status">
+                            <span class="status-badge out-of-stock">❌ AGOTADO</span>
+                        </div>
+                        <p class="product-price">Q4,200</p>
+                        <div class="product-buttons">
+                            <a href="#" class="btn-details">Ver Detalles</a>
+                            <a href="#" class="btn-product disabled" style="background: #6c757d; cursor: not-allowed;">Agotado</a>
+                        </div>
+                    </div>
+
+                    <div class="product-card"
+                         data-name="EHX Battalion" 
+                         data-brand="Electro-Harmonix"
+                         data-price="Q3,600"
+                         data-image="General/EHX/Battalion.png"
+                         data-specs="Bass preamp/DI | 3-band EQ | Distortion circuit | XLR DI output | Multiple inputs"
+                         data-description="Preamp y DI para bajo con distorsión integrada. EQ de 3 bandas y salida XLR para conexión directa a consola.">
+                        <img src="General/EHX/Battalion.png" alt="EHX Battalion" class="product-image">
+                        <h3>EHX Battalion</h3>
+                        <p>Preamp y DI para bajo con distorsión integrada y EQ de 3 bandas.</p>
+                        <div class="product-status">
+                            <span class="status-badge available">✅ DISPONIBLE</span>
+                        </div>
+                        <p class="product-price">Q3,600</p>
+                        <div class="product-buttons">
+                            <a href="#" class="btn-details">Ver Detalles</a>
+                            <a href="#" class="btn-product">Comprar Ahora</a>
+                        </div>
+                    </div>
+
+                    <div class="product-card"
+                         data-name="EHX Crayon" 
+                         data-brand="Electro-Harmonix"
+                         data-price="Q1,800"
+                         data-image="General/EHX/Crayon.png"
+                         data-specs="Overdrive/Distortion | Full range | Independent drive and tone | True bypass | Compact design"
+                         data-description="Overdrive/Distorsión de rango completo con controles independientes de drive y tono. Desde clean boost hasta distorsión saturada.">
+                        <img src="General/EHX/Crayon.png" alt="EHX Crayon" class="product-image">
+                        <h3>EHX Crayon</h3>
+                        <p>Overdrive/Distorsión de rango completo con controles independientes.</p>
+                        <div class="product-status">
+                            <span class="status-badge available">✅ DISPONIBLE</span>
+                        </div>
+                        <p class="product-price">Q1,800</p>
+                        <div class="product-buttons">
+                            <a href="#" class="btn-details">Ver Detalles</a>
+                            <a href="#" class="btn-product">Comprar Ahora</a>
+                        </div>
+                    </div>
+
+                    <div class="product-card"
+                         data-name="EHX Freeze" 
+                         data-brand="Electro-Harmonix"
+                         data-price="Q2,200"
+                         data-image="General/EHX/Freeze.png"
+                         data-specs="Sound sustainer | Infinite sustain | Sample and hold | True bypass | Momentary or latching"
+                         data-description="Sustainer infinito que congela el sonido indefinidamente. Perfecto para crear pads y texturas ambientales únicas.">
+                        <img src="General/EHX/Freeze.png" alt="EHX Freeze" class="product-image">
+                        <h3>EHX Freeze</h3>
+                        <p>Sustainer infinito que congela el sonido para texturas ambientales.</p>
+                        <div class="product-status">
+                            <span class="status-badge available">✅ DISPONIBLE</span>
+                        </div>
+                        <p class="product-price">Q2,200</p>
+                        <div class="product-buttons">
+                            <a href="#" class="btn-details">Ver Detalles</a>
+                            <a href="#" class="btn-product">Comprar Ahora</a>
+                        </div>
+                    </div>
+
+                    <div class="product-card"
+                         data-name="EHX Grand Canyon" 
+                         data-brand="Electro-Harmonix"
+                         data-price="Q4,800"
+                         data-image="General/EHX/Grand Canyon.png"
+                         data-specs="Delay/Looper | Multiple delay types | 62-second looper | Tap tempo | Expression pedal control"
+                         data-description="Delay y looper premium con múltiples tipos de delay y looper de 62 segundos. Tap tempo y control por pedal de expresión.">
+                        <img src="General/EHX/Grand Canyon.png" alt="EHX Grand Canyon" class="product-image">
+                        <h3>EHX Grand Canyon</h3>
+                        <p>Delay y looper premium con múltiples tipos y 62 segundos de loop.</p>
+                        <div class="product-status">
+                            <span class="status-badge out-of-stock">❌ AGOTADO</span>
+                        </div>
+                        <p class="product-price">Q4,800</p>
+                        <div class="product-buttons">
+                            <a href="#" class="btn-details">Ver Detalles</a>
+                            <a href="#" class="btn-product disabled" style="background: #6c757d; cursor: not-allowed;">Agotado</a>
+                        </div>
+                    </div>
+
+                    <div class="product-card"
+                         data-name="EHX Big Muff Pi" 
+                         data-brand="Electro-Harmonix"
+                         data-price="Q1,950"
+                         data-image="General/EHX/Head Big Muff Pi.png"
+                         data-specs="Fuzz distortion | Classic circuit | Sustain control | Tone control | Legendary sound"
+                         data-description="El legendario Big Muff Pi utilizado por David Gilmour, Jack White y Billy Corgan. Fuzz clásico con sustain infinito.">
+                        <img src="General/EHX/Head Big Muff Pi.png" alt="EHX Big Muff Pi" class="product-image">
                         <h3>EHX Big Muff Pi</h3>
-                        <p>El legendario fuzz distortion utilizado por generaciones</p>
-                        <a href="#" class="btn-product">Ver Detalles</a>
+                        <p>El legendario fuzz utilizado por David Gilmour y Jack White.</p>
+                        <div class="product-status">
+                            <span class="status-badge available">✅ DISPONIBLE</span>
+                        </div>
+                        <p class="product-price">Q1,950</p>
+                        <div class="product-buttons">
+                            <a href="#" class="btn-details">Ver Detalles</a>
+                            <a href="#" class="btn-product">Comprar Ahora</a>
+                        </div>
                     </div>
-                    <div class="product-card">
+
+                    <div class="product-card"
+                         data-name="EHX Memory Man" 
+                         data-brand="Electro-Harmonix"
+                         data-price="Q3,200"
+                         data-image="General/EHX/Memory Man.png"
+                         data-specs="Analog delay | Modulation | Feedback control | Delay time up to 550ms | Classic sound"
+                         data-description="Delay analógico clásico con modulación integrada. El sonido cálido y musical que ha definido el delay analógico durante décadas.">
+                        <img src="General/EHX/Memory Man.png" alt="EHX Memory Man" class="product-image">
                         <h3>EHX Memory Man</h3>
-                        <p>Delay analógico clásico con modulación y loop</p>
-                        <a href="#" class="btn-product">Ver Detalles</a>
+                        <p>Delay analógico clásico con modulación y sonido cálido legendario.</p>
+                        <div class="product-status">
+                            <span class="status-badge available">✅ DISPONIBLE</span>
+                        </div>
+                        <p class="product-price">Q3,200</p>
+                        <div class="product-buttons">
+                            <a href="#" class="btn-details">Ver Detalles</a>
+                            <a href="#" class="btn-product">Comprar Ahora</a>
+                        </div>
                     </div>
-                    <div class="product-card">
-                        <h3>EHX POG2</h3>
-                        <p>Generador de octavas polifónico con múltiples voces</p>
-                        <a href="#" class="btn-product">Ver Detalles</a>
+
+                    <div class="product-card"
+                         data-name="EHX POG 3" 
+                         data-brand="Electro-Harmonix"
+                         data-price="Q5,200"
+                         data-image="General/EHX/POG 3.png"
+                         data-specs="Polyphonic octave generator | Multiple octaves | Attack control | Preset capability | MIDI control"
+                         data-description="Generador de octavas polifónico de tercera generación. Control MIDI, presets y múltiples octavas simultáneas para texturas únicas.">
+                        <img src="General/EHX/POG 3.png" alt="EHX POG 3" class="product-image">
+                        <h3>EHX POG 3</h3>
+                        <p>Generador de octavas polifónico con control MIDI y presets.</p>
+                        <div class="product-status">
+                            <span class="status-badge out-of-stock">❌ AGOTADO</span>
+                        </div>
+                        <p class="product-price">Q5,200</p>
+                        <div class="product-buttons">
+                            <a href="#" class="btn-details">Ver Detalles</a>
+                            <a href="#" class="btn-product disabled" style="background: #6c757d; cursor: not-allowed;">Agotado</a>
+                        </div>
                     </div>
-                    <div class="product-card">
-                        <h3>EHX Cathedral</h3>
-                        <p>Reverb estéreo con múltiples algoritmos y presets</p>
-                        <a href="#" class="btn-product">Ver Detalles</a>
+
+                    <div class="product-card"
+                         data-name="EHX Holy Grail Neo" 
+                         data-brand="Electro-Harmonix"
+                         data-price="Q1,400"
+                         data-image="General/EHX/Holy grail neo.png"
+                         data-specs="Digital reverb | Spring, Hall, Plate, Reverse | True bypass | Compact design | Professional quality"
+                         data-description="Reverb digital compacto con cuatro tipos distintivos: Spring, Hall, Plate y Reverse. Calidad profesional en formato nano.">
+                        <img src="General/EHX/Holy grail neo.png" alt="EHX Holy Grail Neo" class="product-image">
+                        <h3>EHX Holy Grail Neo</h3>
+                        <p>Reverb digital con Spring, Hall, Plate y Reverse en formato compacto.</p>
+                        <div class="product-status">
+                            <span class="status-badge available">✅ DISPONIBLE</span>
+                        </div>
+                        <p class="product-price">Q1,400</p>
+                        <div class="product-buttons">
+                            <a href="#" class="btn-details">Ver Detalles</a>
+                            <a href="#" class="btn-product">Comprar Ahora</a>
+                        </div>
                     </div>
-                    <div class="product-card">
-                        <h3>EHX Small Clone</h3>
-                        <p>Chorus clásico con el sonido Nirvana iconic</p>
-                        <a href="#" class="btn-product">Ver Detalles</a>
-                    </div>
-                    <div class="product-card">
-                        <h3>EHX Holy Grail</h3>
-                        <p>Reverb digital compacto con tres tipos distintivos</p>
-                        <a href="#" class="btn-product">Ver Detalles</a>
+
+                    <div class="product-card"
+                         data-name="EHX Soul Food" 
+                         data-brand="Electro-Harmonix"
+                         data-price="Q1,200"
+                         data-image="General/EHX/Soulfood.png"
+                         data-specs="Transparent overdrive | Clean blend | True bypass | Compact design | Klon-inspired"
+                         data-description="Overdrive transparente inspirado en el Klon Centaur. Clean blend para mantener la claridad del tono original.">
+                        <img src="General/EHX/Soulfood.png" alt="EHX Soul Food" class="product-image">
+                        <h3>EHX Soul Food</h3>
+                        <p>Overdrive transparente inspirado en Klon con clean blend.</p>
+                        <div class="product-status">
+                            <span class="status-badge available">✅ DISPONIBLE</span>
+                        </div>
+                        <p class="product-price">Q1,200</p>
+                        <div class="product-buttons">
+                            <a href="#" class="btn-details">Ver Detalles</a>
+                            <a href="#" class="btn-product">Comprar Ahora</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -83,11 +325,98 @@
         </section>
     </main>
 
+    <!-- Icono del carrito -->
+    <div class="cart-icon" id="cartIcon">
+        🛒
+        <div class="cart-count" id="cartCount" style="display: none;">0</div>
+    </div>
+
+    <!-- Notificación del carrito -->
+    <div class="cart-notification" id="cartNotification">
+        ✓ Producto agregado al carrito
+    </div>
+
+    <!-- Modal del carrito -->
+    <div id="cartModal" class="cart-modal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h2>🛒 Carrito de Compras</h2>
+                <span class="close" id="closeCart">&times;</span>
+            </div>
+            <div class="cart-body" id="cartBody">
+                <div class="cart-empty" id="cartEmpty">
+                    <div class="cart-empty-icon">🛒</div>
+                    <h3>Tu carrito está vacío</h3>
+                    <p>¡Agrega algunos pedales increíbles!</p>
+                </div>
+            </div>
+            <div class="cart-footer" id="cartFooter" style="display: none;">
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span id="cartTotal">Q0</span>
+                </div>
+                <div class="cart-actions">
+                    <button class="btn-clear-cart" id="clearCart">Vaciar Carrito</button>
+                    <button class="btn-checkout" id="checkoutBtn">Confirmar Compra</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de confirmación de pedido -->
+    <div id="checkoutModal" class="checkout-modal">
+        <div class="checkout-content">
+            <div class="checkout-header">
+                <h2>📋 Confirmar Pedido</h2>
+            </div>
+            <div class="checkout-body">
+                <div class="checkout-summary" id="checkoutSummary">
+                    <!-- Resumen del carrito se insertará aquí -->
+                </div>
+                
+                <form class="checkout-form" id="checkoutForm">
+                    <div class="form-group">
+                        <label for="customerName">Nombre Completo *</label>
+                        <input type="text" id="customerName" name="customerName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="customerEmail">Email *</label>
+                        <input type="email" id="customerEmail" name="customerEmail" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="customerPhone">Teléfono *</label>
+                        <input type="tel" id="customerPhone" name="customerPhone" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="customerAddress">Dirección de Entrega *</label>
+                        <textarea id="customerAddress" name="customerAddress" rows="3" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="customerNotes">Notas Adicionales</label>
+                        <textarea id="customerNotes" name="customerNotes" rows="2" placeholder="Instrucciones especiales, horarios de entrega, etc."></textarea>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn-cancel" id="cancelCheckout">Cancelar</button>
+                        <button type="submit" class="btn-confirm">Confirmar Pedido</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <!-- JavaScript para el menú -->
     <script src="../menu.js"></script>
+    <script src="../components/cart.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             initializeMenu(false);
+            // Inicializar carrito
+            window.rpGuitarCart = new RPGuitarCart();
         });
     </script>
 </body>

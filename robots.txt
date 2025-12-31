@@ -1,0 +1,14 @@
+# robots.txt para RP GUITAR
+
+User-agent: *
+Allow: /
+
+# Permitir acceso a todos los archivos CSS y JS
+Allow: /*.css$
+Allow: /*.js$
+
+# Permitir acceso a imágenes
+Allow: /img/
+
+# Sitemap (descomentar cuando tengas el sitemap)
+# Sitemap: https://rpguitar.com/sitemap.xml

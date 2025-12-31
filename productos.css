@@ -1,0 +1,588 @@
+/* Productos Reales RP Guitar Store - Estilos */
+
+.hero-section {
+    background: #ffffff;
+    color: #000000;
+    padding: 4rem 0;
+    text-align: center;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+.products-section {
+    padding: 3rem 3rem;
+    max-width: 2000px;
+    margin: 0 auto;
+}
+
+.products-section:nth-child(even) {
+    background: #f8f9fa;
+}
+
+.products-section h2 {
+    color: #000000;
+    margin-bottom: 2rem;
+    font-size: 2.2rem;
+    text-align: center;
+    border-bottom: 2px solid #87CEEB;
+    padding-bottom: 1rem;
+    font-weight: 600;
+}
+
+.products-section h3 {
+    color: #000000;
+    margin: 2rem 0 1rem 0;
+    font-size: 1.8rem;
+    border-left: 4px solid #87CEEB;
+    padding-left: 1rem;
+    font-weight: 600;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2.5rem;
+    margin-bottom: 2rem;
+    max-width: 2000px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-items: center;
+}
+
+@media screen and (max-width: 1400px) {
+    .products-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .products-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Estilos para cards de guitarra */
+.guitar-card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    border: 1px solid #f0f0f0;
+}
+
+.guitar-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    border-color: #ff6b35;
+}
+
+.guitar-image {
+    position: relative;
+    overflow: hidden;
+    height: 250px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.guitar-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Cambiado de cover a contain para mantener imagen completa */
+    transition: transform 0.3s ease;
+    background: #f8f9fa;
+}
+
+.guitar-card:hover .guitar-image img {
+    transform: scale(1.05);
+}
+
+.guitar-info {
+    padding: 0;
+}
+
+.guitar-info h3 {
+    margin: 0 0 0.5rem 0;
+    color: #333;
+    font-size: 1.3rem;
+    border: none;
+    padding: 0;
+}
+
+.guitar-brand {
+    color: #666;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.guitar-price {
+    color: #000000;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.guitar-status {
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+
+.guitar-status.available {
+    background: #d4edda;
+    color: #155724;
+}
+
+.guitar-status.out-of-stock {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.guitar-status.used {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.guitar-actions {
+    display: flex;
+    gap: 0.8rem;
+    margin-top: 1rem;
+}
+
+.guitar-actions button {
+    flex: 1;
+    padding: 0.8rem 1rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-details {
+    background: #ffffff;
+    color: #000000;
+    border: 1px solid #e0e0e0;
+}
+
+.btn-details:hover {
+    background: #f8f8f8;
+    border-color: #87CEEB;
+}
+
+.btn-contact {
+    background: #87CEEB;
+    color: #000000;
+    border: none;
+}
+
+.btn-contact:hover {
+    background: #6BB6D6;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(135, 206, 235, 0.3);
+}
+
+.btn-contact:disabled {
+    background: #cccccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn-product {
+    background: #87CEEB;
+    color: #000000;
+    border: none;
+}
+
+.btn-product:hover {
+    background: #6BB6D6;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(135, 206, 235, 0.3);
+}
+
+/* Estilos para cards de pedales */
+.pedal-card {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 1px solid #f0f0f0;
+}
+
+.pedal-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    border-color: #87CEEB;
+}
+
+.pedal-image {
+    height: 200px;
+    overflow: hidden;
+    background: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.pedal-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Cambiado de cover a contain */
+    transition: transform 0.3s ease;
+    background: #f8f9fa;
+}
+
+.pedal-card:hover .pedal-image img {
+    transform: scale(1.05);
+}
+
+.pedal-info {
+    padding: 1.5rem;
+}
+
+.pedal-info h3 {
+    margin: 0 0 0.5rem 0;
+    color: #333;
+    font-size: 1.2rem;
+    border: none;
+    padding: 0;
+}
+
+.pedal-brand {
+    color: #666;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.pedal-price {
+    color: #ff6b35;
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.pedal-actions {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.pedal-actions button {
+    flex: 1;
+    padding: 0.8rem 1rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Estilos para cards de pickups */
+.pickup-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.pickup-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    border-color: #ff6b35;
+}
+
+.pickup-image {
+    height: 150px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8f9fa;
+}
+
+.pickup-image img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.pickup-card:hover .pickup-image img {
+    transform: scale(1.1);
+}
+
+.pickup-info {
+    padding: 1.5rem;
+}
+
+.pickup-info h3 {
+    margin: 0 0 0.5rem 0;
+    color: #333;
+    font-size: 1.1rem;
+    border: none;
+    padding: 0;
+}
+
+.pickup-brand {
+    color: #666;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.pickup-price {
+    color: #ff6b35;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.pickup-actions {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.pickup-actions button {
+    flex: 1;
+    padding: 0.8rem 1rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Estilos para cards de amplificadores */
+.amp-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.amp-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    border-color: #ff6b35;
+}
+
+.amp-image {
+    height: 200px;
+    overflow: hidden;
+    background: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.amp-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Cambiado de cover a contain */
+    transition: transform 0.3s ease;
+    background: #f8f9fa;
+}
+
+.amp-card:hover .amp-image img {
+    transform: scale(1.05);
+}
+
+.amp-info {
+    padding: 1.5rem;
+}
+
+.amp-info h3 {
+    margin: 0 0 0.5rem 0;
+    color: #333;
+    font-size: 1.2rem;
+    border: none;
+    padding: 0;
+}
+
+.amp-brand {
+    color: #666;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.amp-price {
+    color: #ff6b35;
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.amp-actions {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.amp-actions button {
+    flex: 1;
+    padding: 0.8rem 1rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Estilos para cards de bajos */
+.bass-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.bass-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    border-color: #ff6b35;
+}
+
+.bass-image {
+    height: 200px;
+    overflow: hidden;
+    background: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.bass-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Cambiado de cover a contain */
+    transition: transform 0.3s ease;
+    background: #f8f9fa;
+}
+
+.bass-card:hover .bass-image img {
+    transform: scale(1.05);
+}
+
+.bass-info {
+    padding: 1.5rem;
+}
+
+.bass-info h3 {
+    margin: 0 0 0.5rem 0;
+    color: #333;
+    font-size: 1.2rem;
+    border: none;
+    padding: 0;
+}
+
+.bass-brand {
+    color: #666;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.bass-price {
+    color: #ff6b35;
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.bass-actions {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.bass-actions button {
+    flex: 1;
+    padding: 0.8rem 1rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .products-section {
+        padding: 2rem 0;
+    }
+    
+    .products-section h2 {
+        font-size: 1.8rem;
+    }
+    
+    .products-section h3 {
+        font-size: 1.5rem;
+    }
+    
+    .products-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .guitar-actions,
+    .pedal-actions,
+    .pickup-actions,
+    .amp-actions,
+    .bass-actions {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section {
+        padding: 2rem 0;
+    }
+    
+    .hero-content h1 {
+        font-size: 1.5rem;
+    }
+    
+    .products-section {
+        padding: 1.5rem 0;
+    }
+    
+    .guitar-info,
+    .pedal-info,
+    .pickup-info,
+    .amp-info,
+    .bass-info {
+        padding: 1rem;
+    }
+}

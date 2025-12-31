@@ -1,0 +1,558 @@
+.main {
+  min-height: 100vh;
+  padding-top: 70px;
+  padding-bottom: 60px;
+  background-color: #f5f5f7;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  position: relative;
+}
+
+/* Cinta de solvencia */
+.cintaSolvencia {
+  position: sticky;
+  top: 70px;
+  z-index: 100;
+  padding: 15px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.solvente {
+  background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
+  color: white;
+}
+
+.insolvente {
+  background: linear-gradient(135deg, #f44336 0%, #e53935 100%);
+  color: white;
+}
+
+/* Banner del curso */
+.banner {
+  background-color: #2c5f7a;
+  border-radius: 8px;
+  padding: 50px 40px;
+  text-align: center;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  position: relative;
+}
+
+.botonSalir {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: white;
+  color: #2c5f7a;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: background-color 0.2s;
+  border: 1px solid #e0e0e0;
+}
+
+.botonSalir:hover {
+  background-color: #f5f5f5;
+}
+
+.bannerTitle {
+  font-size: 2rem;
+  color: white;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.bannerSubtitle {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Panel principal */
+.panel {
+  background-color: white;
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e5e5e5;
+}
+
+/* Barra de progreso con círculos */
+.barraProgresoContainer {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 25px;
+  margin-bottom: 30px;
+  border: 1px solid #e0e0e0;
+}
+
+.barraProgreso {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  margin-top: 30px;
+  padding: 0 10px;
+}
+
+.nivelCirculoWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  flex: 1;
+}
+
+.nivelCirculo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1rem;
+  z-index: 2;
+  position: relative;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.circuloCompleto {
+  background-color: #28a745;
+  color: white;
+  border: 2px solid #1e7e34;
+}
+
+.circuloReposicion {
+  background-color: #dc3545;
+  color: white;
+  border: 2px solid #bd2130;
+}
+
+.circuloPendiente {
+  background-color: #e9ecef;
+  color: #6c757d;
+  border: 2px solid #ced4da;
+}
+
+.numeroCirculo {
+  font-size: 1.1rem;
+}
+
+.labelCirculo {
+  margin-top: 8px;
+  font-size: 0.75rem;
+  color: #666;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.lineaProgreso {
+  position: absolute;
+  top: 25px;
+  left: 50%;
+  width: 100%;
+  height: 3px;
+  z-index: 1;
+}
+
+.lineaCompleta {
+  background-color: #28a745;
+}
+
+.lineaPendiente {
+  background-color: #dee2e6;
+}
+
+.nivelCirculoWrapper:last-child .lineaProgreso {
+  display: none;
+}
+
+/* Header del alumno */
+.alumnoHeader {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding-bottom: 30px;
+  border-bottom: 2px solid #f0f0f0;
+  margin-bottom: 40px;
+}
+
+.alumnoFoto {
+  flex-shrink: 0;
+}
+
+.fotoImagen {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #87CEEB;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.alumnoInfo {
+  flex: 1;
+}
+
+.nombreConEstado {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.alumnoNombre {
+  font-size: 1.75rem;
+  color: #212529;
+  margin: 0;
+  font-weight: 600;
+}
+
+.estadoBadge {
+  font-size: 0.7rem;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+.estadoSolvente {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.estadoInsolvente {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.alumnoCarnet,
+.alumnoCurso,
+.alumnoNivel {
+  font-size: 1.1rem;
+  color: #666;
+  margin: 5px 0;
+}
+
+.alumnoNivel {
+  font-weight: 600;
+  color: #5CADCC;
+}
+
+/* Sección de notas */
+.notasSection {
+  margin-top: 40px;
+}
+
+.sectionTitle {
+  font-size: 1.25rem;
+  color: #212529;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+/* Grid de niveles */
+.nivelesGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.nivelCard {
+  background-color: #f8f9fa;
+  border-radius: 6px;
+  padding: 16px;
+  text-align: center;
+  border: 1px solid #e9ecef;
+}
+
+.nivelNumero {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.nivelNota {
+  font-size: 1.5rem;
+  color: #212529;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.notaReposicion {
+  color: #dc3545 !important;
+}
+
+.reposicionLabel {
+  font-size: 0.65rem;
+  color: #dc3545;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  margin: 4px 0;
+  text-transform: uppercase;
+}
+
+/* Barra de progreso */
+.notaBarra {
+  width: 100%;
+  height: 8px;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.notaBarraFill {
+  height: 100%;
+  background: linear-gradient(90deg, #87CEEB 0%, #5CADCC 100%);
+  transition: width 0.5s ease;
+}
+
+.barraReposicion {
+  background: linear-gradient(90deg, #f44336 0%, #e53935 100%);
+}
+
+/* Notas especiales */
+.notasEspeciales {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.notaEspecialCard {
+  background-color: #ffffff;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+.notaEspecialIcono {
+  font-size: 2.5rem;
+}
+
+.notaEspecialInfo {
+  flex: 1;
+}
+
+.notaEspecialInfo h4 {
+  font-size: 1rem;
+  color: #495057;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.notaEspecialValor {
+  font-size: 2rem;
+  color: #2c5f7a;
+  font-weight: 600;
+}
+
+/* Promedio general */
+.promedioGeneral {
+  background-color: #2c5f7a;
+  border-radius: 6px;
+  padding: 24px;
+  text-align: center;
+  color: white;
+}
+
+.promedioGeneral h4 {
+  font-size: 1rem;
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.promedioValor {
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .container {
+    padding: 25px 20px;
+  }
+  
+  .nivelesGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .nivelCirculo {
+    width: 45px;
+    height: 45px;
+    font-size: 1rem;
+  }
+  
+  .labelCirculo {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .main {
+    padding-top: 80px;
+  }
+  
+  .container {
+    padding: 20px 15px;
+  }
+  
+  .alumnoHeader {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .alumnoNombre {
+    font-size: 1.8rem;
+  }
+
+  .banner {
+    padding: 40px 20px;
+  }
+  
+  .botonSalir {
+    position: static;
+    display: inline-block;
+    margin-bottom: 15px;
+    padding: 10px 20px;
+  }
+
+  .bannerTitle {
+    font-size: 2rem;
+  }
+
+  .nivelesGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .notasEspeciales {
+    grid-template-columns: 1fr;
+  }
+
+  .panel {
+    padding: 25px;
+  }
+  
+  .barraProgresoContainer {
+    padding: 20px 15px;
+  }
+  
+  .nivelCirculo {
+    width: 35px;
+    height: 35px;
+    font-size: 0.85rem;
+  }
+  
+  .labelCirculo {
+    font-size: 0.65rem;
+  }
+  
+  .lineaProgreso {
+    height: 3px;
+    top: 18px;
+  }
+  
+  .notaEspecialValor {
+    font-size: 2.5rem;
+  }
+  
+  .tarjetasNotas {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 15px 10px;
+  }
+  
+  .alumnoNombre {
+    font-size: 1.5rem;
+  }
+  
+  .banner {
+    padding: 30px 15px;
+  }
+  
+  .bannerTitle {
+    font-size: 1.75rem;
+  }
+  
+  .botonSalir {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+  
+  .panel {
+    padding: 20px 15px;
+  }
+  
+  .barraProgresoContainer {
+    padding: 15px 10px;
+  }
+  
+  .nivelCirculo {
+    width: 30px;
+    height: 30px;
+    font-size: 0.75rem;
+  }
+  
+  .labelCirculo {
+    font-size: 0.6rem;
+  }
+  
+  .lineaProgreso {
+    top: 15px;
+  }
+  
+  .nivelesGrid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .nivelCard {
+    padding: 15px;
+  }
+  
+  .nivelTitulo {
+    font-size: 1rem;
+  }
+  
+  .nivelNota {
+    font-size: 1.8rem;
+  }
+  
+  .notaEspecialValor {
+    font-size: 2rem;
+  }
+  
+  .infoItem {
+    font-size: 0.9rem;
+  }
+}

@@ -1,0 +1,90 @@
+.main {
+  min-height: 100vh;
+  padding-top: 70px;
+  padding-bottom: 60px;
+}
+
+.heroSection {
+  text-align: center;
+  padding: 60px 0 40px;
+  background: linear-gradient(135deg, #1d1d1f 0%, #3a3a3c 100%);
+  border-radius: 20px;
+  margin: 40px 0;
+  color: white;
+}
+
+.pageTitle {
+  font-size: 4rem;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 20px;
+  letter-spacing: 3px;
+}
+
+.pageDescription {
+  font-size: 1.5rem;
+  color: #e0e0e0;
+  max-width: 700px;
+  margin: 0 auto 30px;
+  line-height: 1.6;
+}
+
+.brandInfo {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 800px;
+  margin: 30px auto 0;
+  backdrop-filter: blur(10px);
+}
+
+.brandInfo p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #e0e0e0;
+  margin: 0;
+}
+
+.section {
+  margin: 60px 0;
+}
+
+.sectionTitle {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #1d1d1f;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 3px solid #87CEEB;
+  display: inline-block;
+}
+
+.productsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+  .pageTitle {
+    font-size: 2.5rem;
+  }
+
+  .pageDescription {
+    font-size: 1.1rem;
+  }
+
+  .brandInfo {
+    padding: 20px;
+  }
+
+  .brandInfo p {
+    font-size: 1rem;
+  }
+
+  .productsGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}

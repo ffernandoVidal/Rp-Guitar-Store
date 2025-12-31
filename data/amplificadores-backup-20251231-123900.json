@@ -1,0 +1,311 @@
+{
+  "guitarras": [],
+  "pedales": [],
+  "amplificadores": [
+    {
+      "id": 1,
+      "nombre": "Cort CM15R Dark Blue",
+      "slug": "cort-cm15r-dark-blue",
+      "marca": "Cort",
+      "modelo": "CM15R",
+      "precio": 1250,
+      "descripcion": "Amplificador Cort CM15R de 15W con reverb integrado. Perfecto para práctica y grabación. Incluye canal limpio y de distorsión, efectos integrados y conexión para auriculares. Color Dark Blue exclusivo.",
+      "caracteristicas": [
+        "Potencia: 15W",
+        "Reverb digital",
+        "2 canales (Clean/Overdrive)",
+        "Altavoz de 8 pulgadas",
+        "Entrada auxiliar",
+        "Salida de auriculares",
+        "Control de tono de 3 bandas"
+      ],
+      "imagenes": [
+        "/img/amplificadores/CM15R  Dark Blue (2).png",
+        "/img/amplificadores/CM15R  Dark Blue.png",
+        "/img/amplificadores/CM15R  Dark Blue (3).png"
+      ],
+      "stock": true,
+      "categoria": "amplificadores"
+    },
+    {
+      "id": 2,
+      "nombre": "Cort CM15R Dark Red",
+      "slug": "cort-cm15r-dark-red",
+      "marca": "Otra",
+      "modelo": "CM15R",
+      "precio": 1250,
+      "descripcion": "Amplificador Cort CM15R de 15W con reverb integrado. Perfecto para práctica y grabación. Incluye canal limpio y de distorsión, efectos integrados y conexión para auriculares. Color Dark Red exclusivo.",
+      "caracteristicas": [
+        "Potencia: 15W",
+        "Reverb digital",
+        "2 canales (Clean/Overdrive)",
+        "Altavoz de 8 pulgadas",
+        "Entrada auxiliar",
+        "Salida de auriculares",
+        "Control de tono de 3 bandas"
+      ],
+      "imagenes": [
+        "/img/amplificadores/CM15R  Dark Red.png",
+        "/img/amplificadores/590b7328-aad5-4890-b533-68da52b9747e.png",
+        "/img/amplificadores/bbf1e422-3a5b-45b0-bab1-a46b86dfc75b.png"
+      ],
+      "stock": "1",
+      "categoria": "amplificadores",
+      "precioMayorista": 1000,
+      "descripcionDetallada": "Amplificador Cort CM15R de 15W con reverb integrado. Perfecto para práctica y grabación. Incluye canal limpio y de distorsión, efectos integrados y conexión para auriculares. Color Dark Red exclusivo.",
+      "especificaciones": {
+        "tipo": "CM15R",
+        "cuerpo": "",
+        "mastil": "",
+        "diapason": "",
+        "otros": "Potencia: 15W, Reverb digital, 2 canales (Clean/Overdrive), Altavoz de 8 pulgadas, Entrada auxiliar, Salida de auriculares, Control de tono de 3 bandas"
+      },
+      "fechaModificacion": "2025-12-31T17:10:00.929Z"
+    },
+    {
+      "id": 3,
+      "nombre": "Cort CM15R White Sand",
+      "slug": "cort-cm15r-white-sand",
+      "marca": "Cort",
+      "modelo": "CM15R",
+      "precio": 1250,
+      "descripcion": "Amplificador Cort CM15R de 15W con reverb integrado. Perfecto para práctica y grabación. Incluye canal limpio y de distorsión, efectos integrados y conexión para auriculares. Color White Sand exclusivo.",
+      "caracteristicas": [
+        "Potencia: 15W",
+        "Reverb digital",
+        "2 canales (Clean/Overdrive)",
+        "Altavoz de 8 pulgadas",
+        "Entrada auxiliar",
+        "Salida de auriculares",
+        "Control de tono de 3 bandas"
+      ],
+      "imagenes": [
+        "/img/amplificadores/CM15R  White Sand.png",
+        "/img/amplificadores/CM15R  White Sand (2).png",
+        "/img/amplificadores/CM15R  White Sand (3).png"
+      ],
+      "stock": true,
+      "categoria": "amplificadores"
+    },
+    {
+      "id": 4,
+      "nombre": "Cort CM30R Dark Blue",
+      "slug": "cort-cm30r-dark-blue",
+      "marca": "Cort",
+      "modelo": "CM30R",
+      "precio": 2100,
+      "descripcion": "Amplificador Cort CM30R de 30W con reverb integrado. Mayor potencia para ensayos y presentaciones en vivo. Incluye efectos integrados, 2 canales y controles avanzados. Color Dark Blue exclusivo.",
+      "caracteristicas": [
+        "Potencia: 30W",
+        "Reverb digital",
+        "2 canales (Clean/Overdrive)",
+        "Altavoz de 10 pulgadas",
+        "Entrada auxiliar",
+        "Salida de auriculares",
+        "Control de tono de 3 bandas",
+        "Loop de efectos"
+      ],
+      "imagenes": [
+        "/img/amplificadores/CM30R  Dark Blue (2).png",
+        "/img/amplificadores/CM30R  Dark Blue.png",
+        "/img/amplificadores/CM30R  Dark Blue (3).png"
+      ],
+      "stock": true,
+      "categoria": "amplificadores"
+    },
+    {
+      "id": 5,
+      "nombre": "Cort CM30R Dark Red",
+      "slug": "cort-cm30r-dark-red",
+      "marca": "Otra",
+      "modelo": "CM30R",
+      "precio": 2100,
+      "descripcion": "Amplificador Cort CM30R de 30W con reverb integrado. Mayor potencia para ensayos y presentaciones en vivo. Incluye efectos integrados, 2 canales y controles avanzados. Color Dark Red exclusivo.",
+      "caracteristicas": [
+        "Potencia: 30W",
+        "Reverb digital",
+        "2 canales (Clean/Overdrive)",
+        "Altavoz de 10 pulgadas",
+        "Entrada auxiliar",
+        "Salida de auriculares",
+        "Control de tono de 3 bandas",
+        "Loop de efectos"
+      ],
+      "imagenes": [
+        "/img/amplificadores/CM30R  Dark Red.png",
+        "/img/amplificadores/b12125de-8bdc-4bdd-8c63-9bcb874e7a6f.png",
+        "/img/amplificadores/c77059fd-db80-46e4-a13b-119d53827e0e.png"
+      ],
+      "stock": 5,
+      "categoria": "amplificadores",
+      "precioMayorista": 1680,
+      "descripcionDetallada": "Amplificador Cort CM30R de 30W con reverb integrado. Mayor potencia para ensayos y presentaciones en vivo. Incluye efectos integrados, 2 canales y controles avanzados. Color Dark Red exclusivo.",
+      "especificaciones": {
+        "tipo": "CM30R",
+        "cuerpo": "",
+        "mastil": "",
+        "diapason": "",
+        "otros": "Potencia: 30W, Reverb digital, 2 canales (Clean/Overdrive), Altavoz de 10 pulgadas, Entrada auxiliar, Salida de auriculares, Control de tono de 3 bandas, Loop de efectos"
+      },
+      "fechaModificacion": "2025-12-31T17:21:14.427Z"
+    },
+    {
+      "id": 6,
+      "nombre": "Cort CM30R White Sand",
+      "slug": "cort-cm30r-white-sand",
+      "marca": "Cort",
+      "modelo": "CM30R",
+      "precio": 2100,
+      "descripcion": "Amplificador Cort CM30R de 30W con reverb integrado. Mayor potencia para ensayos y presentaciones en vivo. Incluye efectos integrados, 2 canales y controles avanzados. Color White Sand exclusivo.",
+      "caracteristicas": [
+        "Potencia: 30W",
+        "Reverb digital",
+        "2 canales (Clean/Overdrive)",
+        "Altavoz de 10 pulgadas",
+        "Entrada auxiliar",
+        "Salida de auriculares",
+        "Control de tono de 3 bandas",
+        "Loop de efectos"
+      ],
+      "imagenes": [
+        "/img/amplificadores/CM30R  White Sand.png",
+        "/img/amplificadores/CM30R  White Sand (2).png"
+      ],
+      "stock": true,
+      "categoria": "amplificadores"
+    },
+    {
+      "id": 7,
+      "nombre": "Supro 64",
+      "slug": "supro-64",
+      "marca": "Supro",
+      "modelo": "64",
+      "precio": 6480,
+      "descripcion": "Amplificador Supro 64 de inspiración vintage. Tono clásico americano con construcción moderna. Perfecto para blues, rock y grabación profesional. Circuito completamente valvular.",
+      "caracteristicas": [
+        "Amplificador valvular",
+        "Tono vintage americano",
+        "Construcción premium",
+        "Ideal para blues y rock",
+        "Reverb integrado",
+        "Controles simples y efectivos"
+      ],
+      "imagenes": [
+        "/img/amplificadores/Supro 64.jpeg",
+        "/img/amplificadores/Supro 64 (2).jpeg",
+        "/img/amplificadores/Supro 64 (3).jpeg",
+        "/img/amplificadores/Supro 64 (4).jpeg",
+        "/img/amplificadores/Supro 64 (5).jpeg"
+      ],
+      "stock": true,
+      "categoria": "amplificadores"
+    },
+    {
+      "id": 8,
+      "nombre": "Supro Delta King 10",
+      "slug": "supro-delta-king-10",
+      "marca": "Supro",
+      "modelo": "Delta King 10",
+      "precio": 5680,
+      "descripcion": "Amplificador Supro Delta King 10 completamente valvular. Combo de 10 watts con altavoz de 10 pulgadas. Tono vintage clásico perfecto para grabación y práctica.",
+      "caracteristicas": [
+        "Potencia: 10W valvular",
+        "Altavoz de 10 pulgadas",
+        "Circuito Class A",
+        "Tono vintage auténtico",
+        "Construcción premium",
+        "Ideal para grabación"
+      ],
+      "imagenes": [
+        "/img/amplificadores/Supro Delta king 10.jpeg",
+        "/img/amplificadores/Supro Delta king 10 (2).jpeg",
+        "/img/amplificadores/Supro Delta king 10 (3).jpeg",
+        "/img/amplificadores/Supro Delta king 10 (4).jpeg",
+        "/img/amplificadores/Supro Delta king 10 (5).jpeg"
+      ],
+      "stock": true,
+      "categoria": "amplificadores"
+    },
+    {
+      "id": 9,
+      "nombre": "Supro Delta King 10 (Black)",
+      "slug": "supro-delta-king-10-black",
+      "marca": "Supro",
+      "modelo": "Delta King 10",
+      "precio": 5680,
+      "descripcion": "Amplificador Supro Delta King 10 completamente valvular en acabado negro. Combo de 10 watts con altavoz de 10 pulgadas. Tono vintage clásico perfecto para grabación y práctica.",
+      "caracteristicas": [
+        "Potencia: 10W valvular",
+        "Altavoz de 10 pulgadas",
+        "Circuito Class A",
+        "Tono vintage auténtico",
+        "Construcción premium",
+        "Ideal para grabación",
+        "Acabado negro"
+      ],
+      "imagenes": [
+        "/img/amplificadores/Supro Delta king 10 a.jpeg",
+        "/img/amplificadores/Supro Delta king 10 a (2).jpeg",
+        "/img/amplificadores/Supro Delta king 10 a (3).jpeg",
+        "/img/amplificadores/Supro Delta king 10 a (4).jpeg"
+      ],
+      "stock": true,
+      "categoria": "amplificadores"
+    },
+    {
+      "id": 10,
+      "nombre": "Supro Delta King 12",
+      "slug": "supro-delta-king-12",
+      "marca": "Supro",
+      "modelo": "Delta King 12",
+      "precio": 6280,
+      "descripcion": "Amplificador Supro Delta King 12 completamente valvular. Combo de 15 watts con altavoz de 12 pulgadas. Mayor potencia y proyección que el modelo 10, manteniendo el tono clásico Supro.",
+      "caracteristicas": [
+        "Potencia: 15W valvular",
+        "Altavoz de 12 pulgadas",
+        "Circuito Class A",
+        "Reverb integrado",
+        "Tono vintage premium",
+        "Construcción de alta calidad",
+        "Perfecto para estudio y escenario"
+      ],
+      "imagenes": [
+        "/img/amplificadores/Supro Delta king 12.jpeg",
+        "/img/amplificadores/Supro Delta king 12 (2).jpeg",
+        "/img/amplificadores/Supro Delta king 12 (3).jpeg"
+      ],
+      "stock": true,
+      "categoria": "amplificadores"
+    },
+    {
+      "id": 11,
+      "nombre": "Supro Delta King 12 (Black)",
+      "slug": "supro-delta-king-12-black",
+      "marca": "Supro",
+      "modelo": "Delta King 12",
+      "precio": 6280,
+      "descripcion": "Amplificador Supro Delta King 12 completamente valvular en acabado negro. Combo de 15 watts con altavoz de 12 pulgadas. Mayor potencia y proyección que el modelo 10, manteniendo el tono clásico Supro.",
+      "caracteristicas": [
+        "Potencia: 15W valvular",
+        "Altavoz de 12 pulgadas",
+        "Circuito Class A",
+        "Reverb integrado",
+        "Tono vintage premium",
+        "Construcción de alta calidad",
+        "Perfecto para estudio y escenario",
+        "Acabado negro"
+      ],
+      "imagenes": [
+        "/img/amplificadores/Supro Delta king 12 a.jpeg",
+        "/img/amplificadores/Supro Delta king 12 a (2).jpeg",
+        "/img/amplificadores/Supro Delta king 12 a (3).jpeg",
+        "/img/amplificadores/Supro Delta king 12 a (4).jpeg",
+        "/img/amplificadores/Supro Delta king 12 a (5).jpeg"
+      ],
+      "stock": true,
+      "categoria": "amplificadores"
+    }
+  ],
+  "bajos": [],
+  "accesorios": []
+}

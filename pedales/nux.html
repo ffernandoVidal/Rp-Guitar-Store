@@ -6,6 +6,7 @@
     <title>Pedales Nux - RP GUITAR</title>
     <link rel="stylesheet" href="../nav.css">
     <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../components/cart.css">
 </head>
 <body>
     <!-- Contenedor del menú -->
@@ -24,35 +25,224 @@
             <div class="container">
                 <h2>Productos Nux Disponibles</h2>
                 <div class="products-grid">
-                    <div class="product-card">
-                        <h3>Nux Amp Academy</h3>
-                        <p>Simulador de amplificadores con múltiples modelos clásicos</p>
-                        <a href="#" class="btn-product">Ver Detalles</a>
+                    <div class="product-card"
+                         data-name="NUX Analog Delay" 
+                         data-brand="NUX"
+                         data-price="Q1,800"
+                         data-image="General/Nux/Analog Delay.png"
+                         data-specs="Analog delay | Warm vintage tone | True bypass | Feedback control | Professional quality"
+                         data-description="Delay analógico con tono vintage cálido. Perfecto para recrear los delays clásicos de los años 70 y 80 con carácter orgánico.">
+                        <img src="General/Nux/Analog Delay.png" alt="NUX Analog Delay" class="product-image">
+                        <h3>NUX Analog Delay</h3>
+                        <p>Delay analógico con tono vintage cálido y orgánico.</p>
+                        <div class="product-status">
+                            <span class="status-badge available"> DISPONIBLE</span>
+                        </div>
+                        <p class="product-price">Q1,800</p>
+                        <div class="product-buttons">
+                            <a href="#" class="btn-details">Ver Detalles</a>
+                            <a href="#" class="btn-product">Comprar Ahora</a>
+                        </div>
                     </div>
-                    <div class="product-card">
-                        <h3>Nux Time Core</h3>
-                        <p>Pedal de delay digital con 7 tipos de delay diferentes</p>
-                        <a href="#" class="btn-product">Ver Detalles</a>
+
+                    <div class="product-card"
+                         data-name="NUX Atlantic" 
+                         data-brand="NUX"
+                         data-price="Q2,400"
+                         data-image="General/Nux/Atlantic.png"
+                         data-specs="Delay y reverb combinados | Multiple algorithms | True bypass | Professional grade | Versatile effects"
+                         data-description="Combinación de delay y reverb con múltiples algoritmos. Perfecto para crear espacios sonoros complejos y texturas ambientales.">
+                        <img src="General/Nux/Atlantic.png" alt="NUX Atlantic" class="product-image">
+                        <h3>NUX Atlantic</h3>
+                        <p>Delay y reverb combinados con múltiples algoritmos.</p>
+                        <div class="product-status">
+                            <span class="status-badge available"> DISPONIBLE</span>
+                        </div>
+                        <p class="product-price">Q2,400</p>
+                        <div class="product-buttons">
+                            <a href="#" class="btn-details">Ver Detalles</a>
+                            <a href="#" class="btn-product">Comprar Ahora</a>
+                        </div>
                     </div>
-                    <div class="product-card">
-                        <h3>Nux Chorus Core</h3>
-                        <p>Efectos de modulación: chorus, flanger, phaser y tremolo</p>
-                        <a href="#" class="btn-product">Ver Detalles</a>
+
+                    <div class="product-card"
+                         data-name="NUX HD Pitch" 
+                         data-brand="NUX"
+                         data-price="Q2,200"
+                         data-image="General/Nux/HD Pitch.png"
+                         data-specs="Pitch shifter | Harmony generator | True polyphonic | True bypass | Professional quality"
+                         data-description="Pitch shifter polifónico de alta definición con generador de armonías. Tracking preciso y latencia mínima para efectos de pitch complejos.">
+                        <img src="General/Nux/HD Pitch.png" alt="NUX HD Pitch" class="product-image">
+                        <h3>NUX HD Pitch</h3>
+                        <p>Pitch shifter polifónico de alta definición con armonías.</p>
+                        <div class="product-status">
+                            <span class="status-badge out-of-stock"> AGOTADO</span>
+                        </div>
+                        <p class="product-price">Q2,200</p>
+                        <div class="product-buttons">
+                            <a href="#" class="btn-details">Ver Detalles</a>
+                            <a href="#" class="btn-product disabled" style="background: #6c757d; cursor: not-allowed;">Agotado</a>
+                        </div>
                     </div>
-                    <div class="product-card">
-                        <h3>Nux Verb Core</h3>
-                        <p>Reverb digital con 7 tipos de espacios acústicos</p>
-                        <a href="#" class="btn-product">Ver Detalles</a>
+
+                    <div class="product-card"
+                         data-name="NUX Horseman" 
+                         data-brand="NUX"
+                         data-price="Q1,950"
+                         data-image="General/Nux/Horseman.png"
+                         data-specs="Overdrive/Distortion | Multiple gain stages | True bypass | Vintage character | Professional grade"
+                         data-description="Overdrive/Distorsión con múltiples etapas de ganancia. Desde clean boost hasta distorsión saturada con carácter vintage auténtico.">
+                        <img src="General/Nux/Horseman.png" alt="NUX Horseman" class="product-image">
+                        <h3>NUX Horseman</h3>
+                        <p>Overdrive/Distorsión con múltiples etapas de ganancia.</p>
+                        <div class="product-status">
+                            <span class="status-badge available"> DISPONIBLE</span>
+                        </div>
+                        <p class="product-price">Q1,950</p>
+                        <div class="product-buttons">
+                            <a href="#" class="btn-details">Ver Detalles</a>
+                            <a href="#" class="btn-product">Comprar Ahora</a>
+                        </div>
                     </div>
-                    <div class="product-card">
-                        <h3>Nux Drive Core</h3>
-                        <p>Overdrive y distorsión con múltiples voicings</p>
-                        <a href="#" class="btn-parameter">Ver Detalles</a>
+
+                    <div class="product-card"
+                         data-name="NUX Lacerate" 
+                         data-brand="NUX"
+                         data-price="Q1,750"
+                         data-image="General/Nux/Lacerate.png"
+                         data-specs="High gain distortion | Modern metal tone | Gate circuit | True bypass | Professional quality"
+                         data-description="Distorsión de alta ganancia para metal moderno. Circuito gate integrado para control de ruido y definición extrema en registros graves.">
+                        <img src="General/Nux/Lacerate.png" alt="NUX Lacerate" class="product-image">
+                        <h3>NUX Lacerate</h3>
+                        <p>Distorsión de alta ganancia para metal moderno con gate.</p>
+                        <div class="product-status">
+                            <span class="status-badge available"> DISPONIBLE</span>
+                        </div>
+                        <p class="product-price">Q1,750</p>
+                        <div class="product-buttons">
+                            <a href="#" class="btn-details">Ver Detalles</a>
+                            <a href="#" class="btn-product">Comprar Ahora</a>
+                        </div>
                     </div>
-                    <div class="product-card">
-                        <h3>Nux Loop Core</h3>
-                        <p>Looper con 6 horas de grabación y efectos incorporados</p>
-                        <a href="#" class="btn-product">Ver Detalles</a>
+
+                    <div class="product-card"
+                         data-name="NUX MG30" 
+                         data-brand="NUX"
+                         data-price="Q3,800"
+                         data-image="General/Nux/MG30.png"
+                         data-specs="Multi-effects processor | 30+ effects | Amp simulation | USB recording | Professional grade"
+                         data-description="Procesador multi-efectos con más de 30 efectos y simulación de amplificadores. Grabación USB y edición por software incluida.">
+                        <img src="General/Nux/MG30.png" alt="NUX MG30" class="product-image">
+                        <h3>NUX MG30</h3>
+                        <p>Procesador multi-efectos con 30+ efectos y amp modeling.</p>
+                        <div class="product-status">
+                            <span class="status-badge available"> DISPONIBLE</span>
+                        </div>
+                        <p class="product-price">Q3,800</p>
+                        <div class="product-buttons">
+                            <a href="#" class="btn-details">Ver Detalles</a>
+                            <a href="#" class="btn-product">Comprar Ahora</a>
+                        </div>
+                    </div>
+
+                    <div class="product-card"
+                         data-name="NUX MG300" 
+                         data-brand="NUX"
+                         data-price="Q5,200"
+                         data-image="General/Nux/MG300.png"
+                         data-specs="Advanced multi-effects | 100+ effects | IR loading | USB audio interface | Professional grade"
+                         data-description="Multi-efectos avanzado con más de 100 efectos, carga de IRs y interfaz de audio USB. La solución completa para grabación y live.">
+                        <img src="General/Nux/MG300.png" alt="NUX MG300" class="product-image">
+                        <h3>NUX MG300</h3>
+                        <p>Multi-efectos avanzado con 100+ efectos e interfaz USB.</p>
+                        <div class="product-status">
+                            <span class="status-badge out-of-stock"> AGOTADO</span>
+                        </div>
+                        <p class="product-price">Q5,200</p>
+                        <div class="product-buttons">
+                            <a href="#" class="btn-details">Ver Detalles</a>
+                            <a href="#" class="btn-product disabled" style="background: #6c757d; cursor: not-allowed;">Agotado</a>
+                        </div>
+                    </div>
+
+                    <div class="product-card"
+                         data-name="NUX Mini Studio" 
+                         data-brand="NUX"
+                         data-price="Q2,800"
+                         data-image="General/Nux/Mini Studio.png"
+                         data-specs="IR loader | Cabinet simulation | Professional IRs | True bypass | Studio quality"
+                         data-description="Cargador de IRs con simulación de gabinetes profesionales. Incluye IRs de estudio para sonido de grabación directo sin micrófono.">
+                        <img src="General/Nux/Mini Studio.png" alt="NUX Mini Studio" class="product-image">
+                        <h3>NUX Mini Studio</h3>
+                        <p>Cargador de IRs con simulación de gabinetes profesionales.</p>
+                        <div class="product-status">
+                            <span class="status-badge available">DISPONIBLE</span>
+                        </div>
+                        <p class="product-price">Q2,800</p>
+                        <div class="product-buttons">
+                            <a href="#" class="btn-details">Ver Detalles</a>
+                            <a href="#" class="btn-product">Comprar Ahora</a>
+                        </div>
+                    </div>
+
+                    <div class="product-card"
+                         data-name="NUX Morning Star" 
+                         data-brand="NUX"
+                         data-price="Q1,600"
+                         data-image="General/Nux/Morning Start.png"
+                         data-specs="Clean boost | Transparent overdrive | True bypass | Low noise | Professional quality"
+                         data-description="Clean boost y overdrive transparente que preserva el carácter natural del amplificador. Perfecto para push de solos y definición extra.">
+                        <img src="General/Nux/Morning Start.png" alt="NUX Morning Star" class="product-image">
+                        <h3>NUX Morning Star</h3>
+                        <p>Clean boost y overdrive transparente para push natural.</p>
+                        <div class="product-status">
+                            <span class="status-badge available"> DISPONIBLE</span>
+                        </div>
+                        <p class="product-price">Q1,600</p>
+                        <div class="product-buttons">
+                            <a href="#" class="btn-details">Ver Detalles</a>
+                            <a href="#" class="btn-product">Comprar Ahora</a>
+                        </div>
+                    </div>
+
+                    <div class="product-card"
+                         data-name="NUX Oceanic" 
+                         data-brand="NUX"
+                         data-price="Q2,100"
+                         data-image="General/Nux/Oceanic.png"
+                         data-specs="Digital reverb | Multiple algorithms | Shimmer mode | True bypass | Professional quality"
+                         data-description="Reverb digital con múltiples algoritmos incluyendo modo shimmer. Desde reverbs sutiles hasta texturas ambientales expansivas.">
+                        <img src="General/Nux/Oceanic.png" alt="NUX Oceanic" class="product-image">
+                        <h3>NUX Oceanic</h3>
+                        <p>Reverb digital con múltiples algoritmos y shimmer mode.</p>
+                        <div class="product-status">
+                            <span class="status-badge available"> DISPONIBLE</span>
+                        </div>
+                        <p class="product-price">Q2,100</p>
+                        <div class="product-buttons">
+                            <a href="#" class="btn-details">Ver Detalles</a>
+                            <a href="#" class="btn-product">Comprar Ahora</a>
+                        </div>
+                    </div>
+
+                    <div class="product-card"
+                         data-name="NUX XTC OD" 
+                         data-brand="NUX"
+                         data-price="Q1,900"
+                         data-image="General/Nux/XTC OD.png"
+                         data-specs="Tube screamer style | Mid boost | True bypass | Vintage character | Professional grade"
+                         data-description="Overdrive estilo Tube Screamer con boost de medios característico. El sonido clásico del overdrive verde en versión moderna mejorada.">
+                        <img src="General/Nux/XTC OD.png" alt="NUX XTC OD" class="product-image">
+                        <h3>NUX XTC OD</h3>
+                        <p>Overdrive estilo Tube Screamer con boost de medios clásico.</p>
+                        <div class="product-status">
+                            <span class="status-badge out-of-stock"> AGOTADO</span>
+                        </div>
+                        <p class="product-price">Q1,900</p>
+                        <div class="product-buttons">
+                            <a href="#" class="btn-details">Ver Detalles</a>
+                            <a href="#" class="btn-product disabled" style="background: #6c757d; cursor: not-allowed;">Agotado</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -83,12 +273,99 @@
         </section>
     </main>
 
+    <!-- Icono del carrito -->
+    <div class="cart-icon" id="cartIcon">
+        🛒
+        <div class="cart-count" id="cartCount" style="display: none;">0</div>
+    </div>
+
+    <!-- Notificación del carrito -->
+    <div class="cart-notification" id="cartNotification">
+        ✓ Producto agregado al carrito
+    </div>
+
+    <!-- Modal del carrito -->
+    <div id="cartModal" class="cart-modal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h2>🛒 Carrito de Compras</h2>
+                <span class="close" id="closeCart">&times;</span>
+            </div>
+            <div class="cart-body" id="cartBody">
+                <div class="cart-empty" id="cartEmpty">
+                    <div class="cart-empty-icon"></div>
+                    <h3>Tu carrito está vacío</h3>
+                    <p>¡Agrega algunos pedales increíbles!</p>
+                </div>
+            </div>
+            <div class="cart-footer" id="cartFooter" style="display: none;">
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span id="cartTotal">Q0</span>
+                </div>
+                <div class="cart-actions">
+                    <button class="btn-clear-cart" id="clearCart">Vaciar Carrito</button>
+                    <button class="btn-checkout" id="checkoutBtn">Confirmar Compra</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de confirmación de pedido -->
+    <div id="checkoutModal" class="checkout-modal">
+        <div class="checkout-content">
+            <div class="checkout-header">
+                <h2>📋 Confirmar Pedido</h2>
+            </div>
+            <div class="checkout-body">
+                <div class="checkout-summary" id="checkoutSummary">
+                    <!-- Resumen del carrito se insertará aquí -->
+                </div>
+                
+                <form class="checkout-form" id="checkoutForm">
+                    <div class="form-group">
+                        <label for="customerName">Nombre Completo *</label>
+                        <input type="text" id="customerName" name="customerName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="customerEmail">Email *</label>
+                        <input type="email" id="customerEmail" name="customerEmail" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="customerPhone">Teléfono *</label>
+                        <input type="tel" id="customerPhone" name="customerPhone" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="customerAddress">Dirección de Entrega *</label>
+                        <textarea id="customerAddress" name="customerAddress" rows="3" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="customerNotes">Notas Adicionales</label>
+                        <textarea id="customerNotes" name="customerNotes" rows="2" placeholder="Instrucciones especiales, horarios de entrega, etc."></textarea>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn-cancel" id="cancelCheckout">Cancelar</button>
+                        <button type="submit" class="btn-confirm">Confirmar Pedido</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <!-- JavaScript para el menú -->
     <script src="../menu.js"></script>
+    <script src="../components/cart.js"></script>
     <script>
         // Inicializar el menú para páginas internas
         document.addEventListener('DOMContentLoaded', () => {
             initializeMenu(false); // false indica que es una página interna
+            // Inicializar carrito
+            window.rpGuitarCart = new RPGuitarCart();
         });
     </script>
 </body>

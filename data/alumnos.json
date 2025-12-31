@@ -1,0 +1,176 @@
+{
+  "alumnos": [
+    {
+      "nombre": "fernando",
+      "instrumento": "guitarra",
+      "diaClases": "martes",
+      "horarioClases": "6-8 pm",
+      "mensualidad": "300",
+      "telefono": "51149061",
+      "estado": "solvente",
+      "carnet": "001-01",
+      "id": 1,
+      "fechaRegistro": "2025-12-26T19:57:59.323Z",
+      "ultimoPago": "2025-12-26T21:50:38.599Z",
+      "notas": {
+        "niveles": [
+          76,
+          58,
+          78,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "armonia": 68,
+        "instrumento": 78
+      },
+      "pagos": [
+        {
+          "carnet": "001-01",
+          "mes": "Diciembre",
+          "año": "2025",
+          "fechaPago": "2025-12-26T21:45:00.305Z",
+          "monto": "300"
+        },
+        {
+          "carnet": "001-01",
+          "mes": "febrero",
+          "año": "2025",
+          "metodoPago": "efectivo",
+          "fechaPago": "2025-12-26T21:50:22.788Z",
+          "monto": "300"
+        },
+        {
+          "carnet": "001-01",
+          "mes": "enero",
+          "año": "2026",
+          "metodoPago": "efectivo",
+          "fechaPago": "2025-12-26T21:50:38.599Z",
+          "monto": "300"
+        }
+      ]
+    },
+    {
+      "nombre": "fernando jorge",
+      "instrumento": "guitarra",
+      "diaClases": "martes",
+      "horarioClases": "6-8 pm",
+      "mensualidad": "300",
+      "telefono": "51149061",
+      "estado": "solvente",
+      "carnet": "001-02",
+      "id": 2,
+      "fechaRegistro": "2025-12-26T19:58:20.351Z",
+      "ultimoPago": "2025-12-31T04:11:55.145Z",
+      "notas": {
+        "niveles": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "armonia": 0,
+        "instrumento": 0
+      },
+      "pagos": [
+        {
+          "carnet": "001-02",
+          "mes": "Diciembre",
+          "año": "2025",
+          "metodoPago": "tarjeta",
+          "fechaPago": "2025-12-31T04:11:55.145Z",
+          "monto": "300"
+        }
+      ]
+    },
+    {
+      "nombre": "jose",
+      "instrumento": "batería",
+      "diaClases": "jueves",
+      "horarioClases": "7-9 pm",
+      "mensualidad": "280",
+      "telefono": "52458759",
+      "estado": "insolvente",
+      "carnet": "002-01",
+      "id": 3,
+      "fechaRegistro": "2025-12-26T20:55:40.841Z",
+      "ultimoPago": null,
+      "notas": {
+        "niveles": [
+          35,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "armonia": 87,
+        "instrumento": 35
+      },
+      "suspendido": true
+    },
+    {
+      "nombre": "roberto",
+      "instrumento": "guitarra",
+      "diaClases": "sábado",
+      "horarioClases": "9-11 am",
+      "mensualidad": "349",
+      "telefono": "2541589",
+      "estado": "solvente",
+      "carnet": "001-03",
+      "id": 4,
+      "fechaRegistro": "2025-12-26T22:11:31.549Z",
+      "ultimoPago": "2025-12-26T22:11:31.549Z",
+      "notas": {
+        "niveles": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "armonia": 0,
+        "instrumento": 0
+      }
+    },
+    {
+      "nombre": "Grecia coronado ",
+      "instrumento": "canto",
+      "diaClases": "sábado",
+      "horarioClases": "9-11 am",
+      "mensualidad": "280",
+      "telefono": "54276973",
+      "estado": "solvente",
+      "carnet": "007-01",
+      "id": 5,
+      "fechaRegistro": "2025-12-27T22:21:16.003Z",
+      "ultimoPago": "2025-12-27T22:21:16.004Z",
+      "notas": {
+        "niveles": [
+          89,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "armonia": 77,
+        "instrumento": 89
+      }
+    }
+  ],
+  "nextId": 6
+}

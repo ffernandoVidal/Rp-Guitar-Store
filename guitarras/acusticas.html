@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guitarras Acústicas - RP GUITAR</title>
+    <link rel="stylesheet" href="../nav.css">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../components/cart.css">
+</head>
+<body>
+    <!-- Contenedor del menú -->
+    <div id="nav-container"></div>
+
+    <!-- Contenido principal -->
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Guitarras Acústicas</h1>
+                <p>El sonido puro y natural de las cuerdas, sin amplificación</p>
+            </div>
+        </section>
+
+        <section class="products-section">
+            <div class="container">
+                <h2>Guitarras Acústicas Disponibles</h2>
+                <div class="products-grid">
+                    <div class="product-card"
+                         data-name="Cort Earth 70 - Guitarra Acústica" 
+                         data-brand="Cort"
+                         data-price="Q3,500"
+                         data-image="https://via.placeholder.com/300x250/8D6E63/white?text=Cort+Earth+70"
+                         data-specs="Guitarra acústica | Tapa de abeto | Aros y fondo de caoba | Mástil de caoba | Diapasón de ovangkol | Cejuela de hueso"
+                         data-description="La Earth 70 de Cort ofrece un sonido cálido y equilibrado con excelente proyección. Construcción sólida con maderas seleccionadas para un rendimiento duradero.">
+                        <img src="https://via.placeholder.com/300x250/8D6E63/white?text=Cort+Earth+70" alt="Cort Earth 70" class="product-image">
+                        <h3>Cort Earth 70 - Guitarra Acústica</h3>
+                        <p>Guitarra acústica con tapa de abeto y sonido cálido y equilibrado. Construcción sólida con maderas seleccionadas.</p>
+                        <p class="product-price">Precio: Q3,500</p>
+                        <a href="#" class="btn-product">Comprar Ahora</a>
+                    </div>
+                </div>
+                
+                <div class="info-section">
+                    <h3>¿Por qué elegir una guitarra acústica?</h3>
+                    <div class="info-grid">
+                        <div class="info-card">
+                            <h4>Sonido Natural</h4>
+                            <p>La resonancia natural de la madera produce un sonido cálido y orgánico único.</p>
+                        </div>
+                        <div class="info-card">
+                            <h4>Portabilidad</h4>
+                            <p>No requiere amplificación, perfecta para tocar en cualquier lugar.</p>
+                        </div>
+                        <div class="info-card">
+                            <h4>Versatilidad</h4>
+                            <p>Ideal para folk, country, pop, clásica y muchos géneros musicales.</p>
+                        </div>
+                        <div class="info-card">
+                            <h4>Construcción Artesanal</h4>
+                            <p>Cada guitarra es única, con características tonales distintivas.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- JavaScript para el menú -->
+    <script src="../menu.js"></script>
+    <script src="../components/cart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeMenu(false);
+            // Inicializar carrito
+            window.rpGuitarCart = new RPGuitarCart();
+        });
+    </script>
+</body>
+</html>

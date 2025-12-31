@@ -1,0 +1,276 @@
+{
+  "guitarras": [
+    {
+      "id": "da1",
+      "nombre": "D'Angelico Premier Atlantic",
+      "marca": "D'Angelico",
+      "categoria": "guitarra",
+      "imagen": "/guitarras/Guitarras/Dangelico/DA1.png",
+      "precio": 0,
+      "descripcion": "",
+      "especificaciones": {
+        "tipo": "Eléctrica",
+        "cuerpo": "",
+        "mastil": "",
+        "diapason": ""
+      },
+      "stock": true
+    },
+    {
+      "id": "da2",
+      "nombre": "D'Angelico Premier SS",
+      "marca": "D'Angelico",
+      "categoria": "guitarra",
+      "imagen": "/guitarras/Guitarras/Dangelico/DA2.png",
+      "precio": 0,
+      "descripcion": "",
+      "especificaciones": {
+        "tipo": "Eléctrica",
+        "cuerpo": "",
+        "mastil": "",
+        "diapason": ""
+      },
+      "stock": true
+    },
+    {
+      "id": "da3",
+      "nombre": "D'Angelico Deluxe Bedford",
+      "marca": "D'Angelico",
+      "categoria": "guitarra",
+      "imagen": "/guitarras/Guitarras/Dangelico/DA3.png",
+      "precio": 0,
+      "descripcion": "",
+      "especificaciones": {
+        "tipo": "Eléctrica",
+        "cuerpo": "",
+        "mastil": "",
+        "diapason": ""
+      },
+      "stock": true
+    },
+    {
+      "id": "da4",
+      "nombre": "D'Angelico Premier Brighton",
+      "marca": "D'Angelico",
+      "categoria": "guitarra",
+      "imagen": "/guitarras/Guitarras/Dangelico/DA4.png",
+      "precio": 0,
+      "descripcion": "",
+      "especificaciones": {
+        "tipo": "Eléctrica",
+        "cuerpo": "",
+        "mastil": "",
+        "diapason": ""
+      },
+      "stock": true
+    },
+    {
+      "id": "gl1",
+      "nombre": "G&L Tribute Legacy",
+      "marca": "G&L",
+      "categoria": "guitarra",
+      "imagen": "/guitarras/Guitarras/G&L/GL1.png",
+      "precio": 0,
+      "descripcion": "",
+      "especificaciones": {
+        "tipo": "Eléctrica",
+        "cuerpo": "",
+        "mastil": "",
+        "diapason": ""
+      },
+      "stock": true
+    },
+    {
+      "id": "gl2",
+      "nombre": "G&L Tribute ASAT Classic",
+      "marca": "G&L",
+      "categoria": "guitarra",
+      "imagen": "/guitarras/Guitarras/G&L/GL2.png",
+      "precio": 0,
+      "descripcion": "",
+      "especificaciones": {
+        "tipo": "Eléctrica",
+        "cuerpo": "",
+        "mastil": "",
+        "diapason": ""
+      },
+      "stock": true
+    },
+    {
+      "id": "gl3",
+      "nombre": "G&L Tribute S-500",
+      "marca": "G&L",
+      "categoria": "guitarra",
+      "imagen": "/guitarras/Guitarras/G&L/GL3.png",
+      "precio": 0,
+      "descripcion": "",
+      "especificaciones": {
+        "tipo": "Eléctrica",
+        "cuerpo": "",
+        "mastil": "",
+        "diapason": ""
+      },
+      "stock": true
+    },
+    {
+      "id": "gl4",
+      "nombre": "G&L Tribute Doheny",
+      "marca": "G&L",
+      "categoria": "guitarra",
+      "imagen": "/guitarras/Guitarras/G&L/GL4.png",
+      "precio": 0,
+      "descripcion": "",
+      "especificaciones": {
+        "tipo": "Eléctrica",
+        "cuerpo": "",
+        "mastil": "",
+        "diapason": ""
+      },
+      "stock": true
+    },
+    {
+      "id": "gl5",
+      "nombre": "G&L Tribute Fallout",
+      "marca": "G&L",
+      "categoria": "guitarra",
+      "imagen": "/guitarras/Guitarras/G&L/GL5.png",
+      "precio": 0,
+      "descripcion": "",
+      "especificaciones": {
+        "tipo": "Eléctrica",
+        "cuerpo": "",
+        "mastil": "",
+        "diapason": ""
+      },
+      "stock": true
+    },
+    {
+      "id": "gl6",
+      "nombre": "G&L Tribute Invader",
+      "marca": "G&L",
+      "categoria": "guitarra",
+      "imagen": "/guitarras/Guitarras/G&L/GL6.png",
+      "precio": 0,
+      "descripcion": "",
+      "especificaciones": {
+        "tipo": "Eléctrica",
+        "cuerpo": "",
+        "mastil": "",
+        "diapason": ""
+      },
+      "stock": true
+    },
+    {
+      "id": "rv1",
+      "nombre": "Rivolta Combinata XVII",
+      "marca": "Rivolta",
+      "categoria": "guitarra",
+      "imagen": "/guitarras/Guitarras/Rivolta/RV1.png",
+      "precio": 0,
+      "descripcion": "",
+      "especificaciones": {
+        "tipo": "Eléctrica",
+        "cuerpo": "",
+        "mastil": "",
+        "diapason": ""
+      },
+      "stock": true
+    },
+    {
+      "id": "rv2",
+      "nombre": "Rivolta Mondata Standard",
+      "marca": "Rivolta",
+      "categoria": "guitarra",
+      "imagen": "/guitarras/Guitarras/Rivolta/RV2.png",
+      "precio": 0,
+      "descripcion": "",
+      "especificaciones": {
+        "tipo": "Eléctrica",
+        "cuerpo": "",
+        "mastil": "",
+        "diapason": ""
+      },
+      "stock": true
+    },
+    {
+      "id": "rv3",
+      "nombre": "Rivolta Sferata",
+      "marca": "Rivolta",
+      "categoria": "guitarra",
+      "imagen": "/guitarras/Guitarras/Rivolta/RV3.png",
+      "precio": 0,
+      "descripcion": "",
+      "especificaciones": {
+        "tipo": "Eléctrica",
+        "cuerpo": "",
+        "mastil": "",
+        "diapason": ""
+      },
+      "stock": true
+    },
+    {
+      "id": "suhr1",
+      "nombre": "Suhr Modern T",
+      "marca": "Suhr",
+      "categoria": "guitarra",
+      "imagen": "/guitarras/Guitarras/suhr/SRMT1.png",
+      "precio": 0,
+      "descripcion": "",
+      "especificaciones": {
+        "tipo": "Eléctrica",
+        "cuerpo": "",
+        "mastil": "",
+        "diapason": ""
+      },
+      "stock": true
+    },
+    {
+      "id": "suhr2",
+      "nombre": "Suhr Classic S",
+      "marca": "Suhr",
+      "categoria": "guitarra",
+      "imagen": "/guitarras/Guitarras/suhr/SRST1.png",
+      "precio": 0,
+      "descripcion": "",
+      "especificaciones": {
+        "tipo": "Eléctrica",
+        "cuerpo": "",
+        "mastil": "",
+        "diapason": ""
+      },
+      "stock": true
+    },
+    {
+      "id": "suhr3",
+      "nombre": "Suhr Classic S HSS",
+      "marca": "Suhr",
+      "categoria": "guitarra",
+      "imagen": "/guitarras/Guitarras/suhr/srst2.png",
+      "precio": 0,
+      "descripcion": "",
+      "especificaciones": {
+        "tipo": "Eléctrica",
+        "cuerpo": "",
+        "mastil": "",
+        "diapason": ""
+      },
+      "stock": true
+    },
+    {
+      "id": "suhr4",
+      "nombre": "Suhr Classic T",
+      "marca": "Suhr",
+      "categoria": "guitarra",
+      "imagen": "/guitarras/Guitarras/suhr/SRT1.png",
+      "precio": 0,
+      "descripcion": "",
+      "especificaciones": {
+        "tipo": "Eléctrica",
+        "cuerpo": "",
+        "mastil": "",
+        "diapason": ""
+      },
+      "stock": true
+    }
+  ]
+}

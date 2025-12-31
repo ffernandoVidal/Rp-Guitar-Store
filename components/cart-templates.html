@@ -1,0 +1,193 @@
+<!-- 
+RP GUITAR CART COMPONENT HTML TEMPLATE
+Este archivo contiene las estructuras HTML necesarias para el carrito de compras
+Se incluye automáticamente por el JavaScript del carrito
+-->
+
+<!-- PLANTILLA PARA EL ICONO DEL CARRITO -->
+<template id="cart-icon-template">
+    <div class="cart-icon" id="cartIcon">
+        🛒
+        <div class="cart-count" id="cartCount" style="display: none;">0</div>
+    </div>
+</template>
+
+<!-- PLANTILLA PARA NOTIFICACIONES -->
+<template id="cart-notification-template">
+    <div class="cart-notification" id="cartNotification">
+        ✓ Producto agregado al carrito
+    </div>
+</template>
+
+<!-- PLANTILLA PARA EL MODAL DEL CARRITO -->
+<template id="cart-modal-template">
+    <div id="cartModal" class="cart-modal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h2>🛒 Carrito de Compras</h2>
+                <span class="close" id="closeCart">&times;</span>
+            </div>
+            <div class="cart-body" id="cartBody">
+                <div class="cart-empty" id="cartEmpty">
+                    <div class="cart-empty-icon">🛒</div>
+                    <h3>Tu carrito está vacío</h3>
+                    <p>¡Agrega algunos productos increíbles!</p>
+                </div>
+            </div>
+            <div class="cart-footer" id="cartFooter" style="display: none;">
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span id="cartTotal">Q0</span>
+                </div>
+                <div class="cart-actions">
+                    <button class="btn-clear-cart" id="clearCart">Vaciar Carrito</button>
+                    <button class="btn-checkout" id="checkoutBtn">Confirmar Compra</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<!-- PLANTILLA PARA EL MODAL DE CHECKOUT -->
+<template id="checkout-modal-template">
+    <div id="checkoutModal" class="checkout-modal">
+        <div class="checkout-content">
+            <div class="checkout-header">
+                <h2>📋 Confirmar Pedido</h2>
+            </div>
+            <div class="checkout-body">
+                <div class="checkout-summary" id="checkoutSummary">
+                    <!-- Resumen del carrito se insertará aquí -->
+                </div>
+                
+                <form class="checkout-form" id="checkoutForm">
+                    <div class="form-group">
+                        <label for="customerName">Nombre Completo *</label>
+                        <input type="text" id="customerName" required placeholder="Ej: Juan Pérez">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="customerPhone">Teléfono *</label>
+                        <input type="tel" id="customerPhone" required placeholder="Ej: 5555-5555">
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <label for="customerEmail">Email (opcional)</label>
+                        <input type="email" id="customerEmail" placeholder="ejemplo@correo.com">
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <label for="customerAddress">Dirección de Entrega (opcional)</label>
+                        <textarea id="customerAddress" rows="3" placeholder="Dirección completa para entrega"></textarea>
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <label for="customerNotes">Notas Adicionales (opcional)</label>
+                        <textarea id="customerNotes" rows="2" placeholder="Comentarios o instrucciones especiales"></textarea>
+                    </div>
+                </form>
+                
+                <div class="loading-spinner" id="loadingSpinner"></div>
+                
+                <div class="checkout-actions">
+                    <button type="button" class="btn-cancel" id="cancelCheckout">Cancelar</button>
+                    <button type="button" class="btn-send" id="confirmOrder">Enviar Pedido</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<!-- PLANTILLA PARA ITEMS DEL CARRITO -->
+<template id="cart-item-template">
+    <div class="cart-item">
+        <img src="" alt="" class="cart-item-image">
+        <div class="cart-item-info">
+            <div class="cart-item-name"></div>
+            <div class="cart-item-brand"></div>
+            <div class="cart-item-price"></div>
+        </div>
+        <button class="cart-item-remove" title="Eliminar">×</button>
+    </div>
+</template>
+
+<!-- EJEMPLO DE INTEGRACIÓN PARA PRODUCTOS -->
+<!--
+Para agregar funcionalidad de carrito a un producto, utiliza una de estas opciones:
+
+OPCIÓN 1: Usando data attributes en el botón
+<button class="btn-contact" 
+        data-cart-add="true"
+        data-cart-name="Nombre del producto"
+        data-cart-brand="Marca"
+        data-cart-price="Q1,500"
+        data-cart-image="path/to/image.jpg"
+        data-cart-specs="Especificaciones opcionales">
+    Comprar Ahora
+</button>
+
+OPCIÓN 2: Usando data attributes en el contenedor del producto
+<div class="product-card" 
+     data-name="Nombre del producto"
+     data-brand="Marca"
+     data-price="Q1,500"
+     data-image="path/to/image.jpg"
+     data-specs="Especificaciones opcionales">
+    <!-- Contenido del producto -->
+    <button class="btn-contact">Comprar Ahora</button>
+</div>
+
+OPCIÓN 3: Para productos en modales (como las guitarras)
+El sistema detectará automáticamente los elementos:
+- #modalGuitarName
+- #modalBrand
+- #modalPrice
+- #modalImage
+- #modalSpecs li (lista de especificaciones)
+
+INICIALIZACIÓN EN TU PÁGINA:
+1. Incluir los archivos CSS y JS:
+   <link rel="stylesheet" href="components/cart.css">
+   <script src="components/cart.js"></script>
+
+2. Inicializar el carrito:
+   <script>
+       document.addEventListener('DOMContentLoaded', function() {
+           // Inicializar con configuración por defecto
+           initRPGuitarCart();
+           
+           // O con configuración personalizada
+           initRPGuitarCart({
+               whatsappNumber: '50251149061',
+               storeName: 'RP GUITAR',
+               currency: 'Q'
+           });
+       });
+   </script>
+-->
+
+<!-- EJEMPLO DE PRODUCTO COMPLETO -->
+<!--
+<div class="guitar-card" 
+     data-name="Stratocaster American Professional II"
+     data-brand="Fender"
+     data-price="Q25,000"
+     data-image="img/fender-strat.jpg"
+     data-specs="Cuerpo de Aliso | Mástil de Arce | 22 trastes | Pickup V-Mod II">
+    
+    <div class="guitar-image">
+        <img src="img/fender-strat.jpg" alt="Stratocaster American Professional II">
+    </div>
+    
+    <div class="guitar-info">
+        <h3>Stratocaster American Professional II</h3>
+        <p class="guitar-brand">Fender</p>
+        <p class="guitar-price">Q25,000</p>
+        
+        <div class="guitar-actions">
+            <button class="btn-details">Ver Detalles</button>
+            <button class="btn-contact">Comprar Ahora</button>
+        </div>
+    </div>
+</div>
+-->

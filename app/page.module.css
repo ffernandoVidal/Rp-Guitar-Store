@@ -1,0 +1,172 @@
+.main {
+  min-height: 100vh;
+  padding-bottom: 60px;
+}
+
+.featuredSection {
+  padding: 60px 0;
+  background-color: #f5f5f7;
+}
+
+.sectionTitle {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: #1d1d1f;
+  font-weight: 600;
+}
+
+.productsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.productCard {
+  background-color: white;
+  padding: 40px 30px;
+  border-radius: 18px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.productCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.productIcon {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+}
+
+.productCard h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #1d1d1f;
+  font-weight: 600;
+}
+
+.productCard p {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+.productLink {
+  display: inline-block;
+  color: #87CEEB;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.productLink:hover {
+  color: #5CADCC;
+}
+
+.infoSection {
+  padding: 60px 0;
+  background-color: white;
+}
+
+.infoText {
+  text-align: center;
+  font-size: 1.125rem;
+  color: #666;
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.footer {
+  background-color: #1d1d1f;
+  color: white;
+  padding: 30px 0;
+  text-align: center;
+  margin-top: auto;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .main {
+    padding-bottom: 40px;
+  }
+  
+  .featuredSection,
+  .infoSection {
+    padding: 40px 20px;
+  }
+  
+  .sectionTitle {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+
+  .productsGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 10px;
+  }
+
+  .productCard {
+    padding: 30px 20px;
+  }
+  
+  .productIcon {
+    font-size: 2.5rem;
+  }
+  
+  .productCard h3 {
+    font-size: 1.25rem;
+  }
+
+  .infoText {
+    font-size: 1rem;
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sectionTitle {
+    font-size: 1.5rem;
+    padding: 0 15px;
+  }
+  
+  .productsGrid {
+    padding: 0 5px;
+  }
+  
+  .productCard {
+    padding: 25px 15px;
+  }
+  
+  .productIcon {
+    font-size: 2rem;
+  }
+  
+  .productCard h3 {
+    font-size: 1.1rem;
+  }
+  
+  .productCard p {
+    font-size: 0.9rem;
+  }
+  
+  .infoText {
+    font-size: 0.95rem;
+    padding: 0 15px;
+  }
+}

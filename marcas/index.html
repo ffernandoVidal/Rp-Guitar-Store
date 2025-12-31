@@ -6,6 +6,7 @@
     <title>Marcas - RP GUITAR</title>
     <link rel="stylesheet" href="../nav.css">
     <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../components/cart.css">
 </head>
 <body>
     <!-- Contenedor del menú -->
@@ -56,10 +57,14 @@
 
     <!-- JavaScript para el menú -->
     <script src="../menu.js"></script>
+    <script src="../footer.js"></script>
+    <script src="../components/cart.js"></script>
     <script>
         // Inicializar el menú para páginas internas
         document.addEventListener('DOMContentLoaded', () => {
             initializeMenu(false); // false indica que es una página interna
+            initRPGuitarCart();
+            initializeFooter();
         });
     </script>
 </body>

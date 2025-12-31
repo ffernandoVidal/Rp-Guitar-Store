@@ -6,6 +6,7 @@
     <title>Pedales RJM - RP GUITAR</title>
     <link rel="stylesheet" href="../nav.css">
     <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../components/cart.css">
 </head>
 <body>
     <!-- Contenedor del menú -->
@@ -24,35 +25,44 @@
             <div class="container">
                 <h2>Productos RJM Disponibles</h2>
                 <div class="products-grid">
-                    <div class="product-card">
-                        <h3>RJM PBC 6X</h3>
-                        <p>Controlador programable con 6 loops y switching inteligente</p>
-                        <a href="#" class="btn-product">Ver Detalles</a>
+                    <div class="product-card"
+                         data-name="RJM Mastermind 6X" 
+                         data-brand="RJM Music"
+                         data-price="Q8,500"
+                         data-image="General/Rjm/Mastermind 6x.png"
+                         data-specs="MIDI controller | 6 programmable buttons | LCD display | True bypass loops | Professional grade"
+                         data-description="Controlador MIDI avanzado con 6 botones programables y display LCD. Control total sobre amplificadores, efectos y más con presets ilimitados.">
+                        <img src="General/Rjm/Mastermind 6x.png" alt="RJM Mastermind 6X" class="product-image">
+                        <h3>RJM Mastermind 6X</h3>
+                        <p>Controlador MIDI avanzado con 6 botones programables.</p>
+                        <div class="product-status">
+                            <span class="status-badge available">✅ DISPONIBLE</span>
+                        </div>
+                        <p class="product-price">Q8,500</p>
+                        <div class="product-buttons">
+                            <a href="#" class="btn-details">Ver Detalles</a>
+                            <a href="#" class="btn-product">Comprar Ahora</a>
+                        </div>
                     </div>
-                    <div class="product-card">
-                        <h3>RJM PBC 10X</h3>
-                        <p>Controlador avanzado con 10 loops para rigs complejos</p>
-                        <a href="#" class="btn-product">Ver Detalles</a>
-                    </div>
-                    <div class="product-card">
-                        <h3>RJM Mastermind GT</h3>
-                        <p>Controlador MIDI/Audio con pantalla táctil a color</p>
-                        <a href="#" class="btn-product">Ver Detalles</a>
-                    </div>
-                    <div class="product-card">
-                        <h3>RJM Mini Amp Gizmo</h3>
-                        <p>Switching compacto para amplificadores de 2 canales</p>
-                        <a href="#" class="btn-product">Ver Detalles</a>
-                    </div>
-                    <div class="product-card">
-                        <h3>RJM Super Amp Gizmo</h3>
-                        <p>Control total para amplificadores multi-canal complejos</p>
-                        <a href="#" class="btn-product">Ver Detalles</a>
-                    </div>
-                    <div class="product-card">
-                        <h3>RJM Effect Gizmo</h3>
-                        <p>Looper programable para integrar efectos analógicos</p>
-                        <a href="#" class="btn-product">Ver Detalles</a>
+
+                    <div class="product-card"
+                         data-name="RJM Overture" 
+                         data-brand="RJM Music"
+                         data-price="Q6,200"
+                         data-image="General/Rjm/Overture.png"
+                         data-specs="Amp switching controller | Channel switching | Effects loops | True bypass | Professional quality"
+                         data-description="Controlador de switching para amplificadores con cambio de canales y loops de efectos. Switching silencioso y programación avanzada.">
+                        <img src="General/Rjm/Overture.png" alt="RJM Overture" class="product-image">
+                        <h3>RJM Overture</h3>
+                        <p>Controlador de switching para amplificadores con loops.</p>
+                        <div class="product-status">
+                            <span class="status-badge out-of-stock">❌ AGOTADO</span>
+                        </div>
+                        <p class="product-price">Q6,200</p>
+                        <div class="product-buttons">
+                            <a href="#" class="btn-details">Ver Detalles</a>
+                            <a href="#" class="btn-product disabled" style="background: #6c757d; cursor: not-allowed;">Agotado</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -83,11 +93,98 @@
         </section>
     </main>
 
+    <!-- Icono del carrito -->
+    <div class="cart-icon" id="cartIcon">
+        🛒
+        <div class="cart-count" id="cartCount" style="display: none;">0</div>
+    </div>
+
+    <!-- Notificación del carrito -->
+    <div class="cart-notification" id="cartNotification">
+        ✓ Producto agregado al carrito
+    </div>
+
+    <!-- Modal del carrito -->
+    <div id="cartModal" class="cart-modal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h2>🛒 Carrito de Compras</h2>
+                <span class="close" id="closeCart">&times;</span>
+            </div>
+            <div class="cart-body" id="cartBody">
+                <div class="cart-empty" id="cartEmpty">
+                    <div class="cart-empty-icon">🛒</div>
+                    <h3>Tu carrito está vacío</h3>
+                    <p>¡Agrega algunos pedales increíbles!</p>
+                </div>
+            </div>
+            <div class="cart-footer" id="cartFooter" style="display: none;">
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span id="cartTotal">Q0</span>
+                </div>
+                <div class="cart-actions">
+                    <button class="btn-clear-cart" id="clearCart">Vaciar Carrito</button>
+                    <button class="btn-checkout" id="checkoutBtn">Confirmar Compra</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de confirmación de pedido -->
+    <div id="checkoutModal" class="checkout-modal">
+        <div class="checkout-content">
+            <div class="checkout-header">
+                <h2>📋 Confirmar Pedido</h2>
+            </div>
+            <div class="checkout-body">
+                <div class="checkout-summary" id="checkoutSummary">
+                    <!-- Resumen del carrito se insertará aquí -->
+                </div>
+                
+                <form class="checkout-form" id="checkoutForm">
+                    <div class="form-group">
+                        <label for="customerName">Nombre Completo *</label>
+                        <input type="text" id="customerName" name="customerName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="customerEmail">Email *</label>
+                        <input type="email" id="customerEmail" name="customerEmail" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="customerPhone">Teléfono *</label>
+                        <input type="tel" id="customerPhone" name="customerPhone" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="customerAddress">Dirección de Entrega *</label>
+                        <textarea id="customerAddress" name="customerAddress" rows="3" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="customerNotes">Notas Adicionales</label>
+                        <textarea id="customerNotes" name="customerNotes" rows="2" placeholder="Instrucciones especiales, horarios de entrega, etc."></textarea>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn-cancel" id="cancelCheckout">Cancelar</button>
+                        <button type="submit" class="btn-confirm">Confirmar Pedido</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <!-- JavaScript para el menú -->
     <script src="../menu.js"></script>
+    <script src="../components/cart.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             initializeMenu(false);
+            // Inicializar carrito
+            window.rpGuitarCart = new RPGuitarCart();
         });
     </script>
 </body>
