@@ -941,7 +941,1558 @@
       "fechaModificacion": "2025-12-31T20:35:18.161Z"
     }
   ],
-  "pedales": [],
+  "pedales": [
+    {
+      "id": 1128,
+      "nombre": "Barber Direct Drive",
+      "slug": "barber-direct-drive",
+      "marca": "Barber Electronics",
+      "modelo": "Barber Direct Drive",
+      "precio": 180,
+      "precioMayorista": 144,
+      "descripcion": "Overdrive transparente premium",
+      "descripcionDetallada": "Barber Direct Drive - Pedal boutique diseñado y construido por Barber Electronics. Conocidos por su transparencia y calidad tonal excepcional.",
+      "caracteristicas": [
+        "Construcción boutique",
+        "True bypass",
+        "9V DC",
+        "Hecho en USA"
+      ],
+      "imagenes": [
+        "/img/pedales/barber/direct driver_edited.jpg"
+      ],
+      "stock": 2,
+      "categoria": "pedales",
+      "subcategoria": "overdrive",
+      "especificaciones": {
+        "tipo": "Overdrive",
+        "alimentacion": "9V DC",
+        "bypass": "True Bypass",
+        "otros": "Handmade in USA"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.726Z",
+      "fechaModificacion": "2025-12-31T21:32:23.726Z"
+    },
+    {
+      "id": 1129,
+      "nombre": "Barber Exacta",
+      "slug": "barber-exacta",
+      "marca": "Barber Electronics",
+      "modelo": "Barber Exacta",
+      "precio": 165,
+      "precioMayorista": 132,
+      "descripcion": "Boost limpio y transparente",
+      "descripcionDetallada": "Barber Exacta - Pedal boutique diseñado y construido por Barber Electronics. Conocidos por su transparencia y calidad tonal excepcional.",
+      "caracteristicas": [
+        "Construcción boutique",
+        "True bypass",
+        "9V DC",
+        "Hecho en USA"
+      ],
+      "imagenes": [
+        "/img/pedales/barber/exacta_edited.jpg"
+      ],
+      "stock": 2,
+      "categoria": "pedales",
+      "subcategoria": "boost",
+      "especificaciones": {
+        "tipo": "Boost",
+        "alimentacion": "9V DC",
+        "bypass": "True Bypass",
+        "otros": "Handmade in USA"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.726Z",
+      "fechaModificacion": "2025-12-31T21:32:23.726Z"
+    },
+    {
+      "id": 1130,
+      "nombre": "Barber Gain Changer",
+      "slug": "barber-gain-changer",
+      "marca": "Barber Electronics",
+      "modelo": "Barber Gain Changer",
+      "precio": 190,
+      "precioMayorista": 152,
+      "descripcion": "Overdrive con ganancia variable",
+      "descripcionDetallada": "Barber Gain Changer - Pedal boutique diseñado y construido por Barber Electronics. Conocidos por su transparencia y calidad tonal excepcional.",
+      "caracteristicas": [
+        "Construcción boutique",
+        "True bypass",
+        "9V DC",
+        "Hecho en USA"
+      ],
+      "imagenes": [
+        "/img/pedales/barber/gain chanve_edited.jpg"
+      ],
+      "stock": 2,
+      "categoria": "pedales",
+      "subcategoria": "overdrive",
+      "especificaciones": {
+        "tipo": "Overdrive",
+        "alimentacion": "9V DC",
+        "bypass": "True Bypass",
+        "otros": "Handmade in USA"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.726Z",
+      "fechaModificacion": "2025-12-31T21:32:23.726Z"
+    },
+    {
+      "id": 1131,
+      "nombre": "Barber Tone Press",
+      "slug": "barber-tone-press",
+      "marca": "Barber Electronics",
+      "modelo": "Barber Tone Press",
+      "precio": 170,
+      "precioMayorista": 136,
+      "descripcion": "Compresor suave y musical",
+      "descripcionDetallada": "Barber Tone Press - Pedal boutique diseñado y construido por Barber Electronics. Conocidos por su transparencia y calidad tonal excepcional.",
+      "caracteristicas": [
+        "Construcción boutique",
+        "True bypass",
+        "9V DC",
+        "Hecho en USA"
+      ],
+      "imagenes": [
+        "/img/pedales/barber/tone press_edited.jpg"
+      ],
+      "stock": 2,
+      "categoria": "pedales",
+      "subcategoria": "compression",
+      "especificaciones": {
+        "tipo": "Compresor",
+        "alimentacion": "9V DC",
+        "bypass": "True Bypass",
+        "otros": "Handmade in USA"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.726Z",
+      "fechaModificacion": "2025-12-31T21:32:23.726Z"
+    },
+    {
+      "id": 1132,
+      "nombre": "Browne Protein",
+      "slug": "browne-protein",
+      "marca": "Browne Amplification",
+      "modelo": "Browne Protein",
+      "precio": 220,
+      "precioMayorista": 176,
+      "descripcion": "Dual Overdrive premium",
+      "descripcionDetallada": "Browne Protein - Pedales boutique de Browne Amplification. Diseño moderno con tonos clásicos y construcción de primera calidad.",
+      "caracteristicas": [
+        "Boutique quality",
+        "True bypass",
+        "9-18V DC",
+        "Premium components"
+      ],
+      "imagenes": [
+        "/img/pedales/browne/WhatsApp Image 2025-09-08 at 2.49.46 PM (1).jpeg"
+      ],
+      "stock": 2,
+      "categoria": "pedales",
+      "subcategoria": "overdrive",
+      "especificaciones": {
+        "tipo": "Overdrive/Preamp",
+        "alimentacion": "9-18V DC",
+        "bypass": "True Bypass",
+        "otros": "Premium build"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.726Z",
+      "fechaModificacion": "2025-12-31T21:32:23.726Z"
+    },
+    {
+      "id": 1133,
+      "nombre": "Browne Carbon",
+      "slug": "browne-carbon",
+      "marca": "Browne Amplification",
+      "modelo": "Browne Carbon",
+      "precio": 200,
+      "precioMayorista": 160,
+      "descripcion": "Preamp/Overdrive versátil",
+      "descripcionDetallada": "Browne Carbon - Pedales boutique de Browne Amplification. Diseño moderno con tonos clásicos y construcción de primera calidad.",
+      "caracteristicas": [
+        "Boutique quality",
+        "True bypass",
+        "9-18V DC",
+        "Premium components"
+      ],
+      "imagenes": [
+        "/img/pedales/browne/WhatsApp Image 2025-09-08 at 2.49.46 PM (2).jpeg"
+      ],
+      "stock": 2,
+      "categoria": "pedales",
+      "subcategoria": "overdrive",
+      "especificaciones": {
+        "tipo": "Overdrive/Preamp",
+        "alimentacion": "9-18V DC",
+        "bypass": "True Bypass",
+        "otros": "Premium build"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.726Z",
+      "fechaModificacion": "2025-12-31T21:32:23.726Z"
+    },
+    {
+      "id": 1134,
+      "nombre": "Browne Amplification Modelo 3",
+      "slug": "browne-amplification-modelo-3",
+      "marca": "Browne Amplification",
+      "modelo": "Browne Amplification Modelo 3",
+      "precio": 210,
+      "precioMayorista": 168,
+      "descripcion": "Overdrive boutique",
+      "descripcionDetallada": "Browne Amplification Modelo 3 - Pedales boutique de Browne Amplification. Diseño moderno con tonos clásicos y construcción de primera calidad.",
+      "caracteristicas": [
+        "Boutique quality",
+        "True bypass",
+        "9-18V DC",
+        "Premium components"
+      ],
+      "imagenes": [
+        "/img/pedales/browne/WhatsApp Image 2025-09-08 at 2.49.46 PM.jpeg"
+      ],
+      "stock": 2,
+      "categoria": "pedales",
+      "subcategoria": "overdrive",
+      "especificaciones": {
+        "tipo": "Overdrive/Preamp",
+        "alimentacion": "9-18V DC",
+        "bypass": "True Bypass",
+        "otros": "Premium build"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.726Z",
+      "fechaModificacion": "2025-12-31T21:32:23.726Z"
+    },
+    {
+      "id": 1135,
+      "nombre": "EHX 360 Nano Looper",
+      "slug": "ehx-360-nano-looper",
+      "marca": "Electro-Harmonix",
+      "modelo": "EHX 360 Nano Looper",
+      "precio": 110,
+      "precioMayorista": 88,
+      "descripcion": "EHX 360 Nano Looper - Pedal Electro-Harmonix",
+      "descripcionDetallada": "EHX 360 Nano Looper - Electro-Harmonix es sinónimo de innovación y calidad en pedales. Sonidos icónicos a precio accesible.",
+      "caracteristicas": [
+        "True bypass",
+        "9V DC",
+        "Construcción robusta",
+        "Sonido clásico EHX"
+      ],
+      "imagenes": [
+        "/img/pedales/ehx/360 Nano Looper.jpg"
+      ],
+      "stock": 5,
+      "categoria": "pedales",
+      "subcategoria": "looper",
+      "especificaciones": {
+        "tipo": "Looper",
+        "alimentacion": "9V DC",
+        "bypass": "True Bypass",
+        "otros": "Made by EHX"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.726Z",
+      "fechaModificacion": "2025-12-31T21:32:23.726Z"
+    },
+    {
+      "id": 1136,
+      "nombre": "EHX Crayon",
+      "slug": "ehx-crayon",
+      "marca": "Electro-Harmonix",
+      "modelo": "EHX Crayon",
+      "precio": 90,
+      "precioMayorista": 72,
+      "descripcion": "EHX Crayon - Pedal Electro-Harmonix",
+      "descripcionDetallada": "EHX Crayon - Electro-Harmonix es sinónimo de innovación y calidad en pedales. Sonidos icónicos a precio accesible.",
+      "caracteristicas": [
+        "True bypass",
+        "9V DC",
+        "Construcción robusta",
+        "Sonido clásico EHX"
+      ],
+      "imagenes": [
+        "/img/pedales/ehx/Crayon.jpg"
+      ],
+      "stock": 5,
+      "categoria": "pedales",
+      "subcategoria": "overdrive",
+      "especificaciones": {
+        "tipo": "Overdrive",
+        "alimentacion": "9V DC",
+        "bypass": "True Bypass",
+        "otros": "Made by EHX"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.726Z",
+      "fechaModificacion": "2025-12-31T21:32:23.726Z"
+    },
+    {
+      "id": 1137,
+      "nombre": "EHX Eddy Analog Vibrato",
+      "slug": "ehx-eddy-analog-vibrato",
+      "marca": "Electro-Harmonix",
+      "modelo": "EHX Eddy Analog Vibrato",
+      "precio": 130,
+      "precioMayorista": 104,
+      "descripcion": "EHX Eddy Analog Vibrato - Pedal Electro-Harmonix",
+      "descripcionDetallada": "EHX Eddy Analog Vibrato - Electro-Harmonix es sinónimo de innovación y calidad en pedales. Sonidos icónicos a precio accesible.",
+      "caracteristicas": [
+        "True bypass",
+        "9V DC",
+        "Construcción robusta",
+        "Sonido clásico EHX"
+      ],
+      "imagenes": [
+        "/img/pedales/ehx/Eddy Analog Vibrato....jpg"
+      ],
+      "stock": 5,
+      "categoria": "pedales",
+      "subcategoria": "modulation",
+      "especificaciones": {
+        "tipo": "Modulation",
+        "alimentacion": "9V DC",
+        "bypass": "True Bypass",
+        "otros": "Made by EHX"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.726Z",
+      "fechaModificacion": "2025-12-31T21:32:23.726Z"
+    },
+    {
+      "id": 1138,
+      "nombre": "EHX Headphone Amp",
+      "slug": "ehx-headphone-amp",
+      "marca": "Electro-Harmonix",
+      "modelo": "EHX Headphone Amp",
+      "precio": 60,
+      "precioMayorista": 48,
+      "descripcion": "EHX Headphone Amp - Pedal Electro-Harmonix",
+      "descripcionDetallada": "EHX Headphone Amp - Electro-Harmonix es sinónimo de innovación y calidad en pedales. Sonidos icónicos a precio accesible.",
+      "caracteristicas": [
+        "True bypass",
+        "9V DC",
+        "Construcción robusta",
+        "Sonido clásico EHX"
+      ],
+      "imagenes": [
+        "/img/pedales/ehx/Headphone amp.jpg"
+      ],
+      "stock": 5,
+      "categoria": "pedales",
+      "subcategoria": "utility",
+      "especificaciones": {
+        "tipo": "Utility",
+        "alimentacion": "9V DC",
+        "bypass": "True Bypass",
+        "otros": "Made by EHX"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.726Z",
+      "fechaModificacion": "2025-12-31T21:32:23.726Z"
+    },
+    {
+      "id": 1139,
+      "nombre": "EHX Holy Grail Neo Reverb",
+      "slug": "ehx-holy-grail-neo-reverb",
+      "marca": "Electro-Harmonix",
+      "modelo": "EHX Holy Grail Neo Reverb",
+      "precio": 120,
+      "precioMayorista": 96,
+      "descripcion": "EHX Holy Grail Neo Reverb - Pedal Electro-Harmonix",
+      "descripcionDetallada": "EHX Holy Grail Neo Reverb - Electro-Harmonix es sinónimo de innovación y calidad en pedales. Sonidos icónicos a precio accesible.",
+      "caracteristicas": [
+        "True bypass",
+        "9V DC",
+        "Construcción robusta",
+        "Sonido clásico EHX"
+      ],
+      "imagenes": [
+        "/img/pedales/ehx/Holy Grail Neo Reverb....jpg"
+      ],
+      "stock": 5,
+      "categoria": "pedales",
+      "subcategoria": "reverb",
+      "especificaciones": {
+        "tipo": "Reverb",
+        "alimentacion": "9V DC",
+        "bypass": "True Bypass",
+        "otros": "Made by EHX"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.726Z",
+      "fechaModificacion": "2025-12-31T21:32:23.726Z"
+    },
+    {
+      "id": 1140,
+      "nombre": "EHX LPB-1 Boost",
+      "slug": "ehx-lpb-1-boost",
+      "marca": "Electro-Harmonix",
+      "modelo": "EHX LPB-1 Boost",
+      "precio": 50,
+      "precioMayorista": 40,
+      "descripcion": "EHX LPB-1 Boost - Pedal Electro-Harmonix",
+      "descripcionDetallada": "EHX LPB-1 Boost - Electro-Harmonix es sinónimo de innovación y calidad en pedales. Sonidos icónicos a precio accesible.",
+      "caracteristicas": [
+        "True bypass",
+        "9V DC",
+        "Construcción robusta",
+        "Sonido clásico EHX"
+      ],
+      "imagenes": [
+        "/img/pedales/ehx/LPB-1 Overdrive_Boost....jpg"
+      ],
+      "stock": 5,
+      "categoria": "pedales",
+      "subcategoria": "boost",
+      "especificaciones": {
+        "tipo": "Boost",
+        "alimentacion": "9V DC",
+        "bypass": "True Bypass",
+        "otros": "Made by EHX"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.726Z",
+      "fechaModificacion": "2025-12-31T21:32:23.726Z"
+    },
+    {
+      "id": 1141,
+      "nombre": "EHX Nano Q-Tron",
+      "slug": "ehx-nano-q-tron",
+      "marca": "Electro-Harmonix",
+      "modelo": "EHX Nano Q-Tron",
+      "precio": 110,
+      "precioMayorista": 88,
+      "descripcion": "EHX Nano Q-Tron - Pedal Electro-Harmonix",
+      "descripcionDetallada": "EHX Nano Q-Tron - Electro-Harmonix es sinónimo de innovación y calidad en pedales. Sonidos icónicos a precio accesible.",
+      "caracteristicas": [
+        "True bypass",
+        "9V DC",
+        "Construcción robusta",
+        "Sonido clásico EHX"
+      ],
+      "imagenes": [
+        "/img/pedales/ehx/Nano Q-Tron _ Envelope Controlled....jpg"
+      ],
+      "stock": 5,
+      "categoria": "pedales",
+      "subcategoria": "filter",
+      "especificaciones": {
+        "tipo": "Filter",
+        "alimentacion": "9V DC",
+        "bypass": "True Bypass",
+        "otros": "Made by EHX"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.726Z",
+      "fechaModificacion": "2025-12-31T21:32:23.726Z"
+    },
+    {
+      "id": 1142,
+      "nombre": "EHX Nano POG",
+      "slug": "ehx-nano-pog",
+      "marca": "Electro-Harmonix",
+      "modelo": "EHX Nano POG",
+      "precio": 180,
+      "precioMayorista": 144,
+      "descripcion": "EHX Nano POG - Pedal Electro-Harmonix",
+      "descripcionDetallada": "EHX Nano POG - Electro-Harmonix es sinónimo de innovación y calidad en pedales. Sonidos icónicos a precio accesible.",
+      "caracteristicas": [
+        "True bypass",
+        "9V DC",
+        "Construcción robusta",
+        "Sonido clásico EHX"
+      ],
+      "imagenes": [
+        "/img/pedales/ehx/NanoPog.jpg"
+      ],
+      "stock": 5,
+      "categoria": "pedales",
+      "subcategoria": "octave",
+      "especificaciones": {
+        "tipo": "Octave",
+        "alimentacion": "9V DC",
+        "bypass": "True Bypass",
+        "otros": "Made by EHX"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.726Z",
+      "fechaModificacion": "2025-12-31T21:32:23.726Z"
+    },
+    {
+      "id": 1143,
+      "nombre": "EHX Neo Mistress",
+      "slug": "ehx-neo-mistress",
+      "marca": "Electro-Harmonix",
+      "modelo": "EHX Neo Mistress",
+      "precio": 100,
+      "precioMayorista": 80,
+      "descripcion": "EHX Neo Mistress - Pedal Electro-Harmonix",
+      "descripcionDetallada": "EHX Neo Mistress - Electro-Harmonix es sinónimo de innovación y calidad en pedales. Sonidos icónicos a precio accesible.",
+      "caracteristicas": [
+        "True bypass",
+        "9V DC",
+        "Construcción robusta",
+        "Sonido clásico EHX"
+      ],
+      "imagenes": [
+        "/img/pedales/ehx/Neo Mistress.jpg"
+      ],
+      "stock": 5,
+      "categoria": "pedales",
+      "subcategoria": "modulation",
+      "especificaciones": {
+        "tipo": "Modulation",
+        "alimentacion": "9V DC",
+        "bypass": "True Bypass",
+        "otros": "Made by EHX"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.726Z",
+      "fechaModificacion": "2025-12-31T21:32:23.726Z"
+    },
+    {
+      "id": 1144,
+      "nombre": "EHX Pitch Fork",
+      "slug": "ehx-pitch-fork",
+      "marca": "Electro-Harmonix",
+      "modelo": "EHX Pitch Fork",
+      "precio": 150,
+      "precioMayorista": 120,
+      "descripcion": "EHX Pitch Fork - Pedal Electro-Harmonix",
+      "descripcionDetallada": "EHX Pitch Fork - Electro-Harmonix es sinónimo de innovación y calidad en pedales. Sonidos icónicos a precio accesible.",
+      "caracteristicas": [
+        "True bypass",
+        "9V DC",
+        "Construcción robusta",
+        "Sonido clásico EHX"
+      ],
+      "imagenes": [
+        "/img/pedales/ehx/Pitch Fork Polyphonic....jpg"
+      ],
+      "stock": 5,
+      "categoria": "pedales",
+      "subcategoria": "pitch",
+      "especificaciones": {
+        "tipo": "Pitch",
+        "alimentacion": "9V DC",
+        "bypass": "True Bypass",
+        "otros": "Made by EHX"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.726Z",
+      "fechaModificacion": "2025-12-31T21:32:23.726Z"
+    },
+    {
+      "id": 1145,
+      "nombre": "EHX Soul Food",
+      "slug": "ehx-soul-food",
+      "marca": "Electro-Harmonix",
+      "modelo": "EHX Soul Food",
+      "precio": 80,
+      "precioMayorista": 64,
+      "descripcion": "EHX Soul Food - Pedal Electro-Harmonix",
+      "descripcionDetallada": "EHX Soul Food - Electro-Harmonix es sinónimo de innovación y calidad en pedales. Sonidos icónicos a precio accesible.",
+      "caracteristicas": [
+        "True bypass",
+        "9V DC",
+        "Construcción robusta",
+        "Sonido clásico EHX"
+      ],
+      "imagenes": [
+        "/img/pedales/ehx/Soulfood.jpg"
+      ],
+      "stock": 5,
+      "categoria": "pedales",
+      "subcategoria": "overdrive",
+      "especificaciones": {
+        "tipo": "Overdrive",
+        "alimentacion": "9V DC",
+        "bypass": "True Bypass",
+        "otros": "Made by EHX"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.726Z",
+      "fechaModificacion": "2025-12-31T21:32:23.726Z"
+    },
+    {
+      "id": 1146,
+      "nombre": "Maxon AD10 Analog Delay",
+      "slug": "maxon-ad10-analog-delay",
+      "marca": "Maxon",
+      "modelo": "Maxon AD10 Analog Delay",
+      "precio": 160,
+      "precioMayorista": 128,
+      "descripcion": "Maxon AD10 Analog Delay - Pedal japonés de alta calidad",
+      "descripcionDetallada": "Maxon AD10 Analog Delay - Maxon es la marca original detrás de los legendarios pedales Tube Screamer. Calidad japonesa incomparable.",
+      "caracteristicas": [
+        "Made in Japan",
+        "True bypass",
+        "9V DC",
+        "Calidad premium"
+      ],
+      "imagenes": [
+        "/img/pedales/maxon/AD10.png"
+      ],
+      "stock": 3,
+      "categoria": "pedales",
+      "subcategoria": "delay",
+      "especificaciones": {
+        "tipo": "Delay",
+        "alimentacion": "9V DC",
+        "bypass": "True Bypass",
+        "otros": "Made in Japan"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.726Z",
+      "fechaModificacion": "2025-12-31T21:32:23.726Z"
+    },
+    {
+      "id": 1147,
+      "nombre": "Maxon Dynamic Distortion",
+      "slug": "maxon-dynamic-distortion",
+      "marca": "Maxon",
+      "modelo": "Maxon Dynamic Distortion",
+      "precio": 140,
+      "precioMayorista": 112,
+      "descripcion": "Maxon Dynamic Distortion - Pedal japonés de alta calidad",
+      "descripcionDetallada": "Maxon Dynamic Distortion - Maxon es la marca original detrás de los legendarios pedales Tube Screamer. Calidad japonesa incomparable.",
+      "caracteristicas": [
+        "Made in Japan",
+        "True bypass",
+        "9V DC",
+        "Calidad premium"
+      ],
+      "imagenes": [
+        "/img/pedales/maxon/Dynamic Distortion.png"
+      ],
+      "stock": 3,
+      "categoria": "pedales",
+      "subcategoria": "distortion",
+      "especificaciones": {
+        "tipo": "Distortion",
+        "alimentacion": "9V DC",
+        "bypass": "True Bypass",
+        "otros": "Made in Japan"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.726Z",
+      "fechaModificacion": "2025-12-31T21:32:23.726Z"
+    },
+    {
+      "id": 1148,
+      "nombre": "Maxon OD808 Overdrive",
+      "slug": "maxon-od808-overdrive",
+      "marca": "Maxon",
+      "modelo": "Maxon OD808 Overdrive",
+      "precio": 130,
+      "precioMayorista": 104,
+      "descripcion": "Maxon OD808 Overdrive - Pedal japonés de alta calidad",
+      "descripcionDetallada": "Maxon OD808 Overdrive - Maxon es la marca original detrás de los legendarios pedales Tube Screamer. Calidad japonesa incomparable.",
+      "caracteristicas": [
+        "Made in Japan",
+        "True bypass",
+        "9V DC",
+        "Calidad premium"
+      ],
+      "imagenes": [
+        "/img/pedales/maxon/OD808.png"
+      ],
+      "stock": 3,
+      "categoria": "pedales",
+      "subcategoria": "overdrive",
+      "especificaciones": {
+        "tipo": "Overdrive",
+        "alimentacion": "9V DC",
+        "bypass": "True Bypass",
+        "otros": "Made in Japan"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.726Z",
+      "fechaModificacion": "2025-12-31T21:32:23.726Z"
+    },
+    {
+      "id": 1149,
+      "nombre": "Maxon OD9 Overdrive",
+      "slug": "maxon-od9-overdrive",
+      "marca": "Maxon",
+      "modelo": "Maxon OD9 Overdrive",
+      "precio": 120,
+      "precioMayorista": 96,
+      "descripcion": "Maxon OD9 Overdrive - Pedal japonés de alta calidad",
+      "descripcionDetallada": "Maxon OD9 Overdrive - Maxon es la marca original detrás de los legendarios pedales Tube Screamer. Calidad japonesa incomparable.",
+      "caracteristicas": [
+        "Made in Japan",
+        "True bypass",
+        "9V DC",
+        "Calidad premium"
+      ],
+      "imagenes": [
+        "/img/pedales/maxon/OD9.png"
+      ],
+      "stock": 3,
+      "categoria": "pedales",
+      "subcategoria": "overdrive",
+      "especificaciones": {
+        "tipo": "Overdrive",
+        "alimentacion": "9V DC",
+        "bypass": "True Bypass",
+        "otros": "Made in Japan"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.726Z",
+      "fechaModificacion": "2025-12-31T21:32:23.726Z"
+    },
+    {
+      "id": 1150,
+      "nombre": "Maxon ODR-1 Overdrive",
+      "slug": "maxon-odr-1-overdrive",
+      "marca": "Maxon",
+      "modelo": "Maxon ODR-1 Overdrive",
+      "precio": 110,
+      "precioMayorista": 88,
+      "descripcion": "Maxon ODR-1 Overdrive - Pedal japonés de alta calidad",
+      "descripcionDetallada": "Maxon ODR-1 Overdrive - Maxon es la marca original detrás de los legendarios pedales Tube Screamer. Calidad japonesa incomparable.",
+      "caracteristicas": [
+        "Made in Japan",
+        "True bypass",
+        "9V DC",
+        "Calidad premium"
+      ],
+      "imagenes": [
+        "/img/pedales/maxon/ODR-1.jpg"
+      ],
+      "stock": 3,
+      "categoria": "pedales",
+      "subcategoria": "overdrive",
+      "especificaciones": {
+        "tipo": "Overdrive",
+        "alimentacion": "9V DC",
+        "bypass": "True Bypass",
+        "otros": "Made in Japan"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.726Z",
+      "fechaModificacion": "2025-12-31T21:32:23.726Z"
+    },
+    {
+      "id": 1151,
+      "nombre": "Maxon ODR-1 Mini",
+      "slug": "maxon-odr-1-mini",
+      "marca": "Maxon",
+      "modelo": "Maxon ODR-1 Mini",
+      "precio": 100,
+      "precioMayorista": 80,
+      "descripcion": "Maxon ODR-1 Mini - Pedal japonés de alta calidad",
+      "descripcionDetallada": "Maxon ODR-1 Mini - Maxon es la marca original detrás de los legendarios pedales Tube Screamer. Calidad japonesa incomparable.",
+      "caracteristicas": [
+        "Made in Japan",
+        "True bypass",
+        "9V DC",
+        "Calidad premium"
+      ],
+      "imagenes": [
+        "/img/pedales/maxon/ODR-mini.jpg"
+      ],
+      "stock": 3,
+      "categoria": "pedales",
+      "subcategoria": "overdrive",
+      "especificaciones": {
+        "tipo": "Overdrive",
+        "alimentacion": "9V DC",
+        "bypass": "True Bypass",
+        "otros": "Made in Japan"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.726Z",
+      "fechaModificacion": "2025-12-31T21:32:23.726Z"
+    },
+    {
+      "id": 1152,
+      "nombre": "Maxon SD9 Sonic Distortion",
+      "slug": "maxon-sd9-sonic-distortion",
+      "marca": "Maxon",
+      "modelo": "Maxon SD9 Sonic Distortion",
+      "precio": 120,
+      "precioMayorista": 96,
+      "descripcion": "Maxon SD9 Sonic Distortion - Pedal japonés de alta calidad",
+      "descripcionDetallada": "Maxon SD9 Sonic Distortion - Maxon es la marca original detrás de los legendarios pedales Tube Screamer. Calidad japonesa incomparable.",
+      "caracteristicas": [
+        "Made in Japan",
+        "True bypass",
+        "9V DC",
+        "Calidad premium"
+      ],
+      "imagenes": [
+        "/img/pedales/maxon/SD9.png"
+      ],
+      "stock": 3,
+      "categoria": "pedales",
+      "subcategoria": "distortion",
+      "especificaciones": {
+        "tipo": "Distortion",
+        "alimentacion": "9V DC",
+        "bypass": "True Bypass",
+        "otros": "Made in Japan"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.726Z",
+      "fechaModificacion": "2025-12-31T21:32:23.726Z"
+    },
+    {
+      "id": 1153,
+      "nombre": "Maxon T Drive",
+      "slug": "maxon-t-drive",
+      "marca": "Maxon",
+      "modelo": "Maxon T Drive",
+      "precio": 135,
+      "precioMayorista": 108,
+      "descripcion": "Maxon T Drive - Pedal japonés de alta calidad",
+      "descripcionDetallada": "Maxon T Drive - Maxon es la marca original detrás de los legendarios pedales Tube Screamer. Calidad japonesa incomparable.",
+      "caracteristicas": [
+        "Made in Japan",
+        "True bypass",
+        "9V DC",
+        "Calidad premium"
+      ],
+      "imagenes": [
+        "/img/pedales/maxon/T Drive.png"
+      ],
+      "stock": 3,
+      "categoria": "pedales",
+      "subcategoria": "overdrive",
+      "especificaciones": {
+        "tipo": "Overdrive",
+        "alimentacion": "9V DC",
+        "bypass": "True Bypass",
+        "otros": "Made in Japan"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.726Z",
+      "fechaModificacion": "2025-12-31T21:32:23.726Z"
+    },
+    {
+      "id": 1154,
+      "nombre": "Maxon Tone Secret",
+      "slug": "maxon-tone-secret",
+      "marca": "Maxon",
+      "modelo": "Maxon Tone Secret",
+      "precio": 145,
+      "precioMayorista": 116,
+      "descripcion": "Maxon Tone Secret - Pedal japonés de alta calidad",
+      "descripcionDetallada": "Maxon Tone Secret - Maxon es la marca original detrás de los legendarios pedales Tube Screamer. Calidad japonesa incomparable.",
+      "caracteristicas": [
+        "Made in Japan",
+        "True bypass",
+        "9V DC",
+        "Calidad premium"
+      ],
+      "imagenes": [
+        "/img/pedales/maxon/Tone Secret.png"
+      ],
+      "stock": 3,
+      "categoria": "pedales",
+      "subcategoria": "overdrive",
+      "especificaciones": {
+        "tipo": "Overdrive",
+        "alimentacion": "9V DC",
+        "bypass": "True Bypass",
+        "otros": "Made in Japan"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.726Z",
+      "fechaModificacion": "2025-12-31T21:32:23.726Z"
+    },
+    {
+      "id": 1155,
+      "nombre": "Maxon Ultra Phonix",
+      "slug": "maxon-ultra-phonix",
+      "marca": "Maxon",
+      "modelo": "Maxon Ultra Phonix",
+      "precio": 170,
+      "precioMayorista": 136,
+      "descripcion": "Maxon Ultra Phonix - Pedal japonés de alta calidad",
+      "descripcionDetallada": "Maxon Ultra Phonix - Maxon es la marca original detrás de los legendarios pedales Tube Screamer. Calidad japonesa incomparable.",
+      "caracteristicas": [
+        "Made in Japan",
+        "True bypass",
+        "9V DC",
+        "Calidad premium"
+      ],
+      "imagenes": [
+        "/img/pedales/maxon/Ultra Phonix hrm.png"
+      ],
+      "stock": 3,
+      "categoria": "pedales",
+      "subcategoria": "overdrive",
+      "especificaciones": {
+        "tipo": "Overdrive",
+        "alimentacion": "9V DC",
+        "bypass": "True Bypass",
+        "otros": "Made in Japan"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.726Z",
+      "fechaModificacion": "2025-12-31T21:32:23.726Z"
+    },
+    {
+      "id": 1157,
+      "nombre": "Vemuram DJ1",
+      "slug": "vemuram-dj1",
+      "marca": "Vemuram",
+      "modelo": "Vemuram DJ1",
+      "precio": 350,
+      "precioMayorista": 280,
+      "descripcion": "Vemuram DJ1 - Ultra boutique japonés",
+      "descripcionDetallada": "Vemuram DJ1 - Vemuram representa lo máximo en pedales boutique japoneses. Cada pedal es una obra de arte tonal con componentes premium.",
+      "caracteristicas": [
+        "Made in Japan",
+        "Ultra boutique",
+        "Premium components",
+        "True bypass"
+      ],
+      "imagenes": [
+        "/img/pedales/vemuram/Vemuram-DJ1.jpg"
+      ],
+      "stock": 1,
+      "categoria": "pedales",
+      "subcategoria": "overdrive",
+      "especificaciones": {
+        "tipo": "Overdrive Boutique",
+        "alimentacion": "9V DC",
+        "bypass": "True Bypass",
+        "otros": "Hand-built in Japan"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.726Z",
+      "fechaModificacion": "2025-12-31T21:32:23.726Z"
+    },
+    {
+      "id": 1158,
+      "nombre": "Vemuram Jan Ray",
+      "slug": "vemuram-jan-ray",
+      "marca": "Vemuram",
+      "modelo": "Vemuram Jan Ray",
+      "precio": 380,
+      "precioMayorista": 304,
+      "descripcion": "Vemuram Jan Ray - Ultra boutique japonés",
+      "descripcionDetallada": "Vemuram Jan Ray - Vemuram representa lo máximo en pedales boutique japoneses. Cada pedal es una obra de arte tonal con componentes premium.",
+      "caracteristicas": [
+        "Made in Japan",
+        "Ultra boutique",
+        "Premium components",
+        "True bypass"
+      ],
+      "imagenes": [
+        "/img/pedales/vemuram/Vemuram-Jan-Ray.jpg"
+      ],
+      "stock": 1,
+      "categoria": "pedales",
+      "subcategoria": "overdrive",
+      "especificaciones": {
+        "tipo": "Overdrive Boutique",
+        "alimentacion": "9V DC",
+        "bypass": "True Bypass",
+        "otros": "Hand-built in Japan"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.726Z",
+      "fechaModificacion": "2025-12-31T21:32:23.726Z"
+    },
+    {
+      "id": 1159,
+      "nombre": "Vemuram Shanks ODS-1",
+      "slug": "vemuram-shanks-ods-1",
+      "marca": "Vemuram",
+      "modelo": "Vemuram Shanks ODS-1",
+      "precio": 420,
+      "precioMayorista": 336,
+      "descripcion": "Vemuram Shanks ODS-1 - Ultra boutique japonés",
+      "descripcionDetallada": "Vemuram Shanks ODS-1 - Vemuram representa lo máximo en pedales boutique japoneses. Cada pedal es una obra de arte tonal con componentes premium.",
+      "caracteristicas": [
+        "Made in Japan",
+        "Ultra boutique",
+        "Premium components",
+        "True bypass"
+      ],
+      "imagenes": [
+        "/img/pedales/vemuram/Vemuram_Shanks_ODS_1.jpg"
+      ],
+      "stock": 1,
+      "categoria": "pedales",
+      "subcategoria": "overdrive",
+      "especificaciones": {
+        "tipo": "Overdrive Boutique",
+        "alimentacion": "9V DC",
+        "bypass": "True Bypass",
+        "otros": "Hand-built in Japan"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.726Z",
+      "fechaModificacion": "2025-12-31T21:32:23.726Z"
+    },
+    {
+      "id": 1160,
+      "nombre": "Vemuram Shanks Drive",
+      "slug": "vemuram-shanks-drive",
+      "marca": "Vemuram",
+      "modelo": "Vemuram Shanks Drive",
+      "precio": 400,
+      "precioMayorista": 320,
+      "descripcion": "Vemuram Shanks Drive - Ultra boutique japonés",
+      "descripcionDetallada": "Vemuram Shanks Drive - Vemuram representa lo máximo en pedales boutique japoneses. Cada pedal es una obra de arte tonal con componentes premium.",
+      "caracteristicas": [
+        "Made in Japan",
+        "Ultra boutique",
+        "Premium components",
+        "True bypass"
+      ],
+      "imagenes": [
+        "/img/pedales/vemuram/shanks 11.jpg"
+      ],
+      "stock": 1,
+      "categoria": "pedales",
+      "subcategoria": "overdrive",
+      "especificaciones": {
+        "tipo": "Overdrive Boutique",
+        "alimentacion": "9V DC",
+        "bypass": "True Bypass",
+        "otros": "Hand-built in Japan"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.726Z",
+      "fechaModificacion": "2025-12-31T21:32:23.726Z"
+    },
+    {
+      "id": 1161,
+      "nombre": "Vemuram Budi G",
+      "slug": "vemuram-budi-g",
+      "marca": "Vemuram",
+      "modelo": "Vemuram Budi G",
+      "precio": 360,
+      "precioMayorista": 288,
+      "descripcion": "Vemuram Budi G - Ultra boutique japonés",
+      "descripcionDetallada": "Vemuram Budi G - Vemuram representa lo máximo en pedales boutique japoneses. Cada pedal es una obra de arte tonal con componentes premium.",
+      "caracteristicas": [
+        "Made in Japan",
+        "Ultra boutique",
+        "Premium components",
+        "True bypass"
+      ],
+      "imagenes": [
+        "/img/pedales/vemuram/vemuram-budi-g (1).jpg"
+      ],
+      "stock": 1,
+      "categoria": "pedales",
+      "subcategoria": "overdrive",
+      "especificaciones": {
+        "tipo": "Overdrive Boutique",
+        "alimentacion": "9V DC",
+        "bypass": "True Bypass",
+        "otros": "Hand-built in Japan"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.726Z",
+      "fechaModificacion": "2025-12-31T21:32:23.726Z"
+    },
+    {
+      "id": 1162,
+      "nombre": "Walrus Deep Six V3",
+      "slug": "walrus-deep-six-v3",
+      "marca": "Walrus Audio",
+      "modelo": "Walrus Deep Six V3",
+      "precio": 190,
+      "precioMayorista": 152,
+      "descripcion": "Walrus Deep Six V3 - Pedal boutique americano",
+      "descripcionDetallada": "Walrus Deep Six V3 - Walrus Audio combina arte visual impresionante con calidad tonal excepcional. Pedales boutique hechos en Oklahoma, USA.",
+      "caracteristicas": [
+        "Made in USA",
+        "Premium quality",
+        "True bypass",
+        "Arte único"
+      ],
+      "imagenes": [
+        "/img/pedales/walrus/319540-DeepSix_V3_Front_500.jpg"
+      ],
+      "stock": 3,
+      "categoria": "pedales",
+      "subcategoria": "compression",
+      "especificaciones": {
+        "tipo": "Compression",
+        "alimentacion": "9V DC",
+        "bypass": "True Bypass",
+        "otros": "Made in USA"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.726Z",
+      "fechaModificacion": "2025-12-31T21:32:23.726Z"
+    },
+    {
+      "id": 1163,
+      "nombre": "Walrus ACS1",
+      "slug": "walrus-acs1",
+      "marca": "Walrus Audio",
+      "modelo": "Walrus ACS1",
+      "precio": 250,
+      "precioMayorista": 200,
+      "descripcion": "Walrus ACS1 - Pedal boutique americano",
+      "descripcionDetallada": "Walrus ACS1 - Walrus Audio combina arte visual impresionante con calidad tonal excepcional. Pedales boutique hechos en Oklahoma, USA.",
+      "caracteristicas": [
+        "Made in USA",
+        "Premium quality",
+        "True bypass",
+        "Arte único"
+      ],
+      "imagenes": [
+        "/img/pedales/walrus/ACS1-front_a9e5755b-ac54-4f1c-ae32-1941c0eaf1b7_900x.webp"
+      ],
+      "stock": 3,
+      "categoria": "pedales",
+      "subcategoria": "amp-sim",
+      "especificaciones": {
+        "tipo": "Amp sim",
+        "alimentacion": "9V DC",
+        "bypass": "True Bypass",
+        "otros": "Made in USA"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.726Z",
+      "fechaModificacion": "2025-12-31T21:32:23.726Z"
+    },
+    {
+      "id": 1164,
+      "nombre": "Walrus Ages",
+      "slug": "walrus-ages",
+      "marca": "Walrus Audio",
+      "modelo": "Walrus Ages",
+      "precio": 180,
+      "precioMayorista": 144,
+      "descripcion": "Walrus Ages - Pedal boutique americano",
+      "descripcionDetallada": "Walrus Ages - Walrus Audio combina arte visual impresionante con calidad tonal excepcional. Pedales boutique hechos en Oklahoma, USA.",
+      "caracteristicas": [
+        "Made in USA",
+        "Premium quality",
+        "True bypass",
+        "Arte único"
+      ],
+      "imagenes": [
+        "/img/pedales/walrus/Ages-front_3000_f66e4d96-148a-49be-ba75-482bc0ad6360_900x.webp"
+      ],
+      "stock": 3,
+      "categoria": "pedales",
+      "subcategoria": "overdrive",
+      "especificaciones": {
+        "tipo": "Overdrive",
+        "alimentacion": "9V DC",
+        "bypass": "True Bypass",
+        "otros": "Made in USA"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.726Z",
+      "fechaModificacion": "2025-12-31T21:32:23.726Z"
+    },
+    {
+      "id": 1165,
+      "nombre": "Walrus ARP-87",
+      "slug": "walrus-arp-87",
+      "marca": "Walrus Audio",
+      "modelo": "Walrus ARP-87",
+      "precio": 200,
+      "precioMayorista": 160,
+      "descripcion": "Walrus ARP-87 - Pedal boutique americano",
+      "descripcionDetallada": "Walrus ARP-87 - Walrus Audio combina arte visual impresionante con calidad tonal excepcional. Pedales boutique hechos en Oklahoma, USA.",
+      "caracteristicas": [
+        "Made in USA",
+        "Premium quality",
+        "True bypass",
+        "Arte único"
+      ],
+      "imagenes": [
+        "/img/pedales/walrus/ARP-87-large.jpg"
+      ],
+      "stock": 3,
+      "categoria": "pedales",
+      "subcategoria": "delay",
+      "especificaciones": {
+        "tipo": "Delay",
+        "alimentacion": "9V DC",
+        "bypass": "True Bypass",
+        "otros": "Made in USA"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.726Z",
+      "fechaModificacion": "2025-12-31T21:32:23.726Z"
+    },
+    {
+      "id": 1166,
+      "nombre": "Walrus Canvas Mono",
+      "slug": "walrus-canvas-mono",
+      "marca": "Walrus Audio",
+      "modelo": "Walrus Canvas Mono",
+      "precio": 170,
+      "precioMayorista": 136,
+      "descripcion": "Walrus Canvas Mono - Pedal boutique americano",
+      "descripcionDetallada": "Walrus Canvas Mono - Walrus Audio combina arte visual impresionante con calidad tonal excepcional. Pedales boutique hechos en Oklahoma, USA.",
+      "caracteristicas": [
+        "Made in USA",
+        "Premium quality",
+        "True bypass",
+        "Arte único"
+      ],
+      "imagenes": [
+        "/img/pedales/walrus/Canvas-Mono-cutout_1600x.webp"
+      ],
+      "stock": 3,
+      "categoria": "pedales",
+      "subcategoria": "chorus",
+      "especificaciones": {
+        "tipo": "Chorus",
+        "alimentacion": "9V DC",
+        "bypass": "True Bypass",
+        "otros": "Made in USA"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.726Z",
+      "fechaModificacion": "2025-12-31T21:32:23.726Z"
+    },
+    {
+      "id": 1167,
+      "nombre": "Walrus D1 V2",
+      "slug": "walrus-d1-v2",
+      "marca": "Walrus Audio",
+      "modelo": "Walrus D1 V2",
+      "precio": 210,
+      "precioMayorista": 168,
+      "descripcion": "Walrus D1 V2 - Pedal boutique americano",
+      "descripcionDetallada": "Walrus D1 V2 - Walrus Audio combina arte visual impresionante con calidad tonal excepcional. Pedales boutique hechos en Oklahoma, USA.",
+      "caracteristicas": [
+        "Made in USA",
+        "Premium quality",
+        "True bypass",
+        "Arte único"
+      ],
+      "imagenes": [
+        "/img/pedales/walrus/D1_V2-cutout_front_2000x.webp"
+      ],
+      "stock": 3,
+      "categoria": "pedales",
+      "subcategoria": "delay",
+      "especificaciones": {
+        "tipo": "Delay",
+        "alimentacion": "9V DC",
+        "bypass": "True Bypass",
+        "otros": "Made in USA"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.727Z",
+      "fechaModificacion": "2025-12-31T21:32:23.727Z"
+    },
+    {
+      "id": 1168,
+      "nombre": "Walrus Eras",
+      "slug": "walrus-eras",
+      "marca": "Walrus Audio",
+      "modelo": "Walrus Eras",
+      "precio": 240,
+      "precioMayorista": 192,
+      "descripcion": "Walrus Eras - Pedal boutique americano",
+      "descripcionDetallada": "Walrus Eras - Walrus Audio combina arte visual impresionante con calidad tonal excepcional. Pedales boutique hechos en Oklahoma, USA.",
+      "caracteristicas": [
+        "Made in USA",
+        "Premium quality",
+        "True bypass",
+        "Arte único"
+      ],
+      "imagenes": [
+        "/img/pedales/walrus/Eras-front_2000x.webp"
+      ],
+      "stock": 3,
+      "categoria": "pedales",
+      "subcategoria": "reverb-delay",
+      "especificaciones": {
+        "tipo": "Reverb delay",
+        "alimentacion": "9V DC",
+        "bypass": "True Bypass",
+        "otros": "Made in USA"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.727Z",
+      "fechaModificacion": "2025-12-31T21:32:23.727Z"
+    },
+    {
+      "id": 1169,
+      "nombre": "Walrus Fable",
+      "slug": "walrus-fable",
+      "marca": "Walrus Audio",
+      "modelo": "Walrus Fable",
+      "precio": 220,
+      "precioMayorista": 176,
+      "descripcion": "Walrus Fable - Pedal boutique americano",
+      "descripcionDetallada": "Walrus Fable - Walrus Audio combina arte visual impresionante con calidad tonal excepcional. Pedales boutique hechos en Oklahoma, USA.",
+      "caracteristicas": [
+        "Made in USA",
+        "Premium quality",
+        "True bypass",
+        "Arte único"
+      ],
+      "imagenes": [
+        "/img/pedales/walrus/Fable-large.jpg.auto.webp"
+      ],
+      "stock": 3,
+      "categoria": "pedales",
+      "subcategoria": "delay",
+      "especificaciones": {
+        "tipo": "Delay",
+        "alimentacion": "9V DC",
+        "bypass": "True Bypass",
+        "otros": "Made in USA"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.727Z",
+      "fechaModificacion": "2025-12-31T21:32:23.727Z"
+    },
+    {
+      "id": 1170,
+      "nombre": "Walrus Fathom",
+      "slug": "walrus-fathom",
+      "marca": "Walrus Audio",
+      "modelo": "Walrus Fathom",
+      "precio": 200,
+      "precioMayorista": 160,
+      "descripcion": "Walrus Fathom - Pedal boutique americano",
+      "descripcionDetallada": "Walrus Fathom - Walrus Audio combina arte visual impresionante con calidad tonal excepcional. Pedales boutique hechos en Oklahoma, USA.",
+      "caracteristicas": [
+        "Made in USA",
+        "Premium quality",
+        "True bypass",
+        "Arte único"
+      ],
+      "imagenes": [
+        "/img/pedales/walrus/Fathom-large.jpg"
+      ],
+      "stock": 3,
+      "categoria": "pedales",
+      "subcategoria": "reverb",
+      "especificaciones": {
+        "tipo": "Reverb",
+        "alimentacion": "9V DC",
+        "bypass": "True Bypass",
+        "otros": "Made in USA"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.727Z",
+      "fechaModificacion": "2025-12-31T21:32:23.727Z"
+    },
+    {
+      "id": 1171,
+      "nombre": "Walrus Julia V2",
+      "slug": "walrus-julia-v2",
+      "marca": "Walrus Audio",
+      "modelo": "Walrus Julia V2",
+      "precio": 190,
+      "precioMayorista": 152,
+      "descripcion": "Walrus Julia V2 - Pedal boutique americano",
+      "descripcionDetallada": "Walrus Julia V2 - Walrus Audio combina arte visual impresionante con calidad tonal excepcional. Pedales boutique hechos en Oklahoma, USA.",
+      "caracteristicas": [
+        "Made in USA",
+        "Premium quality",
+        "True bypass",
+        "Arte único"
+      ],
+      "imagenes": [
+        "/img/pedales/walrus/Julia-V2_front_869x869.webp"
+      ],
+      "stock": 3,
+      "categoria": "pedales",
+      "subcategoria": "chorus",
+      "especificaciones": {
+        "tipo": "Chorus",
+        "alimentacion": "9V DC",
+        "bypass": "True Bypass",
+        "otros": "Made in USA"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.727Z",
+      "fechaModificacion": "2025-12-31T21:32:23.727Z"
+    },
+    {
+      "id": 1172,
+      "nombre": "Walrus Julianna",
+      "slug": "walrus-julianna",
+      "marca": "Walrus Audio",
+      "modelo": "Walrus Julianna",
+      "precio": 210,
+      "precioMayorista": 168,
+      "descripcion": "Walrus Julianna - Pedal boutique americano",
+      "descripcionDetallada": "Walrus Julianna - Walrus Audio combina arte visual impresionante con calidad tonal excepcional. Pedales boutique hechos en Oklahoma, USA.",
+      "caracteristicas": [
+        "Made in USA",
+        "Premium quality",
+        "True bypass",
+        "Arte único"
+      ],
+      "imagenes": [
+        "/img/pedales/walrus/Julianna-large.jpg"
+      ],
+      "stock": 3,
+      "categoria": "pedales",
+      "subcategoria": "chorus",
+      "especificaciones": {
+        "tipo": "Chorus",
+        "alimentacion": "9V DC",
+        "bypass": "True Bypass",
+        "otros": "Made in USA"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.727Z",
+      "fechaModificacion": "2025-12-31T21:32:23.727Z"
+    },
+    {
+      "id": 1173,
+      "nombre": "Walrus Lillian",
+      "slug": "walrus-lillian",
+      "marca": "Walrus Audio",
+      "modelo": "Walrus Lillian",
+      "precio": 180,
+      "precioMayorista": 144,
+      "descripcion": "Walrus Lillian - Pedal boutique americano",
+      "descripcionDetallada": "Walrus Lillian - Walrus Audio combina arte visual impresionante con calidad tonal excepcional. Pedales boutique hechos en Oklahoma, USA.",
+      "caracteristicas": [
+        "Made in USA",
+        "Premium quality",
+        "True bypass",
+        "Arte único"
+      ],
+      "imagenes": [
+        "/img/pedales/walrus/Lillian_Front_600_900x.webp"
+      ],
+      "stock": 3,
+      "categoria": "pedales",
+      "subcategoria": "phaser",
+      "especificaciones": {
+        "tipo": "Phaser",
+        "alimentacion": "9V DC",
+        "bypass": "True Bypass",
+        "otros": "Made in USA"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.727Z",
+      "fechaModificacion": "2025-12-31T21:32:23.727Z"
+    },
+    {
+      "id": 1174,
+      "nombre": "Walrus Lore",
+      "slug": "walrus-lore",
+      "marca": "Walrus Audio",
+      "modelo": "Walrus Lore",
+      "precio": 200,
+      "precioMayorista": 160,
+      "descripcion": "Walrus Lore - Pedal boutique americano",
+      "descripcionDetallada": "Walrus Lore - Walrus Audio combina arte visual impresionante con calidad tonal excepcional. Pedales boutique hechos en Oklahoma, USA.",
+      "caracteristicas": [
+        "Made in USA",
+        "Premium quality",
+        "True bypass",
+        "Arte único"
+      ],
+      "imagenes": [
+        "/img/pedales/walrus/Lore-front_2000x.webp"
+      ],
+      "stock": 3,
+      "categoria": "pedales",
+      "subcategoria": "reverb",
+      "especificaciones": {
+        "tipo": "Reverb",
+        "alimentacion": "9V DC",
+        "bypass": "True Bypass",
+        "otros": "Made in USA"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.727Z",
+      "fechaModificacion": "2025-12-31T21:32:23.727Z"
+    },
+    {
+      "id": 1175,
+      "nombre": "Walrus Melee",
+      "slug": "walrus-melee",
+      "marca": "Walrus Audio",
+      "modelo": "Walrus Melee",
+      "precio": 230,
+      "precioMayorista": 184,
+      "descripcion": "Walrus Melee - Pedal boutique americano",
+      "descripcionDetallada": "Walrus Melee - Walrus Audio combina arte visual impresionante con calidad tonal excepcional. Pedales boutique hechos en Oklahoma, USA.",
+      "caracteristicas": [
+        "Made in USA",
+        "Premium quality",
+        "True bypass",
+        "Arte único"
+      ],
+      "imagenes": [
+        "/img/pedales/walrus/Melee-Cutout_front_2000x.webp"
+      ],
+      "stock": 3,
+      "categoria": "pedales",
+      "subcategoria": "distortion",
+      "especificaciones": {
+        "tipo": "Distortion",
+        "alimentacion": "9V DC",
+        "bypass": "True Bypass",
+        "otros": "Made in USA"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.727Z",
+      "fechaModificacion": "2025-12-31T21:32:23.727Z"
+    },
+    {
+      "id": 1176,
+      "nombre": "Walrus Mira",
+      "slug": "walrus-mira",
+      "marca": "Walrus Audio",
+      "modelo": "Walrus Mira",
+      "precio": 190,
+      "precioMayorista": 152,
+      "descripcion": "Walrus Mira - Pedal boutique americano",
+      "descripcionDetallada": "Walrus Mira - Walrus Audio combina arte visual impresionante con calidad tonal excepcional. Pedales boutique hechos en Oklahoma, USA.",
+      "caracteristicas": [
+        "Made in USA",
+        "Premium quality",
+        "True bypass",
+        "Arte único"
+      ],
+      "imagenes": [
+        "/img/pedales/walrus/Mira-front_900x.webp"
+      ],
+      "stock": 3,
+      "categoria": "pedales",
+      "subcategoria": "optical-compressor",
+      "especificaciones": {
+        "tipo": "Optical compressor",
+        "alimentacion": "9V DC",
+        "bypass": "True Bypass",
+        "otros": "Made in USA"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.727Z",
+      "fechaModificacion": "2025-12-31T21:32:23.727Z"
+    },
+    {
+      "id": 1177,
+      "nombre": "Walrus R1 Reverb",
+      "slug": "walrus-r1-reverb",
+      "marca": "Walrus Audio",
+      "modelo": "Walrus R1 Reverb",
+      "precio": 220,
+      "precioMayorista": 176,
+      "descripcion": "Walrus R1 Reverb - Pedal boutique americano",
+      "descripcionDetallada": "Walrus R1 Reverb - Walrus Audio combina arte visual impresionante con calidad tonal excepcional. Pedales boutique hechos en Oklahoma, USA.",
+      "caracteristicas": [
+        "Made in USA",
+        "Premium quality",
+        "True bypass",
+        "Arte único"
+      ],
+      "imagenes": [
+        "/img/pedales/walrus/R1Rvb-large.jpg"
+      ],
+      "stock": 3,
+      "categoria": "pedales",
+      "subcategoria": "reverb",
+      "especificaciones": {
+        "tipo": "Reverb",
+        "alimentacion": "9V DC",
+        "bypass": "True Bypass",
+        "otros": "Made in USA"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.727Z",
+      "fechaModificacion": "2025-12-31T21:32:23.727Z"
+    },
+    {
+      "id": 1178,
+      "nombre": "Walrus Slö",
+      "slug": "walrus-slo",
+      "marca": "Walrus Audio",
+      "modelo": "Walrus Slö",
+      "precio": 200,
+      "precioMayorista": 160,
+      "descripcion": "Walrus Slö - Pedal boutique americano",
+      "descripcionDetallada": "Walrus Slö - Walrus Audio combina arte visual impresionante con calidad tonal excepcional. Pedales boutique hechos en Oklahoma, USA.",
+      "caracteristicas": [
+        "Made in USA",
+        "Premium quality",
+        "True bypass",
+        "Arte único"
+      ],
+      "imagenes": [
+        "/img/pedales/walrus/Slo_Front_550_900x.webp"
+      ],
+      "stock": 3,
+      "categoria": "pedales",
+      "subcategoria": "reverb",
+      "especificaciones": {
+        "tipo": "Reverb",
+        "alimentacion": "9V DC",
+        "bypass": "True Bypass",
+        "otros": "Made in USA"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.727Z",
+      "fechaModificacion": "2025-12-31T21:32:23.727Z"
+    }
+  ],
   "amplificadores": [
     {
       "id": 1,
@@ -1508,6 +3059,580 @@
       },
       "fechaCreacion": "2025-12-31T20:35:18.161Z",
       "fechaModificacion": "2025-12-31T20:35:18.161Z"
+    },
+    {
+      "id": 1110,
+      "nombre": "Gruvgear Estuche Guitarra Tipo 1",
+      "slug": "gruvgear-estuche-guitarra-tipo-1",
+      "marca": "Gruvgear",
+      "modelo": "Gruvgear Estuche Guitarra Tipo 1",
+      "precio": 180,
+      "precioMayorista": 144,
+      "descripcion": "Estuche profesional Gruvgear Estuche Guitarra Tipo 1",
+      "descripcionDetallada": "Estuche profesional Gruvgear de alta calidad con máxima protección para tu instrumento.",
+      "caracteristicas": [
+        "Protección máxima",
+        "Material resistente",
+        "Interior acolchado"
+      ],
+      "imagenes": [
+        "/img/accesorios/estuches/{16528969-4A25-43CE-8A66-6D1BF0EE1112}.png"
+      ],
+      "stock": 5,
+      "categoria": "accesorios",
+      "subcategoria": "estuches",
+      "especificaciones": {
+        "tipo": "Estuche",
+        "material": "Nylon resistente",
+        "proteccion": "Acolchado premium",
+        "otros": "Compatible con diversos modelos"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.725Z",
+      "fechaModificacion": "2025-12-31T21:32:23.726Z"
+    },
+    {
+      "id": 1111,
+      "nombre": "Gruvgear Estuche Guitarra Tipo 2",
+      "slug": "gruvgear-estuche-guitarra-tipo-2",
+      "marca": "Gruvgear",
+      "modelo": "Gruvgear Estuche Guitarra Tipo 2",
+      "precio": 190,
+      "precioMayorista": 152,
+      "descripcion": "Estuche profesional Gruvgear Estuche Guitarra Tipo 2",
+      "descripcionDetallada": "Estuche profesional Gruvgear de alta calidad con máxima protección para tu instrumento.",
+      "caracteristicas": [
+        "Protección máxima",
+        "Material resistente",
+        "Interior acolchado"
+      ],
+      "imagenes": [
+        "/img/accesorios/estuches/{430905C2-D010-4B8B-ABDD-0B3A7BD55707}.png"
+      ],
+      "stock": 5,
+      "categoria": "accesorios",
+      "subcategoria": "estuches",
+      "especificaciones": {
+        "tipo": "Estuche",
+        "material": "Nylon resistente",
+        "proteccion": "Acolchado premium",
+        "otros": "Compatible con diversos modelos"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.726Z",
+      "fechaModificacion": "2025-12-31T21:32:23.726Z"
+    },
+    {
+      "id": 1112,
+      "nombre": "Gruvgear Estuche Guitarra Tipo 3",
+      "slug": "gruvgear-estuche-guitarra-tipo-3",
+      "marca": "Gruvgear",
+      "modelo": "Gruvgear Estuche Guitarra Tipo 3",
+      "precio": 190,
+      "precioMayorista": 152,
+      "descripcion": "Estuche profesional Gruvgear Estuche Guitarra Tipo 3",
+      "descripcionDetallada": "Estuche profesional Gruvgear de alta calidad con máxima protección para tu instrumento.",
+      "caracteristicas": [
+        "Protección máxima",
+        "Material resistente",
+        "Interior acolchado"
+      ],
+      "imagenes": [
+        "/img/accesorios/estuches/{4CA173CE-488C-4CF9-B085-3166816D1B75}.png"
+      ],
+      "stock": 5,
+      "categoria": "accesorios",
+      "subcategoria": "estuches",
+      "especificaciones": {
+        "tipo": "Estuche",
+        "material": "Nylon resistente",
+        "proteccion": "Acolchado premium",
+        "otros": "Compatible con diversos modelos"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.726Z",
+      "fechaModificacion": "2025-12-31T21:32:23.726Z"
+    },
+    {
+      "id": 1113,
+      "nombre": "Gruvgear Estuche Bajo Tipo 1",
+      "slug": "gruvgear-estuche-bajo-tipo-1",
+      "marca": "Gruvgear",
+      "modelo": "Gruvgear Estuche Bajo Tipo 1",
+      "precio": 200,
+      "precioMayorista": 160,
+      "descripcion": "Estuche profesional Gruvgear Estuche Bajo Tipo 1",
+      "descripcionDetallada": "Estuche profesional Gruvgear de alta calidad con máxima protección para tu instrumento.",
+      "caracteristicas": [
+        "Protección máxima",
+        "Material resistente",
+        "Interior acolchado"
+      ],
+      "imagenes": [
+        "/img/accesorios/estuches/{B52B0F68-3D90-4B9C-AF9E-030BA55E04CB}.png"
+      ],
+      "stock": 5,
+      "categoria": "accesorios",
+      "subcategoria": "estuches",
+      "especificaciones": {
+        "tipo": "Estuche",
+        "material": "Nylon resistente",
+        "proteccion": "Acolchado premium",
+        "otros": "Compatible con diversos modelos"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.726Z",
+      "fechaModificacion": "2025-12-31T21:32:23.726Z"
+    },
+    {
+      "id": 1114,
+      "nombre": "Gruvgear Estuche Bajo Tipo 2",
+      "slug": "gruvgear-estuche-bajo-tipo-2",
+      "marca": "Gruvgear",
+      "modelo": "Gruvgear Estuche Bajo Tipo 2",
+      "precio": 200,
+      "precioMayorista": 160,
+      "descripcion": "Estuche profesional Gruvgear Estuche Bajo Tipo 2",
+      "descripcionDetallada": "Estuche profesional Gruvgear de alta calidad con máxima protección para tu instrumento.",
+      "caracteristicas": [
+        "Protección máxima",
+        "Material resistente",
+        "Interior acolchado"
+      ],
+      "imagenes": [
+        "/img/accesorios/estuches/{BCE60E68-54F9-41FD-8739-37053166273B}.png"
+      ],
+      "stock": 5,
+      "categoria": "accesorios",
+      "subcategoria": "estuches",
+      "especificaciones": {
+        "tipo": "Estuche",
+        "material": "Nylon resistente",
+        "proteccion": "Acolchado premium",
+        "otros": "Compatible con diversos modelos"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.726Z",
+      "fechaModificacion": "2025-12-31T21:32:23.726Z"
+    },
+    {
+      "id": 1115,
+      "nombre": "Gruvgear Estuche Premium",
+      "slug": "gruvgear-estuche-premium",
+      "marca": "Gruvgear",
+      "modelo": "Gruvgear Estuche Premium",
+      "precio": 220,
+      "precioMayorista": 176,
+      "descripcion": "Estuche profesional Gruvgear Estuche Premium",
+      "descripcionDetallada": "Estuche profesional Gruvgear de alta calidad con máxima protección para tu instrumento.",
+      "caracteristicas": [
+        "Protección máxima",
+        "Material resistente",
+        "Interior acolchado"
+      ],
+      "imagenes": [
+        "/img/accesorios/estuches/{ED0C5EBF-7B34-4D46-85D7-16D935FF84AB}.png"
+      ],
+      "stock": 5,
+      "categoria": "accesorios",
+      "subcategoria": "estuches",
+      "especificaciones": {
+        "tipo": "Estuche",
+        "material": "Nylon resistente",
+        "proteccion": "Acolchado premium",
+        "otros": "Compatible con diversos modelos"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.726Z",
+      "fechaModificacion": "2025-12-31T21:32:23.726Z"
+    },
+    {
+      "id": 1116,
+      "nombre": "Lollar Single Coil Imperial",
+      "slug": "lollar-single-coil-imperial",
+      "marca": "Lollar",
+      "modelo": "Lollar Single Coil Imperial",
+      "precio": 280,
+      "precioMayorista": 224,
+      "descripcion": "Pickup Lollar Single Coil Imperial - Tono vintage premium",
+      "descripcionDetallada": "Los pickups Lollar son reconocidos mundialmente por su calidad artesanal y tono vintage auténtico. Cada pickup es enrollado a mano con especificaciones precisas.",
+      "caracteristicas": [
+        "Enrollado a mano",
+        "Tono vintage",
+        "Calidad artesanal",
+        "Made in USA"
+      ],
+      "imagenes": [
+        "/img/accesorios/lollar/Captura de pantalla 2025-05-12 121547.png"
+      ],
+      "stock": 3,
+      "categoria": "accesorios",
+      "subcategoria": "pickups",
+      "especificaciones": {
+        "tipo": "Pickup",
+        "resistencia": "Vintage spec",
+        "imanes": "Alnico",
+        "otros": "Hand-wound"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.726Z",
+      "fechaModificacion": "2025-12-31T21:32:23.726Z"
+    },
+    {
+      "id": 1117,
+      "nombre": "Lollar P-90 Classic",
+      "slug": "lollar-p-90-classic",
+      "marca": "Lollar",
+      "modelo": "Lollar P-90 Classic",
+      "precio": 300,
+      "precioMayorista": 240,
+      "descripcion": "Pickup Lollar P-90 Classic - Tono vintage premium",
+      "descripcionDetallada": "Los pickups Lollar son reconocidos mundialmente por su calidad artesanal y tono vintage auténtico. Cada pickup es enrollado a mano con especificaciones precisas.",
+      "caracteristicas": [
+        "Enrollado a mano",
+        "Tono vintage",
+        "Calidad artesanal",
+        "Made in USA"
+      ],
+      "imagenes": [
+        "/img/accesorios/lollar/Captura de pantalla 2025-10-29 160655.png"
+      ],
+      "stock": 3,
+      "categoria": "accesorios",
+      "subcategoria": "pickups",
+      "especificaciones": {
+        "tipo": "Pickup",
+        "resistencia": "Vintage spec",
+        "imanes": "Alnico",
+        "otros": "Hand-wound"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.726Z",
+      "fechaModificacion": "2025-12-31T21:32:23.726Z"
+    },
+    {
+      "id": 1118,
+      "nombre": "Lollar Humbucker Imperial",
+      "slug": "lollar-humbucker-imperial",
+      "marca": "Lollar",
+      "modelo": "Lollar Humbucker Imperial",
+      "precio": 320,
+      "precioMayorista": 256,
+      "descripcion": "Pickup Lollar Humbucker Imperial - Tono vintage premium",
+      "descripcionDetallada": "Los pickups Lollar son reconocidos mundialmente por su calidad artesanal y tono vintage auténtico. Cada pickup es enrollado a mano con especificaciones precisas.",
+      "caracteristicas": [
+        "Enrollado a mano",
+        "Tono vintage",
+        "Calidad artesanal",
+        "Made in USA"
+      ],
+      "imagenes": [
+        "/img/accesorios/lollar/Captura de pantalla 2025-10-29 160716.png"
+      ],
+      "stock": 3,
+      "categoria": "accesorios",
+      "subcategoria": "pickups",
+      "especificaciones": {
+        "tipo": "Pickup",
+        "resistencia": "Vintage spec",
+        "imanes": "Alnico",
+        "otros": "Hand-wound"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.726Z",
+      "fechaModificacion": "2025-12-31T21:32:23.726Z"
+    },
+    {
+      "id": 1119,
+      "nombre": "Lollar Pickup Set",
+      "slug": "lollar-pickup-set",
+      "marca": "Lollar",
+      "modelo": "Lollar Pickup Set",
+      "precio": 350,
+      "precioMayorista": 280,
+      "descripcion": "Pickup Lollar Pickup Set - Tono vintage premium",
+      "descripcionDetallada": "Los pickups Lollar son reconocidos mundialmente por su calidad artesanal y tono vintage auténtico. Cada pickup es enrollado a mano con especificaciones precisas.",
+      "caracteristicas": [
+        "Enrollado a mano",
+        "Tono vintage",
+        "Calidad artesanal",
+        "Made in USA"
+      ],
+      "imagenes": [
+        "/img/accesorios/lollar/image.png"
+      ],
+      "stock": 3,
+      "categoria": "accesorios",
+      "subcategoria": "pickups",
+      "especificaciones": {
+        "tipo": "Pickup",
+        "resistencia": "Vintage spec",
+        "imanes": "Alnico",
+        "otros": "Hand-wound"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.726Z",
+      "fechaModificacion": "2025-12-31T21:32:23.726Z"
+    },
+    {
+      "id": 1120,
+      "nombre": "Pig Hog Cable 10ft",
+      "slug": "pig-hog-cable-10ft",
+      "marca": "Pig Hog",
+      "modelo": "Pig Hog Cable 10ft",
+      "precio": 25,
+      "precioMayorista": 20,
+      "descripcion": "Cable profesional Pig Hog Cable 10ft",
+      "descripcionDetallada": "Cables Pig Hog - Calidad profesional a precio accesible. Construcción robusta con conectores de alta calidad.",
+      "caracteristicas": [
+        "Alta calidad",
+        "Construcción robusta",
+        "Garantía lifetime"
+      ],
+      "imagenes": [
+        "/img/accesorios/pighog/WhatsApp Image 2024-04-29 at 12.24.39 PM.jpeg"
+      ],
+      "stock": 10,
+      "categoria": "accesorios",
+      "subcategoria": "cables",
+      "especificaciones": {
+        "tipo": "Cable",
+        "conector": "1/4 inch",
+        "blindaje": "Doble",
+        "otros": "Lifetime warranty"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.726Z",
+      "fechaModificacion": "2025-12-31T21:32:23.726Z"
+    },
+    {
+      "id": 1121,
+      "nombre": "Pig Hog Cable 15ft",
+      "slug": "pig-hog-cable-15ft",
+      "marca": "Pig Hog",
+      "modelo": "Pig Hog Cable 15ft",
+      "precio": 30,
+      "precioMayorista": 24,
+      "descripcion": "Cable profesional Pig Hog Cable 15ft",
+      "descripcionDetallada": "Cables Pig Hog - Calidad profesional a precio accesible. Construcción robusta con conectores de alta calidad.",
+      "caracteristicas": [
+        "Alta calidad",
+        "Construcción robusta",
+        "Garantía lifetime"
+      ],
+      "imagenes": [
+        "/img/accesorios/pighog/WhatsApp Image 2024-04-29 at 12.24.40 PM.jpeg"
+      ],
+      "stock": 10,
+      "categoria": "accesorios",
+      "subcategoria": "cables",
+      "especificaciones": {
+        "tipo": "Cable",
+        "conector": "1/4 inch",
+        "blindaje": "Doble",
+        "otros": "Lifetime warranty"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.726Z",
+      "fechaModificacion": "2025-12-31T21:32:23.726Z"
+    },
+    {
+      "id": 1122,
+      "nombre": "Pig Hog Cable 20ft",
+      "slug": "pig-hog-cable-20ft",
+      "marca": "Pig Hog",
+      "modelo": "Pig Hog Cable 20ft",
+      "precio": 35,
+      "precioMayorista": 28,
+      "descripcion": "Cable profesional Pig Hog Cable 20ft",
+      "descripcionDetallada": "Cables Pig Hog - Calidad profesional a precio accesible. Construcción robusta con conectores de alta calidad.",
+      "caracteristicas": [
+        "Alta calidad",
+        "Construcción robusta",
+        "Garantía lifetime"
+      ],
+      "imagenes": [
+        "/img/accesorios/pighog/WhatsApp Image 2024-04-29 at 12.24.41 PM (1).jpeg"
+      ],
+      "stock": 10,
+      "categoria": "accesorios",
+      "subcategoria": "cables",
+      "especificaciones": {
+        "tipo": "Cable",
+        "conector": "1/4 inch",
+        "blindaje": "Doble",
+        "otros": "Lifetime warranty"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.726Z",
+      "fechaModificacion": "2025-12-31T21:32:23.726Z"
+    },
+    {
+      "id": 1123,
+      "nombre": "Pig Hog Cable Patch 6in",
+      "slug": "pig-hog-cable-patch-6in",
+      "marca": "Pig Hog",
+      "modelo": "Pig Hog Cable Patch 6in",
+      "precio": 15,
+      "precioMayorista": 12,
+      "descripcion": "Cable profesional Pig Hog Cable Patch 6in",
+      "descripcionDetallada": "Cables Pig Hog - Calidad profesional a precio accesible. Construcción robusta con conectores de alta calidad.",
+      "caracteristicas": [
+        "Alta calidad",
+        "Construcción robusta",
+        "Garantía lifetime"
+      ],
+      "imagenes": [
+        "/img/accesorios/pighog/WhatsApp Image 2024-04-29 at 12.24.41 PM.jpeg"
+      ],
+      "stock": 10,
+      "categoria": "accesorios",
+      "subcategoria": "cables",
+      "especificaciones": {
+        "tipo": "Cable",
+        "conector": "1/4 inch",
+        "blindaje": "Doble",
+        "otros": "Lifetime warranty"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.726Z",
+      "fechaModificacion": "2025-12-31T21:32:23.726Z"
+    },
+    {
+      "id": 1124,
+      "nombre": "Pig Hog Cable XLR 10ft",
+      "slug": "pig-hog-cable-xlr-10ft",
+      "marca": "Pig Hog",
+      "modelo": "Pig Hog Cable XLR 10ft",
+      "precio": 30,
+      "precioMayorista": 24,
+      "descripcion": "Cable profesional Pig Hog Cable XLR 10ft",
+      "descripcionDetallada": "Cables Pig Hog - Calidad profesional a precio accesible. Construcción robusta con conectores de alta calidad.",
+      "caracteristicas": [
+        "Alta calidad",
+        "Construcción robusta",
+        "Garantía lifetime"
+      ],
+      "imagenes": [
+        "/img/accesorios/pighog/WhatsApp Image 2024-04-29 at 12.24.42 PM (1).jpeg"
+      ],
+      "stock": 10,
+      "categoria": "accesorios",
+      "subcategoria": "cables",
+      "especificaciones": {
+        "tipo": "Cable",
+        "conector": "1/4 inch",
+        "blindaje": "Doble",
+        "otros": "Lifetime warranty"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.726Z",
+      "fechaModificacion": "2025-12-31T21:32:23.726Z"
+    },
+    {
+      "id": 1125,
+      "nombre": "Pig Hog Cable XLR 20ft",
+      "slug": "pig-hog-cable-xlr-20ft",
+      "marca": "Pig Hog",
+      "modelo": "Pig Hog Cable XLR 20ft",
+      "precio": 40,
+      "precioMayorista": 32,
+      "descripcion": "Cable profesional Pig Hog Cable XLR 20ft",
+      "descripcionDetallada": "Cables Pig Hog - Calidad profesional a precio accesible. Construcción robusta con conectores de alta calidad.",
+      "caracteristicas": [
+        "Alta calidad",
+        "Construcción robusta",
+        "Garantía lifetime"
+      ],
+      "imagenes": [
+        "/img/accesorios/pighog/WhatsApp Image 2024-04-29 at 12.24.42 PM.jpeg"
+      ],
+      "stock": 10,
+      "categoria": "accesorios",
+      "subcategoria": "cables",
+      "especificaciones": {
+        "tipo": "Cable",
+        "conector": "1/4 inch",
+        "blindaje": "Doble",
+        "otros": "Lifetime warranty"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.726Z",
+      "fechaModificacion": "2025-12-31T21:32:23.726Z"
+    },
+    {
+      "id": 1126,
+      "nombre": "Pig Hog Patch Cable Pack",
+      "slug": "pig-hog-patch-cable-pack",
+      "marca": "Pig Hog",
+      "modelo": "Pig Hog Patch Cable Pack",
+      "precio": 50,
+      "precioMayorista": 40,
+      "descripcion": "Cable profesional Pig Hog Patch Cable Pack",
+      "descripcionDetallada": "Cables Pig Hog - Calidad profesional a precio accesible. Construcción robusta con conectores de alta calidad.",
+      "caracteristicas": [
+        "Alta calidad",
+        "Construcción robusta",
+        "Garantía lifetime"
+      ],
+      "imagenes": [
+        "/img/accesorios/pighog/WhatsApp Image 2024-04-29 at 12.24.43 PM.jpeg"
+      ],
+      "stock": 10,
+      "categoria": "accesorios",
+      "subcategoria": "cables",
+      "especificaciones": {
+        "tipo": "Cable",
+        "conector": "1/4 inch",
+        "blindaje": "Doble",
+        "otros": "Lifetime warranty"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.726Z",
+      "fechaModificacion": "2025-12-31T21:32:23.726Z"
+    },
+    {
+      "id": 1127,
+      "nombre": "Pig Hog Speaker Cable",
+      "slug": "pig-hog-speaker-cable",
+      "marca": "Pig Hog",
+      "modelo": "Pig Hog Speaker Cable",
+      "precio": 45,
+      "precioMayorista": 36,
+      "descripcion": "Cable profesional Pig Hog Speaker Cable",
+      "descripcionDetallada": "Cables Pig Hog - Calidad profesional a precio accesible. Construcción robusta con conectores de alta calidad.",
+      "caracteristicas": [
+        "Alta calidad",
+        "Construcción robusta",
+        "Garantía lifetime"
+      ],
+      "imagenes": [
+        "/img/accesorios/pighog/WhatsApp Image 2024-04-29 at 12.24.44 PM (1).jpeg"
+      ],
+      "stock": 10,
+      "categoria": "accesorios",
+      "subcategoria": "cables",
+      "especificaciones": {
+        "tipo": "Cable",
+        "conector": "1/4 inch",
+        "blindaje": "Doble",
+        "otros": "Lifetime warranty"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.726Z",
+      "fechaModificacion": "2025-12-31T21:32:23.726Z"
+    },
+    {
+      "id": 1156,
+      "nombre": "MGC Rock Ready Pedal Board",
+      "slug": "mgc-rock-ready-pedal-board",
+      "marca": "MGC",
+      "modelo": "MGC Rock Ready Pedal Board",
+      "precio": 200,
+      "precioMayorista": 160,
+      "descripcion": "Pedalboard profesional MGC",
+      "descripcionDetallada": "Pedalboard MGC Rock Ready - Sistema profesional para organizar tus pedales con máxima eficiencia.",
+      "caracteristicas": [
+        "Construcción robusta",
+        "Diseño ergonómico",
+        "Múltiples configuraciones"
+      ],
+      "imagenes": [
+        "/img/accesorios/pedalboard/WhatsApp Image 2025-06-18 at 11.49.19 AM.jpeg"
+      ],
+      "stock": 5,
+      "categoria": "accesorios",
+      "subcategoria": "pedalboard",
+      "especificaciones": {
+        "tipo": "Pedalboard",
+        "material": "Aluminio",
+        "tamano": "Mediano",
+        "otros": "Incluye bolsa"
+      },
+      "fechaCreacion": "2025-12-31T21:32:23.726Z",
+      "fechaModificacion": "2025-12-31T21:32:23.726Z"
     }
   ]
 }
