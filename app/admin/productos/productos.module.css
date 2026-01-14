@@ -533,3 +533,63 @@
     justify-content: flex-end;
   }
 }
+
+/* Estilos para gestión de marcas */
+.nuevaMarcaContainer {
+  margin-top: 0.75rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.nuevaMarcaContainer .nuevaMarcaInput {
+  margin-top: 0;
+  flex: 1;
+}
+
+.guardarMarcaButton {
+  background: #10b981;
+  color: white;
+  border: none;
+  padding: 0.875rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  font-size: 0.9rem;
+}
+
+.guardarMarcaButton:hover:not(:disabled) {
+  background: #059669;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.guardarMarcaButton:disabled {
+  background: #d1d5db;
+  cursor: not-allowed;
+}
+
+.cancelarButton {
+  background: #6b7280;
+  color: white;
+  border: none;
+  padding: 0.875rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  font-size: 0.9rem;
+}
+
+.cancelarButton:hover:not(:disabled) {
+  background: #4b5563;
+  transform: translateY(-2px);
+}
+
+.cancelarButton:disabled {
+  background: #d1d5db;
+  cursor: not-allowed;
+}

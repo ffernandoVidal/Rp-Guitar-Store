@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 import fs from 'fs'
 import path from 'path'
-import { restarStock, getProductoById } from '@/lib/db-productos'
+import { updateStock, getProductoById } from '@/lib/db-productos-mysql'
 
 const VENTAS_PATH = path.join(process.cwd(), 'data', 'ventas.json')
 
@@ -47,7 +47,7 @@ export async function POST(request) {
     
     try {
       for (const item of productosVenta) {
-        const producto = getProductoById(item.id)
+        const producto = await getProductoById(item.id)
         
         if (!producto) {
           return NextResponse.json({ 
@@ -65,7 +65,7 @@ export async function POST(request) {
         }
         
         // Restar del inventario
-        const productoActualizado = restarStock(item.id, item.cantidad || 1)
+        const productoActualizado = await updateStock(item.id, item.cantidad || 1, 'decrement')
         productosActualizados.push({
           id: productoActualizado.id,
           nombre: productoActualizado.nombre,

@@ -9,14 +9,18 @@ export default function GruvgearPage() {
   const [productos, setProductos] = useState([])
 
   useEffect(() => {
-    fetch('/data/amplificadores.json')
+    fetch('/api/productos/catalogo', {
+      cache: 'no-store'
+    })
       .then(res => res.json())
       .then(data => {
-        // Filtrar productos de marca Gruvgear y Ernie Ball
-        const productosGruvgear = data.amplificadores.filter(
-          item => item.marca === 'Gruvgear' || item.marca === 'Ernie Ball'
-        )
-        setProductos(productosGruvgear)
+        if (data.success) {
+          // Filtrar productos de marca Gruvgear y Ernie Ball
+          const productosGruvgear = data.productos.filter(
+            item => item.marca === 'Gruvgear' || item.marca === 'Ernie Ball'
+          )
+          setProductos(productosGruvgear)
+        }
       })
       .catch(error => console.error('Error:', error))
   }, [])

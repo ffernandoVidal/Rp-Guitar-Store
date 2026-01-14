@@ -1,7 +1,8 @@
 -- ============================================
 -- SCRIPT DE BASE DE DATOS MYSQL - RP STORE
 -- Base de datos: rpstore
--- Fecha: 31 de diciembre de 2025
+-- Fecha: 13 de enero de 2026
+-- Estructura completa: TIENDA + ESCUELA
 -- ============================================
 
 -- Crear y usar la base de datos
@@ -9,35 +10,49 @@ DROP DATABASE IF EXISTS rpstore;
 CREATE DATABASE rpstore CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE rpstore;
 
--- ============================================
--- TABLAS DE PRODUCTOS
--- ============================================
+-- =========================================================
+--  BD: TIENDA + ESCUELA 
+-- =========================================================
 
--- Tabla de categorías
+-- ---------------------------
+-- 1) SEGURIDAD / USUARIOS
+-- ---------------------------
+CREATE TABLE roles (
+  role_id   INT AUTO_INCREMENT PRIMARY KEY,
+  nombre    VARCHAR(30) NOT NULL UNIQUE
+) ENGINE=InnoDB;
+
+CREATE TABLE usuarios (
+  user_id       BIGINT AUTO_INCREMENT PRIMARY KEY,
+  role_id       INT NOT NULL,
+  username      VARCHAR(50) NOT NULL UNIQUE,
+  email         VARCHAR(120) UNIQUE,
+  pass_hash     VARCHAR(255) NOT NULL,
+  activo        TINYINT(1) NOT NULL DEFAULT 1,
+  creado_en     DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  actualizado_en DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  CONSTRAINT fk_usuarios_roles
+    FOREIGN KEY (role_id) REFERENCES roles(role_id)
+) ENGINE=InnoDB;
+
+INSERT INTO roles(nombre) VALUES ('admin'), ('empleado'), ('maestro');
+
+-- ---------------------------
+-- 2) TIENDA: CATÁLOGO
+-- ---------------------------
 CREATE TABLE categorias (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    nombre VARCHAR(50) NOT NULL UNIQUE,
-    slug VARCHAR(50) NOT NULL UNIQUE,
-    descripcion TEXT,
-    fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  categoria_id INT AUTO_INCREMENT PRIMARY KEY,
+  nombre       VARCHAR(80) NOT NULL UNIQUE
+) ENGINE=InnoDB;
 
 -- Insertar categorías
-INSERT INTO categorias (nombre, slug, descripcion) VALUES
-('Guitarras', 'guitarras', 'Guitarras eléctricas y acústicas'),
-('Pedales', 'pedales', 'Pedales de efectos'),
-('Amplificadores', 'amplificadores', 'Amplificadores para guitarra y bajo'),
-('Bajos', 'bajos', 'Bajos eléctricos'),
-('Accesorios', 'accesorios', 'Accesorios musicales');
+INSERT INTO categorias (nombre) VALUES
+('Guitarras'), ('Pedales'), ('Amplificadores'), ('Bajos'), ('Accesorios');
 
--- Tabla de marcas
 CREATE TABLE marcas (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    nombre VARCHAR(100) NOT NULL UNIQUE,
-    descripcion TEXT,
-    logo_url VARCHAR(255),
-    fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  marca_id INT AUTO_INCREMENT PRIMARY KEY,
+  nombre   VARCHAR(80) NOT NULL UNIQUE
+) ENGINE=InnoDB;
 
 -- Insertar marcas
 INSERT INTO marcas (nombre) VALUES
@@ -50,401 +65,284 @@ INSERT INTO marcas (nombre) VALUES
 ('Schecter'), ('Gretsch'), ('Blackstar'), ('Laney'),
 ('Roland'), ('Yamaha');
 
--- Tabla principal de productos
 CREATE TABLE productos (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    nombre VARCHAR(255) NOT NULL,
-    slug VARCHAR(255) NOT NULL UNIQUE,
-    marca_id INT,
-    categoria_id INT NOT NULL,
-    modelo VARCHAR(100),
-    precio DECIMAL(10, 2) NOT NULL DEFAULT 0.00,
-    precio_mayorista DECIMAL(10, 2) DEFAULT 0.00,
-    descripcion TEXT,
-    descripcion_detallada TEXT,
-    stock INT NOT NULL DEFAULT 0,
-    activo BOOLEAN DEFAULT TRUE,
-    fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    fecha_modificacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY (marca_id) REFERENCES marcas(id) ON DELETE SET NULL,
-    FOREIGN KEY (categoria_id) REFERENCES categorias(id) ON DELETE CASCADE,
-    INDEX idx_slug (slug),
-    INDEX idx_marca (marca_id),
-    INDEX idx_categoria (categoria_id),
-    INDEX idx_stock (stock)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  producto_id      BIGINT AUTO_INCREMENT PRIMARY KEY,
+  categoria_id     INT NOT NULL,
+  marca_id         INT NOT NULL,
+  nombre           VARCHAR(120) NOT NULL,
+  modelo           VARCHAR(80) NULL,
+  descripcion      TEXT NULL,
+  detalle          TEXT NULL,
+  precio_mayorista DECIMAL(10,2) NOT NULL,
+  precio_venta     DECIMAL(10,2) NOT NULL,
+  stock            INT NOT NULL DEFAULT 0,
+  activo           TINYINT(1) NOT NULL DEFAULT 1,
+  creado_en        DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  actualizado_en   DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  CONSTRAINT fk_productos_categoria FOREIGN KEY (categoria_id) REFERENCES categorias(categoria_id),
+  CONSTRAINT fk_productos_marca     FOREIGN KEY (marca_id) REFERENCES marcas(marca_id),
+  CONSTRAINT ck_precios CHECK (precio_mayorista >= 0 AND precio_venta >= 0),
+  INDEX idx_prod_nombre (nombre),
+  INDEX idx_prod_modelo (modelo)
+) ENGINE=InnoDB;
 
--- Tabla de especificaciones técnicas
-CREATE TABLE especificaciones (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    producto_id INT NOT NULL,
-    tipo VARCHAR(100),
-    cuerpo VARCHAR(100),
-    mastil VARCHAR(100),
-    diapason VARCHAR(100),
-    otros TEXT,
-    FOREIGN KEY (producto_id) REFERENCES productos(id) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE producto_imagenes (
+  imagen_id    BIGINT AUTO_INCREMENT PRIMARY KEY,
+  producto_id  BIGINT NOT NULL,
+  url          VARCHAR(400) NOT NULL,
+  es_principal TINYINT(1) NOT NULL DEFAULT 0,
+  creado_en    DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_img_producto FOREIGN KEY (producto_id) REFERENCES productos(producto_id)
+    ON DELETE CASCADE,
+  INDEX idx_img_producto (producto_id)
+) ENGINE=InnoDB;
 
--- Tabla de características (array normalizado)
-CREATE TABLE caracteristicas (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    producto_id INT NOT NULL,
-    caracteristica VARCHAR(255) NOT NULL,
-    orden INT DEFAULT 0,
-    FOREIGN KEY (producto_id) REFERENCES productos(id) ON DELETE CASCADE,
-    INDEX idx_producto (producto_id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+-- Vista para ocultar precio_mayorista (útil para panel empleado)
+CREATE OR REPLACE VIEW vw_productos_publico AS
+SELECT
+  p.producto_id, p.categoria_id, p.marca_id, p.nombre, p.modelo,
+  p.descripcion, p.detalle, p.precio_venta, p.stock, p.activo,
+  p.creado_en, p.actualizado_en
+FROM productos p;
 
--- Tabla de imágenes de productos
-CREATE TABLE imagenes_productos (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    producto_id INT NOT NULL,
-    url VARCHAR(500) NOT NULL,
-    es_principal BOOLEAN DEFAULT FALSE,
-    orden INT DEFAULT 0,
-    fecha_subida TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (producto_id) REFERENCES productos(id) ON DELETE CASCADE,
-    INDEX idx_producto (producto_id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- ============================================
--- TABLAS DE MUSIC SCHOOL
--- ============================================
-
--- Tabla de instrumentos
-CREATE TABLE instrumentos (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    nombre VARCHAR(50) NOT NULL UNIQUE,
-    codigo VARCHAR(10) NOT NULL UNIQUE COMMENT 'Código para carnets (001, 002, etc.)',
-    descripcion TEXT,
-    fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- Insertar instrumentos
-INSERT INTO instrumentos (nombre, codigo, descripcion) VALUES
-('Guitarra', '001', 'Guitarra eléctrica y acústica'),
-('Batería', '002', 'Batería'),
-('Bajo', '003', 'Bajo eléctrico'),
-('Piano', '004', 'Piano y teclados'),
-('Saxofón', '005', 'Saxofón'),
-('Violín', '006', 'Violín'),
-('Canto', '007', 'Técnica vocal');
-
--- Tabla de alumnos
-CREATE TABLE alumnos (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    carnet VARCHAR(20) NOT NULL UNIQUE COMMENT 'Formato: 001-01',
-    nombre VARCHAR(255) NOT NULL,
-    instrumento_id INT NOT NULL,
-    telefono VARCHAR(20),
-    dia_clases VARCHAR(50),
-    horario_clases VARCHAR(50),
-    mensualidad DECIMAL(10, 2) NOT NULL,
-    estado ENUM('solvente', 'insolvente') DEFAULT 'solvente',
-    suspendido BOOLEAN DEFAULT FALSE,
-    fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    ultimo_pago TIMESTAMP NULL,
-    notas_instrumento INT DEFAULT 0 COMMENT 'Nota general de instrumento (0-100)',
-    notas_armonia INT DEFAULT 0 COMMENT 'Nota general de armonía (0-100)',
-    FOREIGN KEY (instrumento_id) REFERENCES instrumentos(id) ON DELETE RESTRICT,
-    INDEX idx_carnet (carnet),
-    INDEX idx_instrumento (instrumento_id),
-    INDEX idx_estado (estado)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- Tabla de notas por nivel
-CREATE TABLE notas_niveles (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    alumno_id INT NOT NULL,
-    nivel INT NOT NULL COMMENT 'Nivel del 1 al 8',
-    nota INT NOT NULL DEFAULT 0 COMMENT 'Nota del 0 al 100',
-    fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    fecha_modificacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY (alumno_id) REFERENCES alumnos(id) ON DELETE CASCADE,
-    UNIQUE KEY unique_alumno_nivel (alumno_id, nivel),
-    INDEX idx_alumno (alumno_id),
-    INDEX idx_nivel (nivel)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- Tabla de pagos
-CREATE TABLE pagos (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    alumno_id INT NOT NULL,
-    carnet VARCHAR(20) NOT NULL,
-    mes VARCHAR(20) NOT NULL,
-    anio VARCHAR(4) NOT NULL,
-    monto DECIMAL(10, 2) NOT NULL,
-    metodo_pago ENUM('efectivo', 'transferencia', 'tarjeta', 'otro') DEFAULT 'efectivo',
-    fecha_pago TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    notas TEXT,
-    FOREIGN KEY (alumno_id) REFERENCES alumnos(id) ON DELETE CASCADE,
-    INDEX idx_alumno (alumno_id),
-    INDEX idx_mes_anio (mes, anio),
-    INDEX idx_fecha (fecha_pago)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- ============================================
--- TABLA DE USUARIOS ADMIN
--- ============================================
-
-CREATE TABLE usuarios_admin (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    codigo VARCHAR(10) NOT NULL UNIQUE,
-    password_hash VARCHAR(255) NOT NULL,
-    nombre VARCHAR(100),
-    email VARCHAR(100),
-    activo BOOLEAN DEFAULT TRUE,
-    fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    ultimo_acceso TIMESTAMP NULL,
-    INDEX idx_codigo (codigo)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- Insertar usuario admin por defecto (contraseña: RP77)
--- Hash bcrypt para "RP77": $2b$10$ejemplo...
--- NOTA: Debes generar el hash real con bcrypt
-INSERT INTO usuarios_admin (codigo, password_hash, nombre) VALUES
-('0002', '$2b$10$YourBcryptHashHere', 'Administrador Principal');
-
--- ============================================
--- TABLA DE VENTAS (para integración futura)
--- ============================================
+-- ---------------------------
+-- 3) TIENDA: CLIENTES / VENTAS
+-- ---------------------------
+CREATE TABLE clientes (
+  cliente_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  nombres    VARCHAR(120) NOT NULL,
+  nit        VARCHAR(25) NULL,
+  telefono   VARCHAR(30) NULL,
+  email      VARCHAR(120) NULL,
+  direccion  VARCHAR(200) NULL,
+  creado_en  DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB;
 
 CREATE TABLE ventas (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    producto_id INT,
-    cantidad INT NOT NULL,
-    precio_unitario DECIMAL(10, 2) NOT NULL,
-    subtotal DECIMAL(10, 2) NOT NULL,
-    es_mayorista BOOLEAN DEFAULT FALSE,
-    cliente_nombre VARCHAR(255),
-    cliente_telefono VARCHAR(20),
-    metodo_pago ENUM('efectivo', 'transferencia', 'tarjeta', 'otro') DEFAULT 'efectivo',
-    fecha_venta TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    notas TEXT,
-    FOREIGN KEY (producto_id) REFERENCES productos(id) ON DELETE SET NULL,
-    INDEX idx_fecha (fecha_venta),
-    INDEX idx_producto (producto_id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  venta_id       BIGINT AUTO_INCREMENT PRIMARY KEY,
+  user_id        BIGINT NOT NULL,       -- quien registró (empleado/admin)
+  cliente_id     BIGINT NULL,
+  fecha_venta    DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  tipo_pago      ENUM('EFECTIVO','TARJETA') NOT NULL,
+  tipo_entrega   ENUM('DIRECTA','RECOGER_EN_TIENDA') NOT NULL,
+  subtotal       DECIMAL(12,2) NOT NULL DEFAULT 0,
+  descuento      DECIMAL(12,2) NOT NULL DEFAULT 0,
+  total          DECIMAL(12,2) NOT NULL DEFAULT 0,
+  observaciones  VARCHAR(250) NULL,
+  CONSTRAINT fk_ventas_usuario FOREIGN KEY (user_id) REFERENCES usuarios(user_id),
+  CONSTRAINT fk_ventas_cliente FOREIGN KEY (cliente_id) REFERENCES clientes(cliente_id),
+  CONSTRAINT ck_totales CHECK (subtotal >= 0 AND descuento >= 0 AND total >= 0),
+  INDEX idx_ventas_fecha (fecha_venta)
+) ENGINE=InnoDB;
 
--- ============================================
--- VISTAS ÚTILES
--- ============================================
+CREATE TABLE venta_detalle (
+  venta_detalle_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  venta_id         BIGINT NOT NULL,
+  producto_id      BIGINT NOT NULL,
+  cantidad         INT NOT NULL,
+  precio_unitario  DECIMAL(10,2) NOT NULL,
+  total_linea      DECIMAL(12,2) NOT NULL,
+  CONSTRAINT fk_vd_venta    FOREIGN KEY (venta_id)    REFERENCES ventas(venta_id) ON DELETE CASCADE,
+  CONSTRAINT fk_vd_producto FOREIGN KEY (producto_id) REFERENCES productos(producto_id),
+  CONSTRAINT ck_vd_cantidad CHECK (cantidad > 0),
+  INDEX idx_vd_venta (venta_id),
+  INDEX idx_vd_producto (producto_id)
+) ENGINE=InnoDB;
 
--- Vista de productos con información completa
-CREATE VIEW vista_productos_completa AS
-SELECT 
-    p.id,
-    p.nombre,
-    p.slug,
-    m.nombre AS marca,
-    c.nombre AS categoria,
-    p.modelo,
-    p.precio,
-    p.precio_mayorista,
-    p.descripcion,
-    p.stock,
-    p.activo,
-    p.fecha_creacion,
-    GROUP_CONCAT(DISTINCT ip.url ORDER BY ip.orden SEPARATOR '|') AS imagenes,
-    e.tipo,
-    e.cuerpo,
-    e.mastil,
-    e.diapason
-FROM productos p
-LEFT JOIN marcas m ON p.marca_id = m.id
-LEFT JOIN categorias c ON p.categoria_id = c.id
-LEFT JOIN imagenes_productos ip ON p.id = ip.producto_id
-LEFT JOIN especificaciones e ON p.id = e.producto_id
-GROUP BY p.id;
+-- ---------------------------
+-- 4) TIENDA: FACTURACIÓN
+-- ---------------------------
+CREATE TABLE facturas (
+  factura_id     BIGINT AUTO_INCREMENT PRIMARY KEY,
+  venta_id       BIGINT NOT NULL UNIQUE,
+  numero_factura VARCHAR(40) NOT NULL UNIQUE,
+  fecha_emision  DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  nombre_fiscal  VARCHAR(150) NOT NULL,
+  nit_fiscal     VARCHAR(25) NULL,
+  direccion_fiscal VARCHAR(200) NULL,
+  subtotal       DECIMAL(12,2) NOT NULL,
+  impuesto       DECIMAL(12,2) NOT NULL DEFAULT 0,
+  total          DECIMAL(12,2) NOT NULL,
+  CONSTRAINT fk_fact_venta FOREIGN KEY (venta_id) REFERENCES ventas(venta_id),
+  CONSTRAINT ck_fact_totales CHECK (subtotal >= 0 AND impuesto >= 0 AND total >= 0),
+  INDEX idx_fact_fecha (fecha_emision)
+) ENGINE=InnoDB;
 
--- Vista de alumnos con información completa
-CREATE VIEW vista_alumnos_completa AS
-SELECT 
-    a.id,
-    a.carnet,
-    a.nombre,
-    i.nombre AS instrumento,
-    a.telefono,
-    a.dia_clases,
-    a.horario_clases,
-    a.mensualidad,
-    a.estado,
-    a.suspendido,
-    a.fecha_registro,
-    a.ultimo_pago,
-    a.notas_instrumento,
-    a.notas_armonia,
-    COUNT(DISTINCT p.id) AS total_pagos,
-    SUM(p.monto) AS total_pagado
-FROM alumnos a
-LEFT JOIN instrumentos i ON a.instrumento_id = i.id
-LEFT JOIN pagos p ON a.id = p.alumno_id
-GROUP BY a.id;
+-- ---------------------------
+-- 5) TIENDA: COMPRAS (para reportes)
+-- ---------------------------
+CREATE TABLE proveedores (
+  proveedor_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  nombre       VARCHAR(150) NOT NULL,
+  nit          VARCHAR(25) NULL,
+  telefono     VARCHAR(30) NULL,
+  email        VARCHAR(120) NULL,
+  direccion    VARCHAR(200) NULL,
+  activo       TINYINT(1) NOT NULL DEFAULT 1,
+  creado_en    DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB;
 
--- Vista de inventario bajo (productos con stock < 3)
-CREATE VIEW vista_inventario_bajo AS
-SELECT 
-    p.id,
-    p.nombre,
-    m.nombre AS marca,
-    c.nombre AS categoria,
-    p.stock,
-    p.precio
-FROM productos p
-LEFT JOIN marcas m ON p.marca_id = m.id
-LEFT JOIN categorias c ON p.categoria_id = c.id
-WHERE p.stock < 3 AND p.activo = TRUE
-ORDER BY p.stock ASC;
+CREATE TABLE compras (
+  compra_id     BIGINT AUTO_INCREMENT PRIMARY KEY,
+  proveedor_id  BIGINT NOT NULL,
+  user_id       BIGINT NOT NULL,
+  fecha_compra  DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  numero_doc    VARCHAR(60) NULL, -- no. factura proveedor / referencia
+  subtotal      DECIMAL(12,2) NOT NULL DEFAULT 0,
+  impuesto      DECIMAL(12,2) NOT NULL DEFAULT 0,
+  total         DECIMAL(12,2) NOT NULL DEFAULT 0,
+  CONSTRAINT fk_comp_prov FOREIGN KEY (proveedor_id) REFERENCES proveedores(proveedor_id),
+  CONSTRAINT fk_comp_user FOREIGN KEY (user_id) REFERENCES usuarios(user_id),
+  INDEX idx_comp_fecha (fecha_compra)
+) ENGINE=InnoDB;
 
--- Vista de alumnos insolventes
-CREATE VIEW vista_alumnos_insolventes AS
-SELECT 
-    a.carnet,
-    a.nombre,
-    i.nombre AS instrumento,
-    a.telefono,
-    a.mensualidad,
-    a.ultimo_pago,
-    DATEDIFF(NOW(), a.ultimo_pago) AS dias_sin_pagar
-FROM alumnos a
-LEFT JOIN instrumentos i ON a.instrumento_id = i.id
-WHERE a.estado = 'insolvente' AND a.suspendido = FALSE
-ORDER BY dias_sin_pagar DESC;
+CREATE TABLE compra_detalle (
+  compra_detalle_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  compra_id         BIGINT NOT NULL,
+  producto_id       BIGINT NOT NULL,
+  cantidad          INT NOT NULL,
+  costo_unitario    DECIMAL(10,2) NOT NULL,
+  total_linea       DECIMAL(12,2) NOT NULL,
+  CONSTRAINT fk_cd_compra   FOREIGN KEY (compra_id)   REFERENCES compras(compra_id) ON DELETE CASCADE,
+  CONSTRAINT fk_cd_producto FOREIGN KEY (producto_id) REFERENCES productos(producto_id),
+  CONSTRAINT ck_cd_cantidad CHECK (cantidad > 0),
+  INDEX idx_cd_compra (compra_id)
+) ENGINE=InnoDB;
 
--- ============================================
--- PROCEDIMIENTOS ALMACENADOS
--- ============================================
+-- =========================================================
+-- 6) ESCUELA
+-- =========================================================
 
-DELIMITER //
+CREATE TABLE niveles (
+  nivel_id INT PRIMARY KEY,
+  nombre   VARCHAR(40) NOT NULL UNIQUE
+) ENGINE=InnoDB;
 
--- Procedimiento para actualizar stock después de venta
-CREATE PROCEDURE sp_registrar_venta(
-    IN p_producto_id INT,
-    IN p_cantidad INT,
-    IN p_es_mayorista BOOLEAN,
-    IN p_cliente_nombre VARCHAR(255),
-    IN p_metodo_pago VARCHAR(20)
-)
-BEGIN
-    DECLARE v_precio DECIMAL(10, 2);
-    DECLARE v_stock_actual INT;
-    
-    -- Obtener precio y stock actual
-    SELECT 
-        CASE WHEN p_es_mayorista THEN precio_mayorista ELSE precio END,
-        stock
-    INTO v_precio, v_stock_actual
-    FROM productos
-    WHERE id = p_producto_id;
-    
-    -- Verificar stock suficiente
-    IF v_stock_actual >= p_cantidad THEN
-        -- Registrar venta
-        INSERT INTO ventas (
-            producto_id, cantidad, precio_unitario, 
-            subtotal, es_mayorista, cliente_nombre, metodo_pago
-        ) VALUES (
-            p_producto_id, p_cantidad, v_precio,
-            v_precio * p_cantidad, p_es_mayorista, 
-            p_cliente_nombre, p_metodo_pago
-        );
-        
-        -- Actualizar stock
-        UPDATE productos 
-        SET stock = stock - p_cantidad 
-        WHERE id = p_producto_id;
-        
-        SELECT 'Venta registrada exitosamente' AS mensaje;
-    ELSE
-        SIGNAL SQLSTATE '45000'
-        SET MESSAGE_TEXT = 'Stock insuficiente';
-    END IF;
-END //
+-- 8 niveles
+INSERT INTO niveles(nivel_id, nombre) VALUES
+(1,'Nivel 1'), (2,'Nivel 2'), (3,'Nivel 3'), (4,'Nivel 4'),
+(5,'Nivel 5'), (6,'Nivel 6'), (7,'Nivel 7'), (8,'Nivel 8');
 
--- Procedimiento para verificar solvencia de alumnos
-CREATE PROCEDURE sp_verificar_solvencias()
-BEGIN
-    UPDATE alumnos
-    SET estado = 'insolvente'
-    WHERE ultimo_pago IS NULL 
-       OR (DAY(NOW()) > 10 AND ultimo_pago < DATE_FORMAT(NOW(), '%Y-%m-01'))
-       AND suspendido = FALSE;
-END //
+CREATE TABLE cursos (
+  curso_id  INT AUTO_INCREMENT PRIMARY KEY,
+  nivel_id  INT NOT NULL,
+  nombre    VARCHAR(120) NOT NULL,
+  activo    TINYINT(1) NOT NULL DEFAULT 1,
+  CONSTRAINT fk_curso_nivel FOREIGN KEY (nivel_id) REFERENCES niveles(nivel_id),
+  UNIQUE KEY uq_curso_nivel_nombre (nivel_id, nombre)
+) ENGINE=InnoDB;
 
--- Procedimiento para generar carnet automático
-CREATE PROCEDURE sp_generar_carnet(
-    IN p_instrumento_id INT,
-    OUT p_carnet VARCHAR(20)
-)
-BEGIN
-    DECLARE v_codigo VARCHAR(10);
-    DECLARE v_numero INT;
-    
-    -- Obtener código del instrumento
-    SELECT codigo INTO v_codigo
-    FROM instrumentos
-    WHERE id = p_instrumento_id;
-    
-    -- Obtener siguiente número
-    SELECT COALESCE(MAX(CAST(SUBSTRING(carnet, 5) AS UNSIGNED)), 0) + 1
-    INTO v_numero
-    FROM alumnos a
-    JOIN instrumentos i ON a.instrumento_id = i.id
-    WHERE i.id = p_instrumento_id;
-    
-    -- Generar carnet
-    SET p_carnet = CONCAT(v_codigo, '-', LPAD(v_numero, 2, '0'));
-END //
+-- Tabla de alumnos (perfil alumno)
+CREATE TABLE alumnos (
+  alumno_id   BIGINT AUTO_INCREMENT PRIMARY KEY,
+  carnet      VARCHAR(30) NOT NULL UNIQUE,
+  nombres     VARCHAR(120) NOT NULL,
+  apellidos   VARCHAR(120) NOT NULL,
+  fecha_nac   DATE NULL,
+  telefono    VARCHAR(30) NULL,
+  email       VARCHAR(120) NULL,
+  direccion   VARCHAR(200) NULL,
+  activo      TINYINT(1) NOT NULL DEFAULT 1,
+  creado_en   DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB;
 
-DELIMITER ;
+-- Horarios (estructura simple, puedes crecerla después)
+CREATE TABLE horarios (
+  horario_id INT AUTO_INCREMENT PRIMARY KEY,
+  nombre     VARCHAR(80) NOT NULL,     -- Ej: "Lun-Mie-Vie 3pm"
+  descripcion VARCHAR(200) NULL
+) ENGINE=InnoDB;
 
--- ============================================
--- TRIGGERS
--- ============================================
+-- Periodos/ciclos (ej: 2026-01, 2026)
+CREATE TABLE periodos (
+  periodo_id INT AUTO_INCREMENT PRIMARY KEY,
+  nombre     VARCHAR(40) NOT NULL UNIQUE,  -- "2026", "2026-1", etc.
+  fecha_inicio DATE NOT NULL,
+  fecha_fin    DATE NOT NULL,
+  CONSTRAINT ck_periodo CHECK (fecha_fin >= fecha_inicio)
+) ENGINE=InnoDB;
 
-DELIMITER //
+-- Relación maestro (usuario) asignado a un curso en un periodo + horario
+CREATE TABLE asignaciones_maestro (
+  asignacion_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  periodo_id    INT NOT NULL,
+  curso_id      INT NOT NULL,
+  maestro_user_id BIGINT NOT NULL, -- debe ser usuario con rol maestro (se valida en app)
+  horario_id    INT NOT NULL,
+  activo        TINYINT(1) NOT NULL DEFAULT 1,
+  CONSTRAINT fk_asig_periodo FOREIGN KEY (periodo_id) REFERENCES periodos(periodo_id),
+  CONSTRAINT fk_asig_curso   FOREIGN KEY (curso_id)   REFERENCES cursos(curso_id),
+  CONSTRAINT fk_asig_maestro FOREIGN KEY (maestro_user_id) REFERENCES usuarios(user_id),
+  CONSTRAINT fk_asig_horario FOREIGN KEY (horario_id) REFERENCES horarios(horario_id),
+  UNIQUE KEY uq_asig (periodo_id, curso_id, maestro_user_id, horario_id)
+) ENGINE=InnoDB;
 
--- Trigger para actualizar último pago al registrar pago
-CREATE TRIGGER tr_actualizar_ultimo_pago
-AFTER INSERT ON pagos
-FOR EACH ROW
-BEGIN
-    UPDATE alumnos
-    SET ultimo_pago = NEW.fecha_pago,
-        estado = 'solvente'
-    WHERE id = NEW.alumno_id;
-END //
+-- Inscripción del alumno a una asignación (curso+maestro+periodo+horario)
+CREATE TABLE inscripciones (
+  inscripcion_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  alumno_id      BIGINT NOT NULL,
+  asignacion_id  BIGINT NOT NULL,
+  fecha_inscripcion DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  estado         ENUM('ACTIVA','RETIRADA','FINALIZADA') NOT NULL DEFAULT 'ACTIVA',
+  CONSTRAINT fk_insc_alumno FOREIGN KEY (alumno_id) REFERENCES alumnos(alumno_id),
+  CONSTRAINT fk_insc_asig   FOREIGN KEY (asignacion_id) REFERENCES asignaciones_maestro(asignacion_id),
+  UNIQUE KEY uq_alumno_asig (alumno_id, asignacion_id),
+  INDEX idx_insc_alumno (alumno_id)
+) ENGINE=InnoDB;
 
-DELIMITER ;
+-- Notas: vinculadas a la inscripción (así garantizas curso/maestro correctos)
+CREATE TABLE notas (
+  nota_id         BIGINT AUTO_INCREMENT PRIMARY KEY,
+  inscripcion_id  BIGINT NOT NULL,
+  bimestre        TINYINT NOT NULL,          -- 1..4 por ejemplo
+  nota            DECIMAL(5,2) NOT NULL,     -- 0..100 o 0..10 según uses
+  comentario      VARCHAR(250) NULL,
+  creado_por_user BIGINT NOT NULL,           -- auditoría
+  actualizado_por_user BIGINT NULL,
+  creado_en       DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  actualizado_en  DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  CONSTRAINT fk_notas_insc  FOREIGN KEY (inscripcion_id) REFERENCES inscripciones(inscripcion_id) ON DELETE CASCADE,
+  CONSTRAINT fk_notas_creado_por FOREIGN KEY (creado_por_user) REFERENCES usuarios(user_id),
+  CONSTRAINT fk_notas_act_por   FOREIGN KEY (actualizado_por_user) REFERENCES usuarios(user_id),
+  CONSTRAINT ck_bimestre CHECK (bimestre BETWEEN 1 AND 4),
+  CONSTRAINT ck_nota CHECK (nota >= 0),
+  UNIQUE KEY uq_nota (inscripcion_id, bimestre)
+) ENGINE=InnoDB;
 
--- ============================================
--- ÍNDICES ADICIONALES PARA OPTIMIZACIÓN
--- ============================================
+-- =========================================================
+-- 7) CONSULTAS ÚTILES (REPORTES / ESTADÍSTICAS)
+-- (Son vistas opcionales para que empieces rápido)
+-- =========================================================
 
--- Índices de texto completo para búsquedas
-ALTER TABLE productos ADD FULLTEXT INDEX ft_nombre_descripcion (nombre, descripcion);
-ALTER TABLE alumnos ADD FULLTEXT INDEX ft_nombre (nombre);
+-- Productos más vendidos (top por cantidad)
+CREATE OR REPLACE VIEW vw_top_productos_vendidos AS
+SELECT
+  p.producto_id,
+  p.nombre,
+  p.modelo,
+  SUM(vd.cantidad) AS unidades_vendidas,
+  SUM(vd.total_linea) AS monto_vendido
+FROM venta_detalle vd
+JOIN productos p ON p.producto_id = vd.producto_id
+GROUP BY p.producto_id, p.nombre, p.modelo;
 
--- ============================================
--- EVENTOS PROGRAMADOS (requiere event_scheduler = ON)
--- ============================================
+-- Ventas por fecha (día)
+CREATE OR REPLACE VIEW vw_ventas_por_dia AS
+SELECT
+  DATE(v.fecha_venta) AS dia,
+  COUNT(*) AS num_ventas,
+  SUM(v.total) AS total_vendido
+FROM ventas v
+GROUP BY DATE(v.fecha_venta);
 
--- Evento para verificar solvencias diariamente a las 2 AM
-CREATE EVENT IF NOT EXISTS evt_verificar_solvencias
-ON SCHEDULE EVERY 1 DAY
-STARTS (TIMESTAMP(CURRENT_DATE) + INTERVAL 1 DAY + INTERVAL 2 HOUR)
-DO
-    CALL sp_verificar_solvencias();
-
--- ============================================
--- GRANTS Y PERMISOS (ajustar según necesidad)
--- ============================================
-
--- Crear usuario para la aplicación
--- CREATE USER 'rpstore_app'@'localhost' IDENTIFIED BY 'tu_password_seguro';
--- GRANT SELECT, INSERT, UPDATE, DELETE ON rpstore.* TO 'rpstore_app'@'localhost';
--- FLUSH PRIVILEGES;
+-- Compras por fecha (día)
+CREATE OR REPLACE VIEW vw_compras_por_dia AS
+SELECT
+  DATE(c.fecha_compra) AS dia,
+  COUNT(*) AS num_compras,
+  SUM(c.total) AS total_comprado
+FROM compras c
+GROUP BY DATE(c.fecha_compra);
 
 -- ============================================
 -- SCRIPT COMPLETADO
@@ -452,14 +350,5 @@ DO
 
 -- Verificar tablas creadas
 SHOW TABLES;
-
--- Verificar vistas creadas
-SHOW FULL TABLES WHERE TABLE_TYPE LIKE 'VIEW';
-
--- Verificar procedimientos
-SHOW PROCEDURE STATUS WHERE Db = 'rpstore';
-
--- Verificar eventos
-SHOW EVENTS;
 
 SELECT 'Base de datos rpstore creada exitosamente!' AS mensaje;

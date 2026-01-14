@@ -11,11 +11,14 @@ export default function DetalleAccesorio() {
   const [imagenActual, setImagenActual] = useState(0)
 
   useEffect(() => {
-    fetch('/data/amplificadores.json')
+    // Leer desde la API de productos
+    fetch(`/api/productos/catalogo?categoria=accesorios`)
       .then(res => res.json())
       .then(data => {
-        const prod = data.amplificadores.find(a => a.slug === params.slug)
-        setProducto(prod)
+        if (data.success) {
+          const prod = data.productos.find(p => p.slug === params.slug)
+          setProducto(prod)
+        }
       })
       .catch(error => console.error('Error:', error))
   }, [params.slug])
@@ -33,6 +36,8 @@ export default function DetalleAccesorio() {
     )
   }
 
+  const imagenes = producto.imagenes || [producto.imagen]
+
   return (
     <>
       <Navigation />
@@ -43,42 +48,49 @@ export default function DetalleAccesorio() {
             <div className={styles.gallerySection}>
               <div className={styles.mainImage}>
                 <Image
-                  src={producto.imagenes[imagenActual]}
+                  src={imagenes[imagenActual]}
                   alt={producto.nombre}
                   width={600}
                   height={600}
                   className={styles.image}
                 />
               </div>
-              <div className={styles.thumbnails}>
-                {producto.imagenes.map((img, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setImagenActual(index)}
-                    className={`${styles.thumbnail} ${imagenActual === index ? styles.active : ''}`}
-                  >
-                    <Image
-                      src={img}
-                      alt={`${producto.nombre} - vista ${index + 1}`}
-                      width={100}
-                      height={100}
-                      className={styles.thumbnailImage}
-                    />
-                  </button>
-                ))}
-              </div>
+              {imagenes.length > 1 && (
+                <div className={styles.thumbnails}>
+                  {imagenes.map((img, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setImagenActual(index)}
+                      className={`${styles.thumbnail} ${imagenActual === index ? styles.active : ''}`}
+                    >
+                      <Image
+                        src={img}
+                        alt={`${producto.nombre} - vista ${index + 1}`}
+                        width={100}
+                        height={100}
+                        className={styles.thumbnailImage}
+                      />
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
 
             {/* Información del producto */}
             <div className={styles.infoSection}>
               <div className={styles.brand}>{producto.marca}</div>
               <h1 className={styles.title}>{producto.nombre}</h1>
-              <p className={styles.modelo}>Modelo: {producto.modelo}</p>
+              {producto.modelo && <p className={styles.modelo}>Modelo: {producto.modelo}</p>}
               
-              {producto.stock && (
+              {producto.stock > 0 ? (
                 <div className={styles.stock}>
                   <span className={styles.stockBadge}>✓ En stock</span>
                   <span className={styles.stockText}>Disponible para entrega inmediata</span>
+                </div>
+              ) : (
+                <div className={styles.stockOut}>
+                  <span className={styles.stockBadgeOut}>✕ Agotado</span>
+                  <span className={styles.stockText}>No disponible actualmente</span>
                 </div>
               )}
 

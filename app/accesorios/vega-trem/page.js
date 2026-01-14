@@ -1,8 +1,26 @@
-'use client'
 import Navigation from '../../components/Navigation'
+import ProductCard from '../../components/ProductCard'
 import styles from '../../amplificadores/amplificadores.module.css'
+import { getProductosByCategoria } from '../../../lib/db-productos-mysql'
 
-export default function VegaTrem() {
+export const metadata = {
+  title: 'Vega Trem - RP Guitar Store',
+  description: 'Sistemas de trémolo Vega Trem',
+}
+
+async function getData() {
+  try {
+    const productos = await getProductosByCategoria(9) // categoria_id = 9
+    return productos
+  } catch (error) {
+    console.error('Error al cargar vega trem:', error)
+    return []
+  }
+}
+
+export default async function VegaTrem() {
+  const productos = await getData()
+
   return (
     <>
       <Navigation />
@@ -12,10 +30,19 @@ export default function VegaTrem() {
             <h1 className={styles.title}>Vega Trem</h1>
             <p className={styles.subtitle}>Sistemas de trémolo Vega Trem</p>
           </div>
-          <div style={{ textAlign: 'center', padding: '60px 20px', color: '#666' }}>
-            <p style={{ fontSize: '18px' }}>Próximamente disponibles.</p>
-            <p style={{ fontSize: '16px', marginTop: '10px' }}>Contáctanos para más información.</p>
-          </div>
+          
+          {productos.length === 0 ? (
+            <div style={{ textAlign: 'center', padding: '60px 20px', color: '#666' }}>
+              <p style={{ fontSize: '18px' }}>Próximamente disponibles.</p>
+              <p style={{ fontSize: '16px', marginTop: '10px' }}>Contáctanos para más información.</p>
+            </div>
+          ) : (
+            <div className={styles.productGrid}>
+              {productos.map(producto => (
+                <ProductCard key={producto.id} producto={producto} />
+              ))}
+            </div>
+          )}
         </div>
       </main>
     </>

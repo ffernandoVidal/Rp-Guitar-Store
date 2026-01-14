@@ -11,11 +11,14 @@ export default function DetalleAmplificador() {
   const [imagenActual, setImagenActual] = useState(0)
 
   useEffect(() => {
-    fetch('/data/amplificadores.json')
+    // Leer desde la API de productos
+    fetch(`/api/productos/catalogo?categoria=amplificadores`)
       .then(res => res.json())
       .then(data => {
-        const amp = data.amplificadores.find(a => a.slug === params.slug)
-        setAmplificador(amp)
+        if (data.success) {
+          const producto = data.productos.find(p => p.slug === params.slug)
+          setAmplificador(producto)
+        }
       })
       .catch(error => console.error('Error:', error))
   }, [params.slug])
@@ -33,6 +36,8 @@ export default function DetalleAmplificador() {
     )
   }
 
+  const imagenes = amplificador.imagenes || [amplificador.imagen]
+
   return (
     <>
       <Navigation />
@@ -43,42 +48,49 @@ export default function DetalleAmplificador() {
             <div className={styles.gallerySection}>
               <div className={styles.mainImage}>
                 <Image
-                  src={amplificador.imagenes[imagenActual]}
+                  src={imagenes[imagenActual]}
                   alt={amplificador.nombre}
                   width={600}
                   height={600}
                   className={styles.image}
                 />
               </div>
-              <div className={styles.thumbnails}>
-                {amplificador.imagenes.map((img, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setImagenActual(index)}
-                    className={`${styles.thumbnail} ${imagenActual === index ? styles.active : ''}`}
-                  >
-                    <Image
-                      src={img}
-                      alt={`${amplificador.nombre} - vista ${index + 1}`}
-                      width={100}
-                      height={100}
-                      className={styles.thumbnailImage}
-                    />
-                  </button>
-                ))}
-              </div>
+              {imagenes.length > 1 && (
+                <div className={styles.thumbnails}>
+                  {imagenes.map((img, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setImagenActual(index)}
+                      className={`${styles.thumbnail} ${imagenActual === index ? styles.active : ''}`}
+                    >
+                      <Image
+                        src={img}
+                        alt={`${amplificador.nombre} - vista ${index + 1}`}
+                        width={100}
+                        height={100}
+                        className={styles.thumbnailImage}
+                      />
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
 
             {/* Información del producto */}
             <div className={styles.infoSection}>
               <div className={styles.brand}>{amplificador.marca}</div>
               <h1 className={styles.title}>{amplificador.nombre}</h1>
-              <p className={styles.modelo}>Modelo: {amplificador.modelo}</p>
+              {amplificador.modelo && <p className={styles.modelo}>Modelo: {amplificador.modelo}</p>}
               
-              {amplificador.stock && (
+              {amplificador.stock > 0 ? (
                 <div className={styles.stock}>
                   <span className={styles.stockBadge}>✓ En stock</span>
                   <span className={styles.stockText}>Disponible para entrega inmediata</span>
+                </div>
+              ) : (
+                <div className={styles.stockOut}>
+                  <span className={styles.stockBadgeOut}>✕ Agotado</span>
+                  <span className={styles.stockText}>No disponible actualmente</span>
                 </div>
               )}
 

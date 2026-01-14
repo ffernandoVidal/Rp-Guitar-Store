@@ -8,7 +8,7 @@ import {
   deleteProducto,
   updateStock,
   searchProductos
-} from '@/lib/db-productos'
+} from '@/lib/db-productos-mysql'
 
 // Middleware de autenticación
 function requireAuth(handler) {
@@ -48,7 +48,7 @@ export async function GET(request) {
     let productos
     
     if (id) {
-      const producto = getProductoById(id)
+      const producto = await getProductoById(id)
       if (!producto) {
         return Response.json(
           { error: 'Producto no encontrado' },
@@ -65,11 +65,11 @@ export async function GET(request) {
     }
     
     if (query) {
-      productos = searchProductos(query)
+      productos = await searchProductos(query)
     } else if (categoria) {
-      productos = getProductosByCategoria(categoria)
+      productos = await getProductosByCategoria(categoria)
     } else {
-      productos = getAllProductos()
+      productos = await getAllProductos()
     }
     
     // Filtrar información privada para usuarios no admin
@@ -97,14 +97,14 @@ export const POST = requireAuth(async (request, user) => {
     const data = await request.json()
     
     // Validar datos requeridos
-    if (!data.nombre || !data.categoria) {
+    if (!data.nombre || !data.categoria_id) {
       return Response.json(
         { error: 'Nombre y categoría son requeridos' },
         { status: 400 }
       )
     }
     
-    const nuevoProducto = createProducto(data)
+    const nuevoProducto = await createProducto(data)
     
     return Response.json({
       success: true,
@@ -134,7 +134,7 @@ export const PUT = requireAuth(async (request, user) => {
       )
     }
     
-    const productoActualizado = updateProducto(id, updateData)
+    const productoActualizado = await updateProducto(id, updateData)
     
     if (!productoActualizado) {
       return Response.json(
@@ -171,7 +171,7 @@ export const DELETE = requireAuth(async (request, user) => {
       )
     }
     
-    const eliminado = deleteProducto(id)
+    const eliminado = await deleteProducto(id)
     
     if (!eliminado) {
       return Response.json(

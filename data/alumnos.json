@@ -7,7 +7,7 @@
       "horarioClases": "6-8 pm",
       "mensualidad": "300",
       "telefono": "51149061",
-      "estado": "solvente",
+      "estado": "insolvente",
       "carnet": "001-01",
       "id": 1,
       "fechaRegistro": "2025-12-26T19:57:59.323Z",
@@ -17,14 +17,14 @@
           76,
           58,
           78,
-          0,
+          75,
           0,
           0,
           0,
           0
         ],
-        "armonia": 68,
-        "instrumento": 78
+        "armonia": 60,
+        "instrumento": 75
       },
       "pagos": [
         {
@@ -59,7 +59,7 @@
       "horarioClases": "6-8 pm",
       "mensualidad": "300",
       "telefono": "51149061",
-      "estado": "solvente",
+      "estado": "insolvente",
       "carnet": "001-02",
       "id": 2,
       "fechaRegistro": "2025-12-26T19:58:20.351Z",
@@ -87,7 +87,8 @@
           "fechaPago": "2025-12-31T04:11:55.145Z",
           "monto": "300"
         }
-      ]
+      ],
+      "suspendido": true
     },
     {
       "nombre": "jose",
@@ -115,7 +116,7 @@
         "armonia": 87,
         "instrumento": 35
       },
-      "suspendido": true
+      "suspendido": false
     },
     {
       "nombre": "roberto",
@@ -124,7 +125,7 @@
       "horarioClases": "9-11 am",
       "mensualidad": "349",
       "telefono": "2541589",
-      "estado": "solvente",
+      "estado": "insolvente",
       "carnet": "001-03",
       "id": 4,
       "fechaRegistro": "2025-12-26T22:11:31.549Z",
@@ -151,7 +152,7 @@
       "horarioClases": "9-11 am",
       "mensualidad": "280",
       "telefono": "54276973",
-      "estado": "solvente",
+      "estado": "insolvente",
       "carnet": "007-01",
       "id": 5,
       "fechaRegistro": "2025-12-27T22:21:16.003Z",
@@ -170,7 +171,34 @@
         "armonia": 77,
         "instrumento": 89
       }
+    },
+    {
+      "nombre": "Joaquin ",
+      "instrumento": "piano",
+      "diaClases": "jueves",
+      "horarioClases": "7-9 pm",
+      "mensualidad": "350",
+      "telefono": "36833063",
+      "estado": "insolvente",
+      "carnet": "004-01",
+      "id": 6,
+      "fechaRegistro": "2026-01-02T15:41:12.172Z",
+      "ultimoPago": null,
+      "notas": {
+        "niveles": [
+          90,
+          85,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "armonia": 79,
+        "instrumento": 85
+      }
     }
   ],
-  "nextId": 6
+  "nextId": 7
 }

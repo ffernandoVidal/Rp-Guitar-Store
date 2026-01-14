@@ -1,24 +1,22 @@
 import { NextResponse } from 'next/server'
-import fs from 'fs'
-import path from 'path'
+import { searchProductos } from '@/lib/db-productos-mysql'
 
 export async function GET(request) {
   try {
     const { searchParams } = new URL(request.url)
-    const query = searchParams.get('q')?.toLowerCase() || ''
+    const query = searchParams.get('q') || ''
 
-    if (!query) {
+    if (!query || query.trim() === '') {
       return NextResponse.json({ productos: [] })
     }
 
-    // Leer productos
-    const productosPath = path.join(process.cwd(), 'data', 'amplificadores.json')
-    const productosData = fs.readFileSync(productosPath, 'utf-8')
-    const { amplificadores } = JSON.parse(productosData)
+    // Buscar en MySQL
+    const resultados = await searchProductos(query)
     
-    // Mapear al formato esperado
-    const guitarras = amplificadores.map(item => ({
-      id: item.slug || item.id,
+    // Mapear al formato esperado por el frontend
+    const productos = resultados.map(item => ({
+      id: item.id,
+      slug: item.slug,
       nombre: item.nombre,
       marca: item.marca,
       categoria: item.categoria,
@@ -28,16 +26,7 @@ export async function GET(request) {
       stock: item.stock
     }))
 
-    // Buscar en nombre, marca y descripción
-    const resultados = guitarras.filter(producto => {
-      const nombreMatch = producto.nombre.toLowerCase().includes(query)
-      const marcaMatch = producto.marca.toLowerCase().includes(query)
-      const descripcionMatch = producto.descripcion.toLowerCase().includes(query)
-      
-      return nombreMatch || marcaMatch || descripcionMatch
-    })
-
-    // Convertir formato
+    return NextResponse.json({ productos })
     const productosFormateados = resultados.map(p => ({
       id: p.id,
       name: p.nombre,

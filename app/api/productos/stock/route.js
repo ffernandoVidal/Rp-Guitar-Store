@@ -1,5 +1,5 @@
 import { verifyToken } from '@/lib/auth'
-import { updateStock, restarStock, getProductoById } from '@/lib/db-productos'
+import { updateStock, getProductoById } from '@/lib/db-productos-mysql'
 
 // Middleware de autenticación
 function requireAuth(handler) {
@@ -43,16 +43,18 @@ export const POST = requireAuth(async (request, user) => {
     
     if (operacion === 'restar') {
       try {
-        productoActualizado = restarStock(id, cantidad)
+        productoActualizado = await updateStock(id, cantidad, 'decrement')
       } catch (error) {
         return Response.json(
           { error: error.message },
           { status: 400 }
         )
       }
+    } else if (operacion === 'sumar') {
+      productoActualizado = await updateStock(id, cantidad, 'increment')
     } else {
-      // Por defecto, sumar stock
-      productoActualizado = updateStock(id, cantidad)
+      // Por defecto, establecer stock
+      productoActualizado = await updateStock(id, cantidad, 'set')
     }
     
     if (!productoActualizado) {
@@ -90,7 +92,7 @@ export async function GET(request) {
       )
     }
     
-    const producto = getProductoById(id)
+    const producto = await getProductoById(id)
     
     if (!producto) {
       return Response.json(

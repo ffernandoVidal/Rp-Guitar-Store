@@ -25,89 +25,15 @@ export default function Navigation() {
   const handleSearch = (e) => {
     e.preventDefault()
     if (searchQuery.trim()) {
-      // Código especial para panel de ventas
-      if (searchQuery.trim() === '0001') {
-        const dineroInicial = prompt('Ingrese el dinero inicial en caja (Q):')
-        
-        if (dineroInicial !== null && dineroInicial.trim() !== '') {
-          const monto = parseFloat(dineroInicial)
-          
-          if (!isNaN(monto) && monto >= 0) {
-            // Registrar apertura de caja
-            fetch('/api/caja', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ 
-                dineroInicial: monto,
-                fecha: new Date().toISOString().split('T')[0]
-              })
-            }).then(() => {
-              router.push('/admin-ventas')
-            }).catch(err => {
-              console.error('Error al registrar caja:', err)
-              router.push('/admin-ventas')
-            })
-          } else {
-            alert('Ingrese un monto válido')
-            return
-          }
-        } else {
-          return // Canceló
-        }
-        
+      // Código especial para panel de administración principal
+      if (searchQuery.trim() === '77-8') {
+        router.push('/admin')
         setSearchQuery('')
         setShowSearch(false)
         return
       }
-
-      // Código especial para panel de administración de productos
-      if (searchQuery.trim() === '0002') {
-        const password = prompt('Ingrese la contraseña de administrador:')
-        
-        if (password === 'RP77') {
-          // Hacer login automático con código y contraseña
-          fetch('/api/auth/login', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ 
-              codigo: '0002',
-              password: 'RP77'
-            })
-          })
-          .then(res => res.json())
-          .then(data => {
-            if (data.token) {
-              localStorage.setItem('adminToken', data.token)
-              router.push('/admin/productos')
-            }
-          })
-          .catch(err => {
-            console.error('Error al iniciar sesión:', err)
-            router.push('/admin/productos')
-          })
-          
-          setSearchQuery('')
-          setShowSearch(false)
-        } else if (password !== null) {
-          alert('Contraseña incorrecta')
-        }
-        return
-      }
-
-      // Código especial para panel de administración de alumnos
-      if (searchQuery.trim() === '000') {
-        const password = prompt('Ingrese la contraseña de administrador:')
-        
-        if (password === 'RP2025@') {
-          router.push('/rp-music-school/admin')
-          setSearchQuery('')
-          setShowSearch(false)
-        } else if (password !== null) {
-          alert('Contraseña incorrecta')
-        }
-        return
-      }
       
+      // Búsqueda normal de productos
       router.push(`/buscar?q=${encodeURIComponent(searchQuery)}`)
       setSearchQuery('')
       setShowSearch(false)

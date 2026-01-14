@@ -4,36 +4,12 @@ import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import styles from './productos.module.css'
 
-const CATEGORIAS = {
-  // Categorías principales
-  guitarras: 'Guitarras',
-  pedales: 'Pedales',
-  amplificadores: 'Amplificadores',
-  bajos: 'Bajos',
-  accesorios: 'Accesorios',
-  suhr: 'Suhr',
-  
-  // Subcategorías de Accesorios
-  'accesorios-capos': 'Accesorios › Capos',
-  'accesorios-straps': 'Accesorios › Straps',
-  'accesorios-cuerdas': 'Accesorios › Cuerdas',
-  'accesorios-vega-trem': 'Accesorios › Vega Trem',
-  'accesorios-pedestales': 'Accesorios › Pedestales',
-  'accesorios-fuentes-poder': 'Accesorios › Fuentes de Poder',
-  
-  // Subcategorías de Marcas
-  'marcas-music-nomad': 'Marcas › Music Nomad',
-  'marcas-lollar-pickups': 'Marcas › Lollar Pickups',
-  'marcas-gruvegear': 'Marcas › Gruvegear',
-  'marcas-pig-hog': 'Marcas › Pig Hog',
-  'marcas-mgc': 'Marcas › MGC'
-}
-
 export default function AdminProductos() {
   const router = useRouter()
-  const [tab, setTab] = useState('nuevo') // 'nuevo' o 'lista'
+  const [tab, setTab] = useState('nuevo') // 'nuevo', 'lista' o 'marcas'
   const [productos, setProductos] = useState([])
-  const [marcas, setMarcas] = useState(['Otra']) // Marcas dinámicas
+  const [marcas, setMarcas] = useState([]) // Array de objetos {id, nombre}
+  const [categorias, setCategorias] = useState([]) // Categorías desde DB
   const [loading, setLoading] = useState(false)
   const [mensaje, setMensaje] = useState({ tipo: '', texto: '' })
   const [editando, setEditando] = useState(null)
@@ -45,25 +21,20 @@ export default function AdminProductos() {
   const [formData, setFormData] = useState({
     nombre: '',
     marca: '',
-    categoria: 'guitarras',
+    modelo: '',
+    categoria_id: 1, // Ahora usamos categoria_id
     stock: 0,
     precioVenta: 0,
     precioMayorista: 0,
     descripcion: '',
     descripcionDetallada: '',
-    especificaciones: {
-      tipo: '',
-      cuerpo: '',
-      mastil: '',
-      diapason: '',
-      otros: ''
-    },
     imagenes: []
   })
 
   useEffect(() => {
     verificarAuth()
     cargarMarcas()
+    cargarCategorias()
   }, [])
 
   useEffect(() => {
@@ -77,15 +48,31 @@ export default function AdminProductos() {
       const response = await fetch('/api/productos/marcas')
       if (response.ok) {
         const data = await response.json()
-        setMarcas(data)
+        setMarcas(data) // Ahora data es un array de objetos {id, nombre}
       }
     } catch (error) {
       console.error('Error al cargar marcas:', error)
     }
   }
 
+  const cargarCategorias = async () => {
+    try {
+      const response = await fetch('/api/productos/categorias')
+      if (response.ok) {
+        const data = await response.json()
+        setCategorias(data)
+        // Establecer primera categoría como default
+        if (data.length > 0 && !formData.categoria_id) {
+          setFormData(prev => ({ ...prev, categoria_id: data[0].id }))
+        }
+      }
+    } catch (error) {
+      console.error('Error al cargar categorías:', error)
+    }
+  }
+
   const verificarAuth = async () => {
-    const token = localStorage.getItem('adminToken')
+    const token = sessionStorage.getItem('adminToken')
     if (!token) {
       router.push('/admin')
       return
@@ -99,7 +86,8 @@ export default function AdminProductos() {
       })
 
       if (!response.ok) {
-        localStorage.removeItem('adminToken')
+        sessionStorage.removeItem('adminToken')
+        sessionStorage.removeItem('adminRole')
         router.push('/admin')
       }
     } catch (error) {
@@ -109,7 +97,7 @@ export default function AdminProductos() {
   }
 
   const cargarProductos = async () => {
-    const token = localStorage.getItem('adminToken')
+    const token = sessionStorage.getItem('adminToken')
     try {
       const response = await fetch('/api/productos?includePrivate=true', {
         headers: {
@@ -127,7 +115,8 @@ export default function AdminProductos() {
   }
 
   const handleLogout = () => {
-    localStorage.removeItem('adminToken')
+    sessionStorage.removeItem('adminToken')
+    sessionStorage.removeItem('adminRole')
     router.push('/')
   }
 
@@ -145,14 +134,11 @@ export default function AdminProductos() {
   const handleChange = (e) => {
     const { name, value } = e.target
     
-    if (name.startsWith('especificaciones.')) {
-      const field = name.split('.')[1]
+    // Convertir categoria_id a número
+    if (name === 'categoria_id') {
       setFormData({
         ...formData,
-        especificaciones: {
-          ...formData.especificaciones,
-          [field]: value
-        }
+        [name]: parseInt(value)
       })
     } else {
       setFormData({
@@ -164,7 +150,11 @@ export default function AdminProductos() {
 
   const handleImageUpload = async (e) => {
     const files = Array.from(e.target.files)
-    const token = localStorage.getItem('adminToken')
+    const token = sessionStorage.getItem('adminToken')
+    
+    // Obtener nombre de categoría para upload
+    const categoriaObj = categorias.find(c => c.id === formData.categoria_id)
+    const categoriaNombre = categoriaObj ? categoriaObj.nombre.toLowerCase() : 'productos'
     
     setLoading(true)
     const nuevasImagenes = []
@@ -173,7 +163,7 @@ export default function AdminProductos() {
       for (const file of files) {
         const formDataImg = new FormData()
         formDataImg.append('imagen', file)
-        formDataImg.append('categoria', formData.categoria)
+        formDataImg.append('categoria', categoriaNombre)
         
         const response = await fetch('/api/productos/upload', {
           method: 'POST',
@@ -211,20 +201,69 @@ export default function AdminProductos() {
     })
   }
 
+  const guardarNuevaMarca = async () => {
+    if (!nuevaMarca || nuevaMarca.trim() === '') {
+      mostrarMensaje('error', 'Ingrese el nombre de la marca')
+      return
+    }
+
+    const token = sessionStorage.getItem('adminToken')
+    
+    try {
+      const response = await fetch('/api/productos/marcas', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ nombre: nuevaMarca.trim() })
+      })
+
+      const data = await response.json()
+
+      if (response.ok) {
+        mostrarMensaje('success', `Marca "${nuevaMarca}" creada exitosamente`)
+        await cargarMarcas() // Recargar lista de marcas
+        setFormData({ ...formData, marca: nuevaMarca.trim() })
+        setMostrarNuevaMarca(false)
+        setNuevaMarca('')
+      } else {
+        mostrarMensaje('error', data.error || 'Error al crear la marca')
+      }
+    } catch (error) {
+      console.error('Error:', error)
+      mostrarMensaje('error', 'Error al crear la marca')
+    }
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault()
     setLoading(true)
     setMensaje({ tipo: '', texto: '' })
     
-    const token = localStorage.getItem('adminToken')
+    const token = sessionStorage.getItem('adminToken')
+    
+    if (!token) {
+      mostrarMensaje('error', 'Sesión expirada. Por favor inicia sesión nuevamente.')
+      router.push('/admin')
+      return
+    }
     
     try {
-      const url = editando ? '/api/productos' : '/api/productos'
+      const url = '/api/productos'
       const method = editando ? 'PUT' : 'POST'
       
-      const dataToSend = editando 
-        ? { id: editando, ...formData }
-        : formData
+      // Preparar datos en formato compatible con MySQL
+      const dataToSend = {
+        ...formData,
+        precioVenta: parseFloat(formData.precioVenta) || 0,
+        precioMayorista: parseFloat(formData.precioMayorista) || 0,
+        stock: parseInt(formData.stock) || 0
+      }
+      
+      if (editando) {
+        dataToSend.id = editando
+      }
       
       const response = await fetch(url, {
         method,
@@ -238,9 +277,8 @@ export default function AdminProductos() {
       const data = await response.json()
       
       if (response.ok) {
-        mostrarMensaje('success', data.message || 'Producto guardado exitosamente')
+        mostrarMensaje('success', data.message || 'Producto guardado exitosamente en MySQL')
         resetForm()
-        // Recargar marcas para actualizar el filtro
         await cargarMarcas()
         if (tab === 'lista') {
           cargarProductos()
@@ -250,7 +288,7 @@ export default function AdminProductos() {
       }
     } catch (error) {
       console.error('Error:', error)
-      mostrarMensaje('error', 'Error de conexión')
+      mostrarMensaje('error', 'Error de conexión con la base de datos')
     } finally {
       setLoading(false)
     }
@@ -260,19 +298,13 @@ export default function AdminProductos() {
     setFormData({
       nombre: producto.nombre,
       marca: producto.marca,
-      categoria: producto.categoria,
+      modelo: producto.modelo || '',
+      categoria_id: producto.categoria_id || 1,
       stock: producto.stock,
       precioVenta: producto.precioVenta,
       precioMayorista: producto.precioMayorista,
       descripcion: producto.descripcion || '',
       descripcionDetallada: producto.descripcionDetallada || '',
-      especificaciones: producto.especificaciones || {
-        tipo: '',
-        cuerpo: '',
-        mastil: '',
-        diapason: '',
-        otros: ''
-      },
       imagenes: producto.imagenes || []
     })
     setEditando(producto.id)
@@ -282,7 +314,7 @@ export default function AdminProductos() {
   const eliminarProducto = async (id) => {
     if (!confirm('¿Estás seguro de eliminar este producto?')) return
     
-    const token = localStorage.getItem('adminToken')
+    const token = sessionStorage.getItem('adminToken')
     
     try {
       const response = await fetch(`/api/productos?id=${id}`, {
@@ -306,19 +338,13 @@ export default function AdminProductos() {
     setFormData({
       nombre: '',
       marca: '',
-      categoria: 'guitarras',
+      modelo: '',
+      categoria_id: categorias.length > 0 ? categorias[0].id : 1,
       stock: 0,
       precioVenta: 0,
       precioMayorista: 0,
       descripcion: '',
       descripcionDetallada: '',
-      especificaciones: {
-        tipo: '',
-        cuerpo: '',
-        mastil: '',
-        diapason: '',
-        otros: ''
-      },
       imagenes: []
     })
     setEditando(null)
@@ -333,6 +359,11 @@ export default function AdminProductos() {
     if (stock === 0) return styles.stockLow
     if (stock < 5) return styles.stockMedium
     return styles.stockHigh
+  }
+
+  const getCategoriaNombre = (categoriaId) => {
+    const categoria = categorias.find(cat => cat.id === categoriaId)
+    return categoria ? categoria.nombre : 'Sin categoría'
   }
 
   return (
@@ -412,6 +443,21 @@ export default function AdminProductos() {
               </div>
 
               <div className={styles.formGroup}>
+                <label htmlFor="modelo">
+                  Modelo
+                </label>
+                <input
+                  type="text"
+                  id="modelo"
+                  name="modelo"
+                  value={formData.modelo}
+                  onChange={handleChange}
+                  placeholder="Ej: CM15R, Les Paul Standard"
+                  disabled={loading}
+                />
+              </div>
+
+              <div className={styles.formGroup}>
                 <label htmlFor="marca">
                   Marca <span className={styles.required}>*</span>
                 </label>
@@ -433,45 +479,61 @@ export default function AdminProductos() {
                   disabled={loading}
                 >
                   <option value="">Seleccionar marca</option>
-                  {marcas.filter(m => m !== 'Otra').map(marca => (
-                    <option key={marca} value={marca}>{marca}</option>
+                  {marcas.map(marca => (
+                    <option key={marca.id} value={marca.nombre}>{marca.nombre}</option>
                   ))}
                   <option value="__nueva__">➕ Agregar nueva marca...</option>
-                  <option value="Otra">Otra</option>
                 </select>
                 {mostrarNuevaMarca && (
-                  <input
-                    type="text"
-                    placeholder="Escriba el nombre de la nueva marca"
-                    value={nuevaMarca}
-                    onChange={(e) => {
-                      setNuevaMarca(e.target.value)
-                      setFormData({ ...formData, marca: e.target.value })
-                    }}
-                    required
-                    disabled={loading}
-                    className={styles.nuevaMarcaInput}
-                  />
+                  <div className={styles.nuevaMarcaContainer}>
+                    <input
+                      type="text"
+                      placeholder="Escriba el nombre de la nueva marca"
+                      value={nuevaMarca}
+                      onChange={(e) => setNuevaMarca(e.target.value)}
+                      disabled={loading}
+                      className={styles.nuevaMarcaInput}
+                    />
+                    <button
+                      type="button"
+                      onClick={guardarNuevaMarca}
+                      className={styles.guardarMarcaButton}
+                      disabled={loading}
+                    >
+                      ✓ Guardar Marca
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setMostrarNuevaMarca(false)
+                        setNuevaMarca('')
+                      }}
+                      className={styles.cancelarButton}
+                      disabled={loading}
+                    >
+                      Cancelar
+                    </button>
+                  </div>
                 )}
                 <small className={styles.helpText}>
-                  Las marcas se generan automáticamente. Para agregar una nueva, seleccione "Agregar nueva marca...".
+                  Seleccione una marca existente o agregue una nueva. Las marcas se guardan en la base de datos.
                 </small>
               </div>
 
               <div className={styles.formGroup}>
-                <label htmlFor="categoria">
+                <label htmlFor="categoria_id">
                   Categoría <span className={styles.required}>*</span>
                 </label>
                 <select
-                  id="categoria"
-                  name="categoria"
-                  value={formData.categoria}
+                  id="categoria_id"
+                  name="categoria_id"
+                  value={formData.categoria_id}
                   onChange={handleChange}
                   required
                   disabled={loading}
                 >
-                  {Object.entries(CATEGORIAS).map(([key, value]) => (
-                    <option key={key} value={key}>{value}</option>
+                  {categorias.map((cat) => (
+                    <option key={cat.id} value={cat.id}>{cat.nombre}</option>
                   ))}
                 </select>
                 <small className={styles.helpText}>
@@ -555,72 +617,6 @@ export default function AdminProductos() {
                   onChange={handleChange}
                   rows="10"
                   placeholder="Descripción completa del producto con todos los detalles técnicos y características..."
-                  disabled={loading}
-                />
-              </div>
-
-              {/* Especificaciones */}
-              <div className={styles.formGroup}>
-                <label htmlFor="especificaciones.tipo">Tipo</label>
-                <input
-                  type="text"
-                  id="especificaciones.tipo"
-                  name="especificaciones.tipo"
-                  value={formData.especificaciones.tipo}
-                  onChange={handleChange}
-                  placeholder="Ej: Eléctrica, Acústica"
-                  disabled={loading}
-                />
-              </div>
-
-              <div className={styles.formGroup}>
-                <label htmlFor="especificaciones.cuerpo">Cuerpo</label>
-                <input
-                  type="text"
-                  id="especificaciones.cuerpo"
-                  name="especificaciones.cuerpo"
-                  value={formData.especificaciones.cuerpo}
-                  onChange={handleChange}
-                  placeholder="Ej: Aliso, Caoba"
-                  disabled={loading}
-                />
-              </div>
-
-              <div className={styles.formGroup}>
-                <label htmlFor="especificaciones.mastil">Mástil</label>
-                <input
-                  type="text"
-                  id="especificaciones.mastil"
-                  name="especificaciones.mastil"
-                  value={formData.especificaciones.mastil}
-                  onChange={handleChange}
-                  placeholder="Ej: Arce"
-                  disabled={loading}
-                />
-              </div>
-
-              <div className={styles.formGroup}>
-                <label htmlFor="especificaciones.diapason">Diapasón</label>
-                <input
-                  type="text"
-                  id="especificaciones.diapason"
-                  name="especificaciones.diapason"
-                  value={formData.especificaciones.diapason}
-                  onChange={handleChange}
-                  placeholder="Ej: Palisandro"
-                  disabled={loading}
-                />
-              </div>
-
-              <div className={styles.formGroup}>
-                <label htmlFor="especificaciones.otros">Otras Especificaciones</label>
-                <textarea
-                  id="especificaciones.otros"
-                  name="especificaciones.otros"
-                  value={formData.especificaciones.otros}
-                  onChange={handleChange}
-                  rows="3"
-                  placeholder="Micrófonos, puente, acabado, etc."
                   disabled={loading}
                 />
               </div>
@@ -727,7 +723,7 @@ export default function AdminProductos() {
                 >
                   <option value="">Todas las marcas</option>
                   {marcas.map(marca => (
-                    <option key={marca} value={marca}>{marca}</option>
+                    <option key={marca.id} value={marca.nombre}>{marca.nombre}</option>
                   ))}
                 </select>
               </div>
@@ -770,7 +766,7 @@ export default function AdminProductos() {
                     <div className={styles.productInfo}>
                       <h3>{producto.nombre}</h3>
                       <p><strong>Marca:</strong> {producto.marca}</p>
-                      <p><strong>Categoría:</strong> {CATEGORIAS[producto.categoria]}</p>
+                      <p><strong>Categoría:</strong> {getCategoriaNombre(producto.categoria_id)}</p>
                       <p><strong>Precio Venta:</strong> Q {producto.precioVenta.toLocaleString('es-GT')}</p>
                       <p><strong>Precio Mayorista:</strong> Q {producto.precioMayorista.toLocaleString('es-GT')}</p>
                       <p className={`${styles.productStock} ${getStockClass(producto.stock)}`}>
@@ -782,13 +778,23 @@ export default function AdminProductos() {
                       <button 
                         className={styles.editButton}
                         onClick={() => editarProducto(producto)}
+                        title="Editar producto"
                       >
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                          <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                        </svg>
                         Editar
                       </button>
                       <button 
                         className={styles.deleteButton}
                         onClick={() => eliminarProducto(producto.id)}
+                        title="Eliminar producto"
                       >
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <polyline points="3 6 5 6 21 6"></polyline>
+                          <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                        </svg>
                         Eliminar
                       </button>
                     </div>

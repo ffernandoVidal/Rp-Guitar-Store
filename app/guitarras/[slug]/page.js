@@ -11,11 +11,14 @@ export default function DetalleGuitarra() {
   const [imagenActual, setImagenActual] = useState(0)
 
   useEffect(() => {
-    fetch('/data/amplificadores.json')
+    // Leer desde la API de productos
+    fetch(`/api/productos/catalogo?categoria=guitarras`)
       .then(res => res.json())
       .then(data => {
-        const guit = data.amplificadores.find(a => a.slug === params.slug)
-        setGuitarra(guit)
+        if (data.success) {
+          const producto = data.productos.find(p => p.slug === params.slug)
+          setGuitarra(producto)
+        }
       })
       .catch(error => console.error('Error:', error))
   }, [params.slug])
@@ -33,6 +36,8 @@ export default function DetalleGuitarra() {
     )
   }
 
+  const imagenes = guitarra.imagenes || [guitarra.imagen]
+
   return (
     <>
       <Navigation />
@@ -43,45 +48,47 @@ export default function DetalleGuitarra() {
             <div className={styles.gallerySection}>
               <div className={styles.mainImage}>
                 <Image
-                  src={guitarra.imagenes[imagenActual]}
+                  src={imagenes[imagenActual]}
                   alt={guitarra.nombre}
                   width={600}
                   height={600}
                   className={styles.image}
                 />
               </div>
-              <div className={styles.thumbnails}>
-                {guitarra.imagenes.map((img, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setImagenActual(index)}
-                    className={`${styles.thumbnail} ${imagenActual === index ? styles.active : ''}`}
-                  >
-                    <Image
-                      src={img}
-                      alt={`${guitarra.nombre} - vista ${index + 1}`}
-                      width={100}
-                      height={100}
-                      className={styles.thumbnailImage}
-                    />
-                  </button>
-                ))}
-              </div>
+              {imagenes.length > 1 && (
+                <div className={styles.thumbnails}>
+                  {imagenes.map((img, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setImagenActual(index)}
+                      className={`${styles.thumbnail} ${imagenActual === index ? styles.active : ''}`}
+                    >
+                      <Image
+                        src={img}
+                        alt={`${guitarra.nombre} - vista ${index + 1}`}
+                        width={100}
+                        height={100}
+                        className={styles.thumbnailImage}
+                      />
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
 
             {/* Información del producto */}
             <div className={styles.infoSection}>
               <div className={styles.brand}>{guitarra.marca}</div>
               <h1 className={styles.title}>{guitarra.nombre}</h1>
-              <p className={styles.modelo}>Modelo: {guitarra.modelo}</p>
+              {guitarra.modelo && <p className={styles.modelo}>Modelo: {guitarra.modelo}</p>}
               
-              {guitarra.stock ? (
+              {guitarra.stock > 0 ? (
                 <div className={styles.stock}>
                   <span className={styles.stockBadge}>✓ En stock</span>
                   <span className={styles.stockText}>Disponible para entrega inmediata</span>
                 </div>
               ) : (
-                <div className={styles.stock}>
+                <div className={styles.stockOut}>
                   <span className={styles.stockBadgeOut}>✕ Agotada</span>
                   <span className={styles.stockText}>No disponible actualmente</span>
                 </div>

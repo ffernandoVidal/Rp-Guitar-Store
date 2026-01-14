@@ -1,101 +1,48 @@
 import Navigation from '../../components/Navigation'
 import Image from 'next/image'
 import styles from './producto.module.css'
+import { getProductoBySlug, getAllProductos } from '@/lib/db-productos-mysql'
 
 // Función para obtener todos los slugs de productos (necesaria para SSG)
 export async function generateStaticParams() {
-  // Aquí podrías obtener todos los productos de una API
-  return [
-    { slug: 'suhr-classic-t' },
-    { slug: 'gl-legacy' },
-    { slug: 'rivolta-combinata' },
-    { slug: 'cort-cm15r' },
-  ]
+  try {
+    const productos = await getAllProductos()
+    return productos.map(producto => ({
+      slug: producto.slug
+    }))
+  } catch (error) {
+    console.error('Error al generar static params:', error)
+    return []
+  }
 }
 
 // Función que obtiene los datos del producto en el servidor
 async function getProducto(slug) {
-  // Simulación de datos - en producción vendría de una API/DB
-  const productos = {
-    'suhr-classic-t': {
-      name: 'Suhr Classic T',
-      brand: 'Suhr Guitars',
-      price: 35000,
-      description: 'La Suhr Classic T es una guitarra tipo Telecaster fabricada con los más altos estándares de calidad. Cuenta con maderas premium seleccionadas, pastillas Suhr de alta fidelidad y hardware de primera calidad.',
-      specs: [
-        'Cuerpo: Aliso premium',
-        'Mástil: Arce con perfil moderno',
-        'Diapasón: Palisandro o Arce',
-        'Pastillas: Suhr V60LP (puente) y V60 (mástil)',
-        'Hardware: Puente Gotoh vintage',
-        'Acabado: Nitrocelulosa'
-      ],
-      images: [
-        '/img/IMG_5043.JPG',
-        '/img/IMG_7092.JPG'
-      ],
-      category: 'Guitarras',
-      inStock: true
-    },
-    'gl-legacy': {
-      name: 'G&L Legacy',
-      brand: 'G&L Guitars',
-      price: 28000,
-      description: 'La G&L Legacy es el diseño clásico de Leo Fender mejorado con tecnología moderna. Ofrece un sonido versátil y construcción sólida.',
-      specs: [
-        'Cuerpo: Aliso',
-        'Mástil: Arce con perfil C',
-        'Pastillas: G&L MFD',
-        'Trémolo: G&L Dual-Fulcrum',
-        'Hardware: Cromado'
-      ],
-      images: [
-        '/img/IMG_7092.JPG',
-        '/img/IMG_5043.JPG'
-      ],
-      category: 'Guitarras',
-      inStock: true
-    },
-    'rivolta-combinata': {
-      name: 'Rivolta Combinata',
-      brand: 'Rivolta Guitars',
-      price: 32000,
-      description: 'Guitarra semi-hollow con diseño vintage italiano. Combina estética clásica con sonido moderno.',
-      specs: [
-        'Cuerpo: Semi-hollow',
-        'Mástil: Arce',
-        'Pastillas: Lollar P-90',
-        'Hardware: Cromado vintage',
-        'Acabado: Lacado tradicional'
-      ],
-      images: [
-        '/img/2 (1).png',
-        '/img/gruvgear.jpg'
-      ],
-      category: 'Guitarras',
-      inStock: true
-    },
-    'cort-cm15r': {
-      name: 'Cort CM15R',
-      brand: 'Cort',
-      price: 1500,
-      description: 'Amplificador combo de 15W ideal para práctica. Incluye reverb digital y entrada para audífonos.',
-      specs: [
-        'Potencia: 15W',
-        'Parlante: 8 pulgadas',
-        'Canales: 2 (Clean & Drive)',
-        'Efectos: Reverb digital',
-        'Controles: Gain, Volume, Treble, Bass, Reverb'
-      ],
-      images: [
-        '/img/cort-cm-series-cm15r-amplifier-hero.jpg'
-      ],
-      category: 'Amplificadores',
-      inStock: true
+  try {
+    const producto = await getProductoBySlug(slug)
+    
+    if (!producto) {
+      return null
     }
+    
+    // Mapear al formato esperado por el componente
+    return {
+      name: producto.nombre,
+      brand: producto.marca || 'Sin marca',
+      price: producto.precio || 0,
+      description: producto.descripcionDetallada || producto.descripcion || 'Sin descripción',
+      specs: producto.caracteristicas || [],
+      images: producto.imagenes || [],
+      category: producto.categoria || 'Productos',
+      inStock: producto.stock > 0,
+      stock: producto.stock,
+      id: producto.id,
+      slug: producto.slug
+    }
+  } catch (error) {
+    console.error('Error al obtener producto:', error)
+    return null
   }
-
-  return productos[slug] || null
 }
 
 export default async function ProductoPage({ params }) {
@@ -126,7 +73,7 @@ export default async function ProductoPage({ params }) {
             <div className={styles.imageSection}>
               <div className={styles.mainImage}>
                 <Image
-                  src={producto.images[0]}
+                  src={producto.images[0] || '/img/placeholder.jpg'}
                   alt={producto.name}
                   fill
                   style={{ objectFit: 'contain' }}
