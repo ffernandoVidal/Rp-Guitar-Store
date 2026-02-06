@@ -1,4 +1,4 @@
-import { verifyToken } from '@/lib/auth'
+import { verifyAccessToken } from '@/lib/auth-complete'
 import { writeFile, mkdir } from 'fs/promises'
 import { existsSync } from 'fs'
 import path from 'path'
@@ -17,7 +17,7 @@ function requireAuth(handler) {
     }
     
     const token = authHeader.substring(7)
-    const decoded = verifyToken(token)
+    const decoded = verifyAccessToken(token)
     
     if (!decoded) {
       return Response.json(
@@ -26,6 +26,15 @@ function requireAuth(handler) {
       )
     }
     
+    // Modelo RBAC simplificado: solo admin puede subir imágenes desde el panel.
+    const roles = Array.isArray(decoded?.roles) ? decoded.roles : []
+    if (!roles.includes('admin')) {
+      return Response.json(
+        { error: 'No autorizado' },
+        { status: 403 }
+      )
+    }
+
     return handler(request, decoded)
   }
 }

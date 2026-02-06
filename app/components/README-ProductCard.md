@@ -170,7 +170,7 @@ precio.toLocaleString('es-GT')
 ## Manejo de Imágenes
 
 - Primera imagen del array: `product.imagenes[0]`
-- Fallback si no hay imagen: `/img/placeholder.jpg`
+- Fallback si no hay imagen: `/img/placeholder.svg`
 - Optimización: Next.js Image component
 - Dimensiones: 300x300px (responsive)
 

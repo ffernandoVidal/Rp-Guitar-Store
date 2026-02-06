@@ -1,4 +1,6 @@
 import './globals.css'
+import AuthProvider from './(modules)/auth/AuthProvider'
+import { ToastProvider } from './(shared)/providers/ToastProvider'
 
 export const metadata = {
   title: 'RP GUITAR - Tienda de Guitarras y Accesorios',
@@ -16,7 +18,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="es">
-      <body>{children}</body>
+      <body>
+        <ToastProvider>
+          <AuthProvider>{children}</AuthProvider>
+        </ToastProvider>
+      </body>
     </html>
   )
 }

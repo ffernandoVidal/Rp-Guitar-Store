@@ -1,30 +1,24 @@
-import fs from 'fs'
-import path from 'path'
-import { NextResponse } from 'next/server'
+import { getConnection } from '@/lib/db-mysql'
+import { requireAnyPermission } from '@/lib/rbac-complete'
 
-const ventasFilePath = path.join(process.cwd(), 'data', 'ventas.json')
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
 
-function readVentas() {
-  if (!fs.existsSync(ventasFilePath)) {
-    const initialData = {
-      ventas: [],
-      cajas: [],
-      nextId: 1,
-      nextCajaId: 1
-    }
-    fs.writeFileSync(ventasFilePath, JSON.stringify(initialData, null, 2))
-    return initialData
-  }
-  const data = fs.readFileSync(ventasFilePath, 'utf8')
-  return JSON.parse(data)
-}
-
-function writeVentas(data) {
-  fs.writeFileSync(ventasFilePath, JSON.stringify(data, null, 2))
+async function ensureCajaTable(pool) {
+  await pool.query(
+    `CREATE TABLE IF NOT EXISTS caja_registros (
+      caja_id INT AUTO_INCREMENT PRIMARY KEY,
+      dinero_inicial DECIMAL(10,2) NOT NULL,
+      fecha DATE NOT NULL,
+      creado_en DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      creado_por INT NULL,
+      INDEX idx_caja_fecha (fecha)
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4`
+  )
 }
 
 // POST - Registrar dinero inicial en caja
-export async function POST(request) {
+async function postHandler(request) {
   try {
     const body = await request.json()
     const { dineroInicial, fecha } = body
@@ -36,47 +30,55 @@ export async function POST(request) {
       )
     }
 
-    const data = readVentas()
-    
-    // Asegurar que existe el array de cajas y nextCajaId
-    if (!data.cajas) {
-      data.cajas = []
-    }
-    if (!data.nextCajaId) {
-      data.nextCajaId = 1
-    }
+    const pool = getConnection()
+    await ensureCajaTable(pool)
 
-    const nuevaCaja = {
-      id: data.nextCajaId,
-      dineroInicial: parseFloat(dineroInicial),
-      fecha,
-      fechaRegistro: new Date().toISOString()
-    }
+    const userId = request.user?.userId ?? null
 
-    data.cajas.push(nuevaCaja)
-    data.nextCajaId += 1
-    writeVentas(data)
+    const [result] = await pool.query(
+      'INSERT INTO caja_registros (dinero_inicial, fecha, creado_por) VALUES (?, ?, ?)',
+      [Number(dineroInicial), String(fecha).slice(0, 10), userId]
+    )
 
-    return NextResponse.json(nuevaCaja, { status: 201 })
+    return Response.json(
+      {
+        success: true,
+        caja: {
+          id: result.insertId,
+          dineroInicial: Number(dineroInicial),
+          fecha: String(fecha).slice(0, 10),
+        }
+      },
+      { status: 201 }
+    )
   } catch (error) {
     console.error('Error al registrar caja:', error)
-    return NextResponse.json(
-      { error: 'Error al registrar dinero en caja' },
+    return Response.json(
+      { success: false, error: 'SERVER_ERROR', message: 'Error al registrar dinero en caja' },
       { status: 500 }
     )
   }
 }
 
 // GET - Obtener registros de caja
-export async function GET() {
+async function getHandler() {
   try {
-    const data = readVentas()
-    return NextResponse.json(data.cajas || [])
+    const pool = getConnection()
+    await ensureCajaTable(pool)
+
+    const [rows] = await pool.query(
+      'SELECT caja_id AS id, dinero_inicial AS dineroInicial, DATE_FORMAT(fecha, "%Y-%m-%d") AS fecha, creado_en AS fechaRegistro FROM caja_registros ORDER BY caja_id DESC LIMIT 200'
+    )
+
+    return Response.json({ success: true, cajas: rows })
   } catch (error) {
     console.error('Error al obtener cajas:', error)
-    return NextResponse.json(
-      { error: 'Error al obtener registros de caja' },
+    return Response.json(
+      { success: false, error: 'SERVER_ERROR', message: 'Error al obtener registros de caja' },
       { status: 500 }
     )
   }
 }
+
+export const POST = requireAnyPermission(['sale:create_pos', 'sale:read', 'admin:access'])(postHandler)
+export const GET = requireAnyPermission(['sale:read', 'admin:access'])(getHandler)

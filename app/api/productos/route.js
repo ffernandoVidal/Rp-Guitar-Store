@@ -1,42 +1,65 @@
-import { verifyToken } from '@/lib/auth'
-import { 
-  getAllProductos, 
+import { requirePermissions } from '@/lib/middleware'
+import { sanitizeString, validateProducto } from '@/lib/validators'
+import {
+  createProducto,
+  deleteProducto,
+  getAllProductos,
   getProductoById,
   getProductosByCategoria,
-  createProducto,
+  searchProductos,
   updateProducto,
-  deleteProducto,
-  updateStock,
-  searchProductos
 } from '@/lib/db-productos-mysql'
 
-// Middleware de autenticación
-function requireAuth(handler) {
-  return async (request) => {
-    const authHeader = request.headers.get('authorization')
-    
-    if (!authHeader || !authHeader.startsWith('Bearer ')) {
-      return Response.json(
-        { error: 'No autorizado' },
-        { status: 401 }
-      )
-    }
-    
-    const token = authHeader.substring(7)
-    const decoded = verifyToken(token)
-    
-    if (!decoded) {
-      return Response.json(
-        { error: 'Token inválido o expirado' },
-        { status: 401 }
-      )
-    }
-    
-    return handler(request, decoded)
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
+function toInt(value) {
+  const n = parseInt(String(value), 10)
+  return Number.isFinite(n) ? n : null
+}
+
+function sanitizeImagenes(imagenes) {
+  if (!Array.isArray(imagenes)) return undefined
+  return imagenes
+    .filter((x) => typeof x === 'string')
+    .map((x) => sanitizeString(x))
+    .filter(Boolean)
+}
+
+function sanitizePayload(raw) {
+  const precioVenta = raw?.precioVenta ?? raw?.precio_venta
+  const precioMayorista = raw?.precioMayorista ?? raw?.precio_mayorista
+
+  return {
+    nombre: raw?.nombre ? sanitizeString(raw.nombre) : '',
+    modelo: raw?.modelo ? sanitizeString(raw.modelo) : '',
+    marca: raw?.marca ? sanitizeString(raw.marca) : undefined,
+    categoria_id: raw?.categoria_id ?? raw?.categoria,
+    precioVenta: precioVenta !== undefined && precioVenta !== null ? Number(precioVenta) : undefined,
+    precioMayorista:
+      precioMayorista !== undefined && precioMayorista !== null ? Number(precioMayorista) : undefined,
+    descripcion: raw?.descripcion ? sanitizeString(raw.descripcion) : '',
+    descripcionDetallada:
+      raw?.descripcionDetallada || raw?.detalle ? sanitizeString(raw.descripcionDetallada || raw.detalle) : '',
+    stock: raw?.stock !== undefined && raw?.stock !== null ? toInt(raw.stock) ?? 0 : 0,
+    imagenes: sanitizeImagenes(raw?.imagenes),
   }
 }
 
-// GET - Obtener productos (público y admin)
+function validateForDb(payload) {
+  const categoriaId = toInt(payload.categoria_id)
+  const validation = validateProducto({
+    nombre: payload.nombre,
+    categoria_id: categoriaId,
+    precio_venta: payload.precioVenta,
+    precio_mayorista: payload.precioMayorista,
+    stock: payload.stock,
+  })
+
+  return { validation, categoriaId }
+}
+
+// GET - Obtener productos (público; puede ocultar precios mayoristas)
 export async function GET(request) {
   try {
     const { searchParams } = new URL(request.url)
@@ -44,152 +67,167 @@ export async function GET(request) {
     const categoria = searchParams.get('categoria')
     const query = searchParams.get('q')
     const includePrivate = searchParams.get('includePrivate') === 'true'
-    
-    let productos
-    
+
     if (id) {
-      const producto = await getProductoById(id)
+      const producto = await getProductoById(id, includePrivate)
       if (!producto) {
-        return Response.json(
-          { error: 'Producto no encontrado' },
-          { status: 404 }
-        )
+        return Response.json({ error: 'Producto no encontrado' }, { status: 404 })
       }
-      
-      // Si no incluye datos privados, remover precios mayoristas
+
       if (!includePrivate) {
         delete producto.precioMayorista
       }
-      
+
       return Response.json(producto)
     }
-    
+
+    let productos
     if (query) {
-      productos = await searchProductos(query)
+      productos = await searchProductos(query, includePrivate)
     } else if (categoria) {
-      productos = await getProductosByCategoria(categoria)
+      const categoriaId = toInt(categoria)
+      productos = await getProductosByCategoria(categoriaId ?? categoria, includePrivate)
     } else {
-      productos = await getAllProductos()
+      productos = await getAllProductos(false, includePrivate)
     }
-    
-    // Filtrar información privada para usuarios no admin
+
     if (!includePrivate) {
-      productos = productos.map(p => {
+      productos = productos.map((p) => {
         const { precioMayorista, ...publicData } = p
         return publicData
       })
     }
-    
+
     return Response.json(productos)
-    
   } catch (error) {
     console.error('Error al obtener productos:', error)
-    return Response.json(
-      { error: 'Error al obtener productos' },
-      { status: 500 }
-    )
+    return Response.json({ error: 'Error al obtener productos' }, { status: 500 })
   }
 }
 
-// POST - Crear producto (requiere autenticación)
-export const POST = requireAuth(async (request, user) => {
+// POST - Crear producto (admin)
+export const POST = requirePermissions(['productos.create'])(async (request) => {
   try {
-    const data = await request.json()
-    
-    // Validar datos requeridos
-    if (!data.nombre || !data.categoria_id) {
+    const raw = await request.json()
+    const payload = sanitizePayload(raw)
+    const { validation, categoriaId } = validateForDb(payload)
+
+    if (!validation.valid) {
       return Response.json(
-        { error: 'Nombre y categoría son requeridos' },
+        {
+          error: 'VALIDATION_ERROR',
+          message: 'Datos inválidos',
+          errors: validation.errors,
+        },
         { status: 400 }
       )
     }
-    
-    const nuevoProducto = await createProducto(data)
-    
-    return Response.json({
-      success: true,
-      producto: nuevoProducto,
-      message: 'Producto creado exitosamente'
-    }, { status: 201 })
-    
+
+    const nuevoProducto = await createProducto({
+      nombre: payload.nombre,
+      modelo: payload.modelo,
+      marca: payload.marca,
+      categoria_id: categoriaId,
+      precioVenta: payload.precioVenta,
+      precioMayorista: payload.precioMayorista,
+      descripcion: payload.descripcion,
+      descripcionDetallada: payload.descripcionDetallada,
+      stock: payload.stock,
+      imagenes: payload.imagenes,
+    })
+
+    return Response.json(
+      {
+        success: true,
+        producto: nuevoProducto,
+        message: 'Producto creado exitosamente',
+      },
+      { status: 201 }
+    )
   } catch (error) {
     console.error('Error al crear producto:', error)
-    return Response.json(
-      { error: 'Error al crear producto' },
-      { status: 500 }
-    )
+    return Response.json({ error: 'Error al crear producto' }, { status: 500 })
   }
 })
 
-// PUT - Actualizar producto (requiere autenticación)
-export const PUT = requireAuth(async (request, user) => {
+// PUT - Actualizar producto (admin)
+export const PUT = requirePermissions(['productos.update'])(async (request) => {
   try {
-    const data = await request.json()
-    const { id, ...updateData } = data
-    
+    const raw = await request.json()
+    const id = raw?.id
+
     if (!id) {
       return Response.json(
-        { error: 'ID de producto requerido' },
+        { error: 'MISSING_ID', message: 'ID de producto requerido' },
         { status: 400 }
       )
     }
-    
-    const productoActualizado = await updateProducto(id, updateData)
-    
-    if (!productoActualizado) {
+
+    const payload = sanitizePayload(raw)
+
+    // Para update, solo validamos si viene categoria_id o nombre, pero mantenemos
+    // la misma función para no permitir valores inválidos si se envían.
+    const { validation, categoriaId } = validateForDb({ ...payload, categoria_id: payload.categoria_id ?? 1 })
+    if (!validation.valid) {
       return Response.json(
-        { error: 'Producto no encontrado' },
-        { status: 404 }
+        {
+          error: 'VALIDATION_ERROR',
+          message: 'Datos inválidos',
+          errors: validation.errors,
+        },
+        { status: 400 }
       )
     }
-    
+
+    const productoActualizado = await updateProducto(id, {
+      nombre: payload.nombre || undefined,
+      modelo: payload.modelo || undefined,
+      marca: payload.marca,
+      categoria_id: payload.categoria_id !== undefined ? categoriaId : undefined,
+      precioVenta: payload.precioVenta,
+      precioMayorista: payload.precioMayorista,
+      descripcion: payload.descripcion || undefined,
+      descripcionDetallada: payload.descripcionDetallada || undefined,
+      stock: payload.stock,
+      imagenes: payload.imagenes,
+    })
+
+    if (!productoActualizado) {
+      return Response.json({ error: 'NOT_FOUND', message: 'Producto no encontrado' }, { status: 404 })
+    }
+
     return Response.json({
       success: true,
       producto: productoActualizado,
-      message: 'Producto actualizado exitosamente'
+      message: 'Producto actualizado exitosamente',
     })
-    
   } catch (error) {
     console.error('Error al actualizar producto:', error)
-    return Response.json(
-      { error: 'Error al actualizar producto' },
-      { status: 500 }
-    )
+    return Response.json({ error: 'Error al actualizar producto' }, { status: 500 })
   }
 })
 
-// DELETE - Eliminar producto (requiere autenticación)
-export const DELETE = requireAuth(async (request, user) => {
+// DELETE - Eliminar producto (admin)
+export const DELETE = requirePermissions(['productos.delete'])(async (request) => {
   try {
     const { searchParams } = new URL(request.url)
     const id = searchParams.get('id')
-    
+
     if (!id) {
       return Response.json(
-        { error: 'ID de producto requerido' },
+        { error: 'MISSING_ID', message: 'ID de producto requerido' },
         { status: 400 }
       )
     }
-    
+
     const eliminado = await deleteProducto(id)
-    
     if (!eliminado) {
-      return Response.json(
-        { error: 'Producto no encontrado' },
-        { status: 404 }
-      )
+      return Response.json({ error: 'NOT_FOUND', message: 'Producto no encontrado' }, { status: 404 })
     }
-    
-    return Response.json({
-      success: true,
-      message: 'Producto eliminado exitosamente'
-    })
-    
+
+    return Response.json({ success: true, message: 'Producto eliminado exitosamente' })
   } catch (error) {
     console.error('Error al eliminar producto:', error)
-    return Response.json(
-      { error: 'Error al eliminar producto' },
-      { status: 500 }
-    )
+    return Response.json({ error: 'Error al eliminar producto' }, { status: 500 })
   }
 })

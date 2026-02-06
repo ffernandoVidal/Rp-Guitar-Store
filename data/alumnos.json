@@ -7,11 +7,11 @@
       "horarioClases": "6-8 pm",
       "mensualidad": "300",
       "telefono": "51149061",
-      "estado": "insolvente",
+      "estado": "solvente",
       "carnet": "001-01",
       "id": 1,
       "fechaRegistro": "2025-12-26T19:57:59.323Z",
-      "ultimoPago": "2025-12-26T21:50:38.599Z",
+      "ultimoPago": "2026-01-28T01:15:25.329Z",
       "notas": {
         "niveles": [
           76,
@@ -19,12 +19,12 @@
           78,
           75,
           0,
-          0,
+          90,
           0,
           0
         ],
-        "armonia": 60,
-        "instrumento": 75
+        "armonia": 84,
+        "instrumento": 90
       },
       "pagos": [
         {
@@ -48,6 +48,14 @@
           "año": "2026",
           "metodoPago": "efectivo",
           "fechaPago": "2025-12-26T21:50:38.599Z",
+          "monto": "300"
+        },
+        {
+          "carnet": "001-01",
+          "mes": "febrero",
+          "año": "2026",
+          "metodoPago": "efectivo",
+          "fechaPago": "2026-01-28T01:15:25.329Z",
           "monto": "300"
         }
       ]

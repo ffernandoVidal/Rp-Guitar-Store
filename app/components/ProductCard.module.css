@@ -16,6 +16,16 @@
   display: block;
 }
 
+.cardDisabled {
+  opacity: 0.55;
+  filter: grayscale(1);
+}
+
+.cardDisabled:hover {
+  transform: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
@@ -87,6 +97,18 @@
   display: inline-block;
   background: #d4edda;
   color: #155724;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  width: fit-content;
+}
+
+/* Badge de stock agotado */
+.stockOut {
+  display: inline-block;
+  background: #f8d7da;
+  color: #721c24;
   padding: 6px 12px;
   border-radius: 6px;
   font-size: 0.85rem;

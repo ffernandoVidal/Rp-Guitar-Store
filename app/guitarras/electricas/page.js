@@ -26,7 +26,7 @@ export default function GuitarrasElectricas() {
           <div className={styles.header}>
             <h1 className={styles.title}>Guitarras Eléctricas</h1>
             <p className={styles.subtitle}>
-              Descubre nuestra selección de guitarras eléctricas premium de las mejores marcas: D'Angelico, G&L, Rivolta y Suhr
+              Descubre nuestra selección de guitarras eléctricas premium de las mejores marcas: D&apos;Angelico, G&L, Rivolta y Suhr
             </p>
           </div>
 
