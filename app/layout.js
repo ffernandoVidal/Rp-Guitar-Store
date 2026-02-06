@@ -1,6 +1,7 @@
 import './globals.css'
 import AuthProvider from './(modules)/auth/AuthProvider'
 import { ToastProvider } from './(shared)/providers/ToastProvider'
+import FooterGate from './components/FooterGate'
 
 export const metadata = {
   title: 'RP GUITAR - Tienda de Guitarras y Accesorios',
@@ -20,7 +21,10 @@ export default function RootLayout({ children }) {
     <html lang="es">
       <body>
         <ToastProvider>
-          <AuthProvider>{children}</AuthProvider>
+          <AuthProvider>
+            {children}
+            <FooterGate />
+          </AuthProvider>
         </ToastProvider>
       </body>
     </html>

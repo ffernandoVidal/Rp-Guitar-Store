@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react'
 import Navigation from '../components/Navigation'
 import ProductCard from '../components/ProductCard'
+import Image from 'next/image'
 import styles from './amplificadores.module.css'
 
 export default function AmplificadoresPage() {
@@ -41,13 +42,28 @@ export default function AmplificadoresPage() {
   return (
     <>
       <Navigation />
-      <main className={styles.main}>
-        <div className={styles.container}>
-          <div className={styles.header}>
-            <h1 className={styles.title}>Amplificadores</h1>
-            <p className={styles.subtitle}>Encuentra el amplificador perfecto para tu sonido</p>
-          </div>
+      <main className={styles.mainFull}>
+        <section className={styles.bannerFull} aria-label="Banner amplificadores">
+          <Image
+            src="/IMGfondo/ampli%20baner.jpeg?v=20260206"
+            alt="Amplificadores"
+            fill
+            sizes="100vw"
+            className={styles.bannerImage}
+            priority
+          />
 
+          <div className={styles.bannerOverlay}>
+            <div className={styles.pageContainer}>
+              <div className={styles.bannerHeroInner}>
+                <h1 className={styles.bannerTitle}>Amplificadores</h1>
+                <p className={styles.bannerSubtitle}>Encuentra el amplificador perfecto para tu sonido</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div className={styles.pageContainer}>
           {/* Filtro por marca */}
           <div style={{ 
             display: 'flex', 
